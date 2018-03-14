@@ -1,0 +1,268 @@
+page-extrastaff {
+  .content-text {    
+    width: 100%;
+    color: #ff563f;
+    margin-bottom: 7px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 14px;
+    font-family: roboto;
+    padding-top: 50px;
+}
+ 
+   .content-text h1 {
+     font-size: 14px;
+    font-family: roboto;
+    font-weight: 700;
+   margin: 0;
+}
+
+  .backgroundbanner {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    float: left;
+  }
+ .content{
+  width: 100%;
+  float: left;
+ }
+
+  .content-sec{
+  width: 100%;
+  float: left;
+  padding:0px 16px 50px 16px;
+
+ }
+ .content-sec .sign{
+  width: 100%;
+  float: left;
+  
+
+ }
+ .content-sec .sign .form-sec{
+  width: 100%;
+  float: left;
+ }
+ .content-sec .sign .form-sec .list{
+  width: 100%;
+  float: left;
+  margin-bottom: 0px;
+ }
+ .content-sec .sign .form-sec .list .grid{
+   padding: 0px;
+ }
+ .content-sec .sign .form-sec .list .item{
+  width: 100%;
+  float: left;
+  padding: 0px;
+  border:none;
+ }
+ .content-sec .sign .form-sec .list .item .item-inner{
+  border-bottom: 0.55px solid #c8c7cc;
+ }
+ .content-sec .sign .form-sec .list .item input{
+  font-size: 13px;
+        margin-top: 0px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-right: 0px;
+        width: 100%;
+ }
+ 
+ .content-sec .frgtpwd{
+  width: 100%;
+  float: left;
+  padding-top: 12px;
+ }
+ .frgtpwd button{
+  width: 100%;
+  float: left;
+  background-color: #ff563f;
+  font-weight: 500;
+        margin-top: 188px;
+ }
+ 
+ .left{
+  padding-left: 0px;
+ }
+ .right{
+  padding-right: 0px;
+ }
+ .right.gender .item{
+    font-size: 13px;
+    margin-top: 0px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-right: 0px;
+    width: 100%;
+    min-height: 2.9rem;
+ }
+ .right.gender .item .select{
+ padding: 0px !important;
+    width: 100%;
+    float: left;
+    font-size: 13px;
+    color: #000;
+    font-weight: 500;
+    max-width: 100%;
+ }
+ .right.gender .item .select .select-icon{
+      width: 19px;
+ }
+ .right.gender .label{
+  margin-bottom: 0px;
+    margin-top: 10px;
+    color: #a6a6a6;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+ }
+.button {
+    float: right;
+    margin-top: 10px;
+    padding-bottom: 0px;
+}
+.plusbtn{
+  position: absolute;
+  bottom: 26px;
+  right: 0;
+}
+.plusbtn button{
+  background-color: #ff563f;
+
+}
+.skipbtn {
+  position: absolute;
+  bottom: 17px;
+  left: 120px;
+}
+#menu ul{
+  list-style: none;
+}
+#menu li{
+  display: inline;
+}
+
+.circle-top{
+   width:100%;
+   float: left;
+   background-color:#f2f2f2;
+ }
+ .circle-top ul{
+      width: 70%;
+    float: none;
+    list-style-type: none;
+    padding: 0px;
+    text-align: center;
+    position: relative;
+    display: table;
+    margin: auto;
+    height: 30px;
+
+ }
+
+.one-circle{
+  background-color: #ff563f;
+
+}
+ 
+li.theree-circle {
+ background-color: #ff563f;}
+     left: auto;
+
+.footer .toolbar {
+
+  padding: 0px;
+}
+
+.footer .toolbar .button { 
+  margin: 0px;
+ }
+.circle-top li {
+             width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #ff563f;
+    border: 1px solid #6a6a6a !important;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+
+}
+.three-circle li{
+  left: auto;
+}
+.circle-top li.one-circle {
+    left: 0;
+    right: auto;
+    background-color: #ff563f;
+}
+
+circle-top li {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #ff563f;
+    border: 1px solid #6a6a6a !important;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+.circle-top li.three-circle {
+    left: auto;
+    right: 0;
+}
+.circle-line {
+    width: 100%;
+    height: 2px;
+    background-color: #6a6a6a;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    bottom: 0;
+    margin: auto;
+}
+.toolbar-md {
+    padding: 4px;
+    min-height: auto;
+}
+.fab[mini] {
+    margin: 8px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    box-shadow: 0 0 5px #656565;
+}
+
+
+.content-sec .sign .form-sec .list .item .label {
+    margin-bottom: 0px;
+    margin-top: 10px;
+    color: #a6a6a6;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    font-family: roboto;
+    font-weight: 500;
+}
+
+.button-inner{
+  font-weight:700;
+  font-family: roboto;
+  font-size: 14px;
+}
+
+
+}

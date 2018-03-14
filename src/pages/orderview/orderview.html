@@ -1,0 +1,111 @@
+<!--
+  Generated template for the OrderviewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="theme-header">
+    <ion-title>Order View
+    <!--<p class="aaa">Online chef list</p>-->
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+      
+  <ion-card>
+
+  <ion-item style="align-items: baseline;">
+    <ion-avatar item-start>
+      <img src="assets/image/user1.png">
+    </ion-avatar>
+    <h2 class="user">{{userdata.firstname}}</h2>
+    <p class="paragraph">{{userdata.email}}</p>
+    <h2  class="user">Address:</h2> 
+    <p class="paragraph">{{str1}} </p>
+      <p class="paragraph">{{str2}}</p>
+  </ion-item>
+
+
+<div class="contact" style="border-top: 1px solid #cecbcb;">
+<ion-grid>
+  <ion-row>
+    <ion-col col-4>
+      <div class="mob1">
+       <h2>{{ str3 | date : "MMM d, y" }}</h2>
+<p> {{ str4 | date : "h:mm a" }}</p>
+          </div>
+     
+    </ion-col>
+
+<ion-col col-4>
+      <div class="decline">
+       <button ion-button color="secondary" (click)="accept()">Accept</button>
+      </div>
+    </ion-col>
+
+
+    <ion-col col-4>
+      <div class="decline">
+       <button ion-button color="btncolor" (click)="decline()">Decline</button>
+      </div>
+    </ion-col>
+
+  </ion-row>
+</ion-grid>
+</div>
+</ion-card>
+
+<div class="content-sec">
+  <div class="heading">
+   <h3>Order Items:</h3>
+  </div>
+   <ion-list>
+     <ion-item *ngFor ="let dat of prodcts1">
+       <ion-thumbnail item-start>
+         <img src="{{dat?.image}}">
+       </ion-thumbnail>
+         
+         
+       <h2>{{dat?.product_name}}</h2><p end><span class="rightp">{{dat?.order_prefrence}}</span></p>
+       <p>Qty: {{dat?.quantity}} x ${{dat?.prodprice}}</p>
+
+       <ion-note item-end="" class="note note-ios">${{dat?.quantity*dat?.prodprice}}</ion-note>
+        
+     </ion-item>
+    
+<!--      <ion-item>
+       <ion-thumbnail item-start>
+         <img src="assets/image/southfod.png">
+       </ion-thumbnail>
+       <h2>Croquettes</h2>
+       <p>Qty: 2 x $30</p>
+       <ion-note item-end="" class="note note-ios">$60.00</ion-note>
+     </ion-item>-->
+    
+<!--
+<ion-item>
+       <ion-thumbnail item-start>
+         <img src="assets/image/southfod.png">
+       </ion-thumbnail>
+       <h2>Croquettes</h2>
+       <p>Qty: 2 x $30</p>
+       <ion-note item-end="" class="note note-ios">$60.00</ion-note>
+     </ion-item>-->
+
+
+
+ </ion-list>
+</div>
+<div class="total">
+ <h2 class="left">Subtotal</h2>
+ <h2 class="right">${{total}}</h2>
+</div>
+
+
+</ion-content>

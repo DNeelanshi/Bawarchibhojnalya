@@ -1,0 +1,40 @@
+<!--
+  Generated template for the ProductlistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+<ion-toolbar color="theme-header">
+    <button style="height:28px; color: #fff; padding: 0 0 0 3px; font-size: 2.7rem;" start ion-button clear (click)="backtoprofile()"><ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon></button>
+    <ion-title>PRODUCT LIST</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only clear class="btnprofile" (click)="addpro()"> <ion-icon name="add" style="font-size: 2.2em;" ></ion-icon></button>
+    </ion-buttons>
+<!--    <ion-icon  ios="ios-add" md="md-add"  (click)="add()"></ion-icon>-->
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list >
+    <ion-item *ngFor="let dat of products" >
+      <ion-thumbnail item-start>
+         <img [src]="dat.product_image0">
+
+      </ion-thumbnail>
+        <h2 > {{dat?.product_name}}<span (click)="editpro(dat)" ><ion-icon name="create"></ion-icon>
+</span></h2>
+        <p>Cuisine:{{dat?.cuisine}} </p>
+     <p>Price:${{dat?.product_price}}<span (click)="ndelete(dat?._id)"> <ion-icon name="trash"></ion-icon> </span></p>
+<!--    <p item-end class="rightp"  (click)="edit(dat)">Edit Info</p>-->
+<!--     <p item-end class="rightp"  >Delete</p>-->
+    </ion-item>
+  
+  
+  </ion-list>
+
+</ion-content>
+

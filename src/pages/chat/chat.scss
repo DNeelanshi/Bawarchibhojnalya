@@ -1,0 +1,151 @@
+page-chat {
+
+      .segment-sec{
+  width: 100%;
+  float: left;
+ }
+ .segment-sec .segment{
+      
+       color: #000;
+ }
+ .segment-sec .segment .segment-button{
+  border: none;
+     color: #000;
+     max-width: 100%;
+     width: 100%;
+     margin-top: 8px;
+     text-transform: uppercase;
+     font-weight: 700;
+     padding-bottom: 33px;
+ }
+ .segment-sec .segment .segment-button:hover{
+  background-color: #f7f7f7;
+ }
+ .segment-sec .segment .segment-activated{
+  background-color: #f7f7f7;
+     color: #ff563f;
+ }
+ 
+ .footer .toolbar{
+   padding: 12px 16px;
+ }
+ .footer .toolbar .toolbar-background{
+   background-color: #f2f2f2;
+ }
+ .footer .bar-buttons{
+  background-color: #ff563f;
+     padding: 3px 5px;
+     margin-left: 10px;
+     border-radius: 5px;
+ }
+ .btnprofile{
+  color: #fff;
+ }
+ .footer .enter{
+  background-color: #fff;
+     border-radius: 6px;
+     padding: 5px 5px;
+     font-size: 12px;
+     font-weight: 500;
+     color: #767676;
+     padding-left: 10px;
+ }
+ .footer .enter .text-input{
+  margin:0px;
+ }
+
+
+
+ .chatsec ul {
+    margin: 0;
+    padding: 0;
+}
+
+.chatsec li {
+    display: block;
+    list-style: none;
+    padding-left: 60px;
+    position: relative;
+    width: 100%;
+    float: left;
+    min-height: 55px;
+    margin-bottom: 30px;
+}
+span.userimg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+}
+
+span.userimg img {
+    border-radius: 50%;
+}
+
+.chattxt {
+    display: inline-block;
+    max-width: 80%;
+    background: #efeff4;
+    position: relative;
+    padding: 10px;
+    border-radius: 8px;
+    color: #565656;
+ font-size: 13px;
+ font-weight: 500;
+
+}
+.chattxt:after{
+     content: '';
+     position: absolute;
+     border-style: solid;
+     border-width: 7px 10px 8px 0px;
+     border-color: transparent #efeff4;
+     display: block;
+     width: 0;
+     z-index: 1;
+     left: -10px;
+     top: 8px;
+}
+
+.chattxt p {
+    margin: 0;
+}
+
+span.timedate {
+    position: absolute;
+    right: 4px;
+    bottom: -18px;
+    color: #929292;
+ font-size: 12px;
+ font-weight: 500;
+}
+.rightchat .chattxt{
+ float: right;
+ background: #ff563f;
+ color: #fff;
+    margin-right: 10px;
+    background: #ff563f;
+    font-size: 13px;
+    font-weight: 500;
+}
+.rightchat .chattxt:after{
+        content: '';
+     position: absolute;
+     border-style: solid;
+     border-width: 7px 0px 8px 10px;
+     border-color: transparent #ff563f;
+     display: block;
+     width: 0;
+     z-index: 1;
+     right: -10px;
+     top: 8px;
+     left: inherit;
+}
+
+.rightchat .timedate{
+  color: #929292;
+ left: 4px;
+ font-weight: 500;
+}
+}

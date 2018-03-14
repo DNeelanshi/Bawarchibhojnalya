@@ -1,0 +1,118 @@
+<ion-header>
+
+  <ion-navbar color="theme-header">
+    <ion-title>Order List
+<!--<p class="aaa">Online chef List</p>-->
+</ion-title>
+  </ion-navbar>
+<div class="segment-sec">
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="pet">
+    <ion-segment-button class="segment-button segment-activated" value="ACTIVEORDER">
+      NEW ORDER
+    </ion-segment-button>
+    <ion-segment-button value="PENDING ORDER">
+      PENDING ORDER
+    </ion-segment-button>
+    <ion-segment-button value="ORDER HISTORY">
+     ORDER HISTORY
+    </ion-segment-button>
+  </ion-segment>
+  </ion-toolbar>
+</div>
+
+</ion-header>
+
+
+<ion-content>
+<!--    <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."></ion-refresher-content>
+  </ion-refresher>-->
+<div class="">
+  
+</div>
+
+<div [ngSwitch]="pet" class="box">
+  <ion-list *ngSwitchCase="'PENDING ORDER'">
+   <ion-item (click)="order1(dats)" *ngFor="let dats of pendingorders" >
+
+      <ion-thumbnail item-start>
+         <img [src]="dats.products[0]?.image">
+
+      </ion-thumbnail>
+     <h2>{{dats?.name}} <span class="rightp">Home Delivery</span></h2>
+    <p>{{dats.products[0]?.product_name}}</p>
+     <!--<p>{{dats?.booking_datetime}}</p>-->
+     <p>{{ dats?.booking_datetime | date : "MMM d, y  h:mm a" }} </p>
+ 
+    </ion-item>
+
+  <p *ngIf="notavail1 == 1">No Pending orders</p>
+  </ion-list>
+
+   
+
+  
+
+    <ion-list *ngSwitchCase="'ACTIVEORDER'" >
+
+      <div *ngFor="let dat of activeorders">
+  
+    <ion-item (click)="order(dat)">
+       
+      <ion-thumbnail item-start>
+        <img [src]="dat.products[0]?.image">
+
+      </ion-thumbnail>
+      <h2>{{dat?.name}} <span class="rightp">Cook at Home</span></h2>
+    <p >{{dat.products[0]?.product_name}}</p>
+     <!--<p>{{dat?.booking_datetime}}</p>-->
+     <p>{{ dat?.booking_datetime | date : "MMM d, y  h:mm a" }} </p>
+   
+    </ion-item>
+              
+  </div>
+      <p *ngIf="notavail == 1">No Active orders</p>
+  </ion-list>
+
+
+  <div *ngSwitchCase="'ORDER HISTORY'">
+ <ion-list >
+     <!--<h1 class="cancel">TOTAL EARNED <span  style="color:black; font-weight: 700;" class="rightp">${{earned}}</span></h1>-->
+    <ion-item (click)="order2(datts)" *ngFor="let datts of historyorders">
+      <ion-thumbnail item-start>
+        <img [src]="datts.products[0]?.image">
+      </ion-thumbnail>
+      <h2>{{datts?.name}}<span class="rightp">Home Delivery</span></h2>
+       <p>{{datts.products[0]?.product_name}}</p>
+     <!--<p>{{datts?.booking_datetime}}</p>-->
+     <p>{{ datts?.booking_datetime | date : "MMM d, y  h:mm a" }} </p>
+  
+    </ion-item>
+<p *ngIf="notavail2 == 1">No history</p>
+   </ion-list>
+   <h1 class="cancel">CANCELLED ORDER</h1>
+   <ion-list>
+    <ion-item (click)="order3(dt)" *ngFor="let dt of canceledorders">
+       <ion-thumbnail item-start>
+        <img [src]="dt.products[0]?.image">
+      </ion-thumbnail>
+      <h2>{{dt?.name}} <span style="color:red;" class="rightp">Home Delivery</span></h2>
+    <p>{{dt.products[0]?.product_name}}</p>
+     <!--<p>{{dt?.booking_datetime}}</p>-->
+     <p>{{ dt?.booking_datetime | date : "MMM d, y  h:mm a" }} </p>
+   
+    </ion-item>
+  <p *ngIf="notavail3 == 1">No Cancelled orders</p>
+  </ion-list>
+  </div>
+
+
+
+
+</div>
+</ion-content>

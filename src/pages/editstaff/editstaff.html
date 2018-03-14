@@ -1,0 +1,86 @@
+<!--
+  Generated template for the EditstaffPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="theme-header">
+    <ion-title>EDIT STAFF</ion-title>
+     <!--<button style="height:28px;" start ion-button clear (click)="backtostafflist()"><ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon></button>-->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form class="form-sec" #editInfo="ngForm" novalidate (submit)="editstaffprofile(editInfo)">
+          <ion-list>
+ <ion-item>
+        <ion-label stacked>FIRST NAME</ion-label>
+        <ion-input type="text" [(ngModel)]="data.firstname" name='firstname' #firstname="ngModel" required></ion-input>
+        <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="firstname.errors && (firstname.dirty || firstname.touched)">
+                    <div [hidden]="!firstname.errors.required">
+                      First name is required
+                    </div>
+                  </div>
+                </div>
+      </ion-item>
+
+     <ion-item>
+        <ion-label stacked>LAST NAME</ion-label>
+        <ion-input type="text" [(ngModel)]="data.lastname" name='lastname' #lastname="ngModel" required></ion-input>
+        <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="lastname.errors && (lastname.dirty || lastname.touched)">
+                    <div [hidden]="!lastname.errors.required">
+                       Last name is required
+                    </div>
+                  </div>
+                </div>
+      </ion-item>
+
+     <ion-item>
+        <ion-label stacked>PROFESSION</ion-label>
+        <ion-input type="text" [(ngModel)]="data.profession" name='profession' #profession="ngModel" required></ion-input>
+        <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="profession.errors && (profession.dirty || profession.touched)">
+                    <div [hidden]="!profession.errors.required">
+                      Profedssion is required
+                    </div>
+                  </div>
+                </div>
+      </ion-item>
+
+    <ion-item>
+        <ion-label stacked>PHONE NUMBER (xxx-xxx-xxxx)</ion-label>
+        <ion-input type="tel"  [(ngModel)]="data.phonenumber" name='phonenumber' #phonenumber="ngModel" pattern="^[0-9]+(-[0-9]+)+$" maxlength="12" required  (input)="phonevalidation(data.phonenumber)"></ion-input>
+      <div class="alert alert-danger red" color="danger">
+          <div *ngIf="phonenumber.errors && (phonenumber.dirty || phonenumber.touched)">
+                    <div [hidden]="!phonenumber.errors.required">
+                      Phone number required
+                    </div>
+                    <div [hidden]="!phonenumber.errors.pattern">
+                      Only number allowed with pattern (xxx-xxx-xxx-xxx-xxx)
+                    </div>
+                  </div>
+                </div>
+        
+          </ion-item>
+         <ion-item>
+                <ion-label stacked>STATUS</ion-label>
+               
+                  <ion-select [(ngModel)]="data.status" name="status" #status="ngModel" >
+                    <ion-option value="1">Active</ion-option>
+                    <ion-option value="0">Inactive</ion-option>
+                  </ion-select>
+                </ion-item>
+    
+        </ion-list>
+         <div class="frgtpwd">
+   <button ion-button type="submit" [disabled]="!editInfo.valid">Save</button>
+  </div>
+           
+    </form>
+</ion-content>

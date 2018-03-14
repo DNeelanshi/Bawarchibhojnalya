@@ -1,0 +1,384 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.back-button-text.back-button-text-ios{
+ display: none;
+}
+.toolbar-title {
+ font-size: 16px;
+    font-weight: 700;
+    font-family: roboto;
+    text-align: center;
+}
+.button.activated{
+    background-color: #e24f3b;
+    color: #fff;
+}
+.fab.activated{
+    background-color: #e24f3b;
+}
+.tabs-ios .tab-button:hover:not(.disable-hover), .tabs-ios .tab-button[aria-selected=true] {
+    color: #f27242;
+    }
+    .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+    color: #f27242;
+}
+ion-icon.tab-button-icon.icon.icon-ios.ion-ios-cls2-outline{
+ background: url("../assets/image/rafaho.png") no-repeat;
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+} 
+
+ion-icon.tab-button-icon.icon.icon-ios.ion-ios-cls2{
+ background: url("../assets/image/rafahoclr.png") no-repeat;
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+}
+ion-icon.tab-button-icon.icon.icon-ios.ion-ios-cls3-outline,{
+ background: url("../assets/image/calendar.png") no-repeat;
+ background-size: 35%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+} 
+
+ion-icon.tab-button-icon.icon.icon-ios.ion-ios-cls3{
+ background: url("../assets/image/calendarclr.png") no-repeat;
+ background-size: 35%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+}
+
+
+ion-icon.tab-button-icon.icon.icon-ios.ion-ios-cls4-outline{
+ background: url("../assets/image/chat.png") no-repeat;
+ background-size:40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+} 
+
+ion-icon.tab-button-icon.icon.icon-ios.ion-ios-cls4{
+ background: url("../assets/image/chatclr.png") no-repeat;
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+}
+ion-icon.tab-button-icon.icon.icon-ios.ion-ios-cls5-outline{
+ background: url("../assets/image/accounts.png") no-repeat;
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+} 
+
+ion-icon.tab-button-icon.icon.icon-ios.ion-ios-cls5{
+ background: url("../assets/image/accountsclr.png") no-repeat;
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+}
+ion-icon.tab-button-icon.icon.icon-ios.ion-ios-cls6-outline{
+ background: url("../assets/image/profile.png") no-repeat;
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+} 
+
+ion-icon.tab-button-icon.icon.icon-ios.ion-ios-cls6{
+ background: url("../assets/image/profileclr.png") no-repeat;
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+}
+.tabs-ios .tab-button[aria-selected=true]{
+    color: #f27242;
+}
+.tabs-ios .tab-button[aria-selected=true] .tab-button-text{
+    font-size: 11px;
+}
+.ion-md-arrow-back:before{
+    content: "\f3cf";
+}
+ion-header ion-navbar .toolbar-content-md{
+    position: absolute;
+    width: 100%;
+    padding: 0 60px;
+    left: 0;
+    right: 0;
+    height: fit-content;
+    margin: auto;
+}
+
+
+/*-------------tab-md-start---------*/
+
+.tabs-md .tab-button:hover:not(.disable-hover), .tabs-md .tab-button[aria-selected=true] {
+    color: #f27242;
+    }
+    .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+    color: #f27242;
+}
+ion-icon.tab-button-icon.icon.icon-ios.ion-md-cls2-outline{
+
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+}
+.tabs-md #tab-t0-0.tab-button[aria-selected=false] .tab-button-icon{
+ background: url("../assets/image/rafaho.png") no-repeat;
+ background-size:40% !important;
+ background-position: center center !important;
+ width: 103px;
+ height: 30px;
+
+}  
+.tabs-md #tab-t0-0.tab-button[aria-selected=true] .tab-button-icon{
+ background: url("../assets/image/rafahoclr.png") no-repeat;
+  background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+
+}
+
+
+.tabs-md #tab-t0-1.tab-button[aria-selected=false] .tab-button-icon{
+ background: url("../assets/image/calendar.png") no-repeat !important;
+ background-size:40% !important;
+ background-position: center center !important;
+ width: 103px;
+ height: 30px;
+
+}  
+.tabs-md #tab-t0-1.tab-button[aria-selected=true] .tab-button-icon{
+ background: url("../assets/image/calendarclr.png") no-repeat;
+  background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+
+}
+
+
+.tabs-md #tab-t0-2.tab-button[aria-selected=false] .tab-button-icon{
+ background: url("../assets/image/chat.png") no-repeat !important;
+ background-size:40% !important;
+ background-position: center center !important;
+ width: 103px;
+ height: 30px;
+  background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+
+}  
+.tabs-md #tab-t0-2.tab-button[aria-selected=true] .tab-button-icon{
+ background: url("../assets/image/chatclr.png") no-repeat;
+  background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+
+}
+
+
+
+.tabs-md #tab-t0-3.tab-button[aria-selected=false] .tab-button-icon{
+ background: url("../assets/image/accounts.png") no-repeat !important;
+ background-size:40% !important;
+ background-position: center center !important;
+ width: 103px;
+ height: 30px;
+ 
+
+}  
+.tabs-md #tab-t0-3.tab-button[aria-selected=true] .tab-button-icon{
+ background: url("../assets/image/accountsclr.png") no-repeat;
+  background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+
+}
+
+
+.tabs-md #tab-t0-4.tab-button[aria-selected=false] .tab-button-icon{
+ background: url("../assets/image/profile.png") no-repeat !important;
+ background-size:40% !important;
+ background-position: center center !important;
+ width: 103px;
+ height: 30px;
+
+}  
+.tabs-md #tab-t0-4.tab-button[aria-selected=true] .tab-button-icon{
+ background: url("../assets/image/profileclr.png") no-repeat;
+  background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+
+}
+
+
+
+
+
+
+ion-icon.tab-button-icon.icon.icon-md.ion-md-cls2{
+
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+}
+
+
+
+.tabs-md .tab-button[aria-selected=false] .ion-md-cls3{
+background: url("../assets/image/calendar.png") no-repeat !important;
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+} 
+
+ion-icon.tab-button-icon.icon.icon-md.ion-md-cls3{
+ background: url("../assets/image/calendarclr.png") no-repeat;
+ background-size: 35%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+}
+
+
+
+
+
+.tabs-md .tab-button[aria-selected=false] .ion-md-cls4{
+ background: url("../assets/image/chat.png") no-repeat;
+ background-size:40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+} 
+
+ion-icon.tab-button-icon.icon.icon-md.ion-md-cls4{
+ background: url("../assets/image/chatclr.png") no-repeat;
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+}
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon
+
+
+ion-icon.tab-button-icon.icon.icon-md.ion-md-cls5-outline{
+ background: url("../assets/image/accounts.png") no-repeat;
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+} 
+
+ion-icon.tab-button-icon.icon.icon-md.ion-md-cls5{
+ background: url("../assets/image/accountsclr.png") no-repeat;
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+}
+
+
+
+ion-icon.tab-button-icon.icon.icon-md.ion-md-cls6-outline{
+ background: url("../assets/image/profile.png") no-repeat;
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+} 
+
+ion-icon.tab-button-icon.icon.icon-md.ion-md-cls6{
+ background: url("../assets/image/profileclr.png") no-repeat;
+ background-size: 40%;
+ background-position: center center;
+ width: 103px;
+ height: 30px;
+}
+.tabs-md .tab-button[aria-selected=true]{
+    color: #f27242;
+}
+.tabs-md .tab-button[aria-selected=true] .tab-button-text{
+    font-size: 11px;
+}
+
+
+/*------------tab-md-close---------*/
+
+
+
+// ion-header .toolbar-content ion-title {
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     width: 100%;
+//     text-align: center;
+//     padding: 0 35px;
+// }
+.col{
+    position: initial !important;
+}
+button.disable-hover.button.button-md.button-clear.button-clear-md {
+
+    height: 28px;
+    z-index: 9999;
+}
+.back-button.show-back-button {
+
+    z-index: 9999;
+}
+.loading-wrapper{
+    width: 135px;
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: none;
+    padding: 20px;
+    border-radius: 7px !important;
+}
+.red{
+    color: #ff0000 !important;
+}
+
+.eyemain {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    width: 17px;
+    height: 17px;
+}
+
+scroll-content { position:relative; }

@@ -1,0 +1,106 @@
+<!--
+  Generated template for the ExtrastaffPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="theme-header">
+    <ion-title>Processing Form</ion-title>
+  </ion-navbar>
+  
+<div class="circle-top">
+  <ul>
+    <li class="one-circle"></li>
+    <li  class="two-circle"></li>
+    <li class="three-circle"></li>
+    <div class="circle-line">
+      </div>
+    </ul>
+  </div>
+
+</ion-header>
+
+<ion-content>
+    <div class="content-text">
+  <h1 style="font-size:14px">Extra Staff</h1>
+  </div>
+  <div class="content-sec">
+  <div class="sign">
+   <form class="form-sec" #extraform="ngForm" novalidate>
+    <ion-list>
+         <ion-grid>
+          <ion-row>
+           <ion-col col-6 class="left">
+        <ion-item>
+          <ion-label stacked>FIRST NAME</ion-label>
+          <ion-input type="text" [(ngModel)]="data.firstname" name='firstname' #firstname="ngModel" required></ion-input>
+        </ion-item>
+        <div class="alert alert-danger red" color="danger">
+            <div *ngIf="firstname.errors && (firstname.dirty || firstname.touched)">
+              <div [hidden]="!firstname.errors.required">
+                First name is required
+              </div>
+            </div>
+          </div>
+      </ion-col>
+      <ion-col col-6 class="right">
+        <ion-item>
+          <ion-label stacked>LAST NAME</ion-label>
+             <ion-input type="text" [(ngModel)]="data.lastname" name="lastname" #lastname="ngModel" required></ion-input>
+        </ion-item>
+        <div class="alert alert-danger red" color="danger">
+            <div *ngIf="lastname.errors && (lastname.dirty || lastname.touched)">
+              <div [hidden]="!lastname.errors.required">
+                Last name is required
+              </div>
+            </div>
+          </div>
+      </ion-col>
+      <ion-col col-12 class="left right">
+          <ion-item>
+            <ion-label stacked>PROFESSION OR OCCUPATION</ion-label>
+            <ion-input type="text" [(ngModel)]="data.occupation" name="occupation" #occupation="ngModel" required></ion-input>
+            
+          </ion-item>
+          <div class="alert alert-danger red" color="danger">
+              <div *ngIf="occupation.errors && (occupation.dirty || occupation.touched)">
+                <div [hidden]="!occupation.errors.required">
+                  Occupation is required
+                </div>
+              </div>
+            </div>
+        </ion-col>
+      <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>PHONE NUMBER</ion-label>
+          <ion-input type="tel" (input)="phonevalidation(data.phone)" [(ngModel)]="data.phone" name="phone" #phone="ngModel" required maxlength="12" pattern="^[0-9]+(-[0-9]+)+$"></ion-input>
+        </ion-item>
+        <div class="alert alert-danger red" color="danger">
+            <div *ngIf="phone.errors && (phone.dirty || phone.touched) && data.phone != ''">
+              <div [hidden]="!phone.errors.required">
+               Phone is required
+              </div>
+              <div [hidden]="!phone.errors.pattern">
+                  Only number allowed
+                </div>
+            </div>
+            
+          </div>
+      </ion-col>
+     </ion-row>
+      </ion-grid>
+    </ion-list>
+     <!-- <button ion-button full color="theme-header" [disabled]="!extraform.valid" (click)="Extrastaff(extraform)">Next</button> -->
+   </form>
+  </div>
+
+ 
+ <div class="plusbtn" >
+ <button ion-fab mini (click)="Extrastaff(extraform)" [disabled]="!extraform.valid" ><ion-icon name="add"></ion-icon></button>
+</div>
+ </div>
+
+</ion-content>
+

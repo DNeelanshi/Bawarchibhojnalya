@@ -1,0 +1,59 @@
+page-calender {
+.today {
+    background: #eb4f3a !important;
+    color:  #fff !important;
+}
+
+.today p {
+    color:  #fff !important;
+}
+
+.cal_yellow {
+    background: yellow !important;
+}
+
+.cal_yellow p {
+    color:  #000 !important;
+}
+
+.cal_green {
+    background: greenyellow !important;
+}
+
+.cal_green p {
+    color:  #fff !important;
+}
+.monthview-primary-with-event[_ngcontent-c1]{
+    background: yellow;
+     color:  #000 !important;
+    
+}
+.monthview-secondary-with-event[_ngcontent-c1]{
+    background-color: #f27242;
+    
+}
+.monthview-selected monthview-current{
+     background-color:#19ce4e;
+}
+.monthview-current[_ngcontent-c1]{
+     background-color:#2bf366;
+}
+.green{
+    background-color: #f2ff00;
+}
+ion-list.event-detail-container.list {
+    display: none !important;
+}
+/*ion-calendar-month button.days-btn {
+    border-radius: 36px;
+    width: 36px;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    height: 36px;
+    background-color: #32db64;
+    position: relative;
+    z-index: 2;
+}*/
+
+}

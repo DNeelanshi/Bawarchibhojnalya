@@ -1,0 +1,145 @@
+<!--
+  Generated template for the AddreferencePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="theme-header">
+    <ion-title>Processing Form</ion-title>
+  </ion-navbar>
+
+<div class="circle-top">
+  <ul>
+    <li class="one-circle"></li>
+    <li class="two-circle"></li>
+    <li  class="three-circle"></li>
+    
+    <div class="circle-line">
+      </div>
+    </ul>
+  </div>
+
+</ion-header>
+
+<ion-content>
+    <div class="content-sec">
+   <div class="text-sec">
+  <h2>Add Reference </h2>
+  </div>
+
+<div class="sign">
+   <form class="form-sec" #processform="ngForm" novalidate>
+    <ion-list>
+         <ion-grid>
+          <ion-row>
+      <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>REFERENCE NAME </ion-label>
+          <ion-input type="text" [(ngModel)]="data.refrenshename" name="refrenshename" #refrenshename="ngModel" required></ion-input>
+        </ion-item>
+        <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="refrenshename.errors && (refrenshename.dirty || refrenshename.touched)">
+                    <div [hidden]="!refrenshename.errors.required">
+                      Reference name is required
+                    </div>
+                  </div>
+                </div>
+      </ion-col>
+      <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>REFERENCE PHONE NUMBER (xxx-xxx-xxxx)</ion-label>
+          <ion-input  type="tel" [(ngModel)]="data.refrenshenumber" name="refrenshenumber" #refrenshenumber="ngModel"  pattern="^[0-9]+(-[0-9]+)+$" maxlength="12" required (input)="phonevalidation(data.refrenshenumber)"></ion-input>
+        </ion-item>
+         <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="refrenshenumber.errors && (refrenshenumber.dirty || refrenshenumber.touched)">
+                    <div [hidden]="!refrenshenumber.errors.required">
+                      Phone number required
+                    </div>
+                    <div [hidden]="!refrenshenumber.errors.pattern">
+                      Only number allowed in valid format( xxx-xxx-xxx-xxx-xxx)
+                    </div>
+                 
+                  </div>
+                </div>
+      </ion-col>
+      <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>RELATIONSHIP WITH REFERENCE</ion-label>
+          <ion-input type="text" [(ngModel)]="data.refrensherelation" name="refrensherelation" #refrensherelation="ngModel" required></ion-input>
+        </ion-item>
+             <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="refrensherelation.errors && (refrensherelation.dirty || refrensherelation.touched)">
+                    <div [hidden]="!refrensherelation.errors.required">
+                    Relationship with reference  is required
+                    </div>
+                  </div>
+                </div>
+      </ion-col>
+      <ion-col col-12 class="left right">
+        <h1 style="font-size: 14px; font-weight: 700;">Any Other Reference</h1>
+        <ion-item>
+          <ion-label stacked>REFERENCE NAME</ion-label>
+          <ion-input type="tel" [(ngModel)]="data.refrenshename1" name="refrenshename1" #refrenshename1="ngModel"></ion-input>
+        </ion-item>
+       
+      </ion-col>
+      <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>REFERENCE PHONE NUMBER (xxx-xxx-xxxx)</ion-label>
+          <ion-input  type="tel" [(ngModel)]="data.refrenshenumber1" name="refrenshenumber1" #refrenshenumber1="ngModel"  pattern="^[0-9]+(-[0-9]+)+$" maxlength="12"  (input)="referencevalidation(data.refrenshenumber1)"></ion-input>
+        </ion-item>
+         <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="refrenshenumber1.errors && (refrenshenumber1.dirty || refrenshenumber1.touched)">
+                    <div [hidden]="!refrenshenumber1.errors.required">
+                      Phone number required
+                    </div>
+                    <div [hidden]="!refrenshenumber1.errors.pattern">
+                      Only number allowed in valid format( xxx-xxx-xxx-xxx-xxx)
+                    </div>
+                 
+                  </div>
+                </div>
+      </ion-col>
+      <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>RELATIONSHIP WITH REFERENCE</ion-label>
+          <ion-input type="text" [(ngModel)]="data.refrensherelation1" name="refrensherelation1" #refrensherelation1="ngModel"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>HOW DID YOU HEAR ABOUT RAF</ion-label>
+          <ion-input type="text" [(ngModel)]="data.about" name="about" #about="ngModel"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-12 class="select">
+         <ion-label stacked class="why">WHY YOU WANT TO USE RAFAHO</ion-label>
+        <ion-item>
+         
+          <!-- <ion-label class="select">Select</ion-label> -->
+          <!--<div class="selectuser">-->
+     <ion-select [(ngModel)]="data.why" name="why" #why="ngModel" >
+        <ion-option value="select"> Select</ion-option>
+    <ion-option value="1"> User Friendly</ion-option>
+    <ion-option value="2">Excellent Part Time Opportunity for affined chefs</ion-option>
+   
+    <ion-option value="3">Give wings to your  new cookery innovations</ion-option>
+    <ion-option value="4">Opportunity to earn more while you work</ion-option>
+  </ion-select>
+  <!--</div>-->
+        </ion-item>
+      </ion-col>
+     </ion-row>
+      </ion-grid>
+    </ion-list>
+       <div class="bottombutton">
+        <button ion-button full (click)="Processing(processform)"  color="theme-header" [disabled]="!processform.valid">Next</button>
+    </div>
+   </form>
+  </div>
+  
+ </div>
+ 
+</ion-content>

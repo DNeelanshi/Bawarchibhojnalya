@@ -1,0 +1,39 @@
+page-help {
+.preview {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    vertical-align: middle;
+    overflow: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+
+.content .top{
+  width: 100%;
+  float: left;
+ 
+    padding: 0px;
+ }
+ .content .top h2{
+  font-size: 12px;
+  font-weight: 500;
+  color: #f27242;
+  width: 100%;
+  float: left;
+  text-align: left;
+}
+
+.top p {
+    text-align:left;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: #6a6a6a;
+}
+}
+
+

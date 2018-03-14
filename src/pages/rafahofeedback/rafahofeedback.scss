@@ -1,0 +1,96 @@
+page-rafahofeedback {
+
+.top-sec .list{
+  width: 100%;
+  float: left;
+  padding: 16px;
+  
+ }
+ .top-sec .item{
+    align-items: inherit !important;
+    border-bottom: 1px solid #d2d2d2;
+    padding-left: 0;
+   
+ }
+ .top-sec .item:first-child{
+  border-top: none;
+ }
+ .top-sec .item .item-inner{
+  border:none;
+ }
+ .top-sec .item h3{
+  width: 100%;
+  float: left;
+  color: #f27242;
+  font-size: 14px;
+  font-weight: 700;
+ }
+ .top-sec .item p{
+  width: 100%;
+  float: left;
+  color: #a2a1a1;
+  font-size: 12px;
+  font-weight: 500;  
+ }
+ .top-sec .item h6{
+  width: 100%;
+  float: left;
+  color: #6a6a6a;
+  font-size: 12px;
+  font-weight: 500; 
+  white-space: normal;
+     
+ }
+ .bottom-sec .text{
+  width: 100%;
+  float: left;
+ }
+ 
+ .bottom-sec .text .enter .text-input{
+  width: 100%;
+  margin: 0;
+  height: 100%;
+  color: #6a6a6a;
+  font-weight: 500;
+  float: left;  
+ }
+ .footer .toolbar .bottom-sec .send{
+    width: 100%;
+    float: left;
+    text-align: right;
+    padding-right: 17px;
+    margin-bottom: 5px;
+ }
+
+
+ .bottom-sec .text .enter {
+    width: 90%;
+    float: none;
+    border: 1px solid #d2d2d2;
+    background-color: #fff;
+    margin: auto;
+    border-radius: 5px;
+    height: 55px;
+    margin-top: 14px;
+    font-size: 13px;
+    padding: 5px;
+    
+}
+
+
+.footer .toolbar .bottom-sec .send .button {
+    background-color: #ff563f;
+    margin-right: 0;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 700;
+    padding: 0 1.5em;
+    margin-top: 19px;
+    height: 32px;
+    width: 72px;
+}
+
+
+
+
+}

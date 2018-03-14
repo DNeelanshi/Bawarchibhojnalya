@@ -1,0 +1,195 @@
+page-editprofile {
+
+
+
+.main_box {
+    width: 100%;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.content .left_box {
+    width: 100%;
+    float: left;
+    padding: 0px 0px 0px 60px;
+    position: relative;
+    background-color: #f2f2f2;
+    height: 110px;
+}
+
+
+
+
+.content01 p {
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    margin: 0;
+    margin-top: -9px;
+    margin-left: 17px;
+    padding: 0px;
+}
+
+.content01 h5 {
+        float: left;
+    border-radius: 6px;
+    padding: 7px;
+    margin-top: 7px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: roboto;
+}
+
+
+.pick0 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+img.pick0 {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.content01 {
+    float: left;
+    border-radius: 6px;
+    padding: 7px;
+    margin-top: 12px;
+    
+}
+.form-sec {
+        width: 100%;
+        float: center;
+        color: #a6a6a6;
+        font:16px;
+        margin-top: -52px;
+        font-weight: 500;
+        font-size: 14px;
+}
+.form-sec .item{
+        width: 100%;
+        float: left;
+        border: none !important;
+}
+.content-lable{
+    list-style: none;
+    padding-left: 0px;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    float: left;
+    padding: 0 24px 0px 0px;
+    margin: 0 16px;
+}
+
+.button{
+    border-radius: 4px;
+    height: 2.8em;
+    font-size: 1.6rem;
+    color: #fff;
+    background-color: #ff563f;
+    margin: 0.4rem 0.2rem;
+    padding: 0 1em;
+    text-align: center;
+    margin-top: 30px;
+    width: 50%;
+}
+
+
+.label-ios + ion-input .text-input {
+     margin-left: 0;  margin: 7px 0;  color: #000;
+     }
+
+.frgtpwd{
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+ .label{
+   
+    margin-bottom: 0px;
+    margin-top: 10px;
+    letter-spacing: 1.5px;
+        font-size: 12px;
+    font-weight: 500;
+    font-family: roboto;
+    color: #a6a6a6;
+}
+    
+
+
+
+.form-sec .item  {
+    font-size: 13px;
+    margin-top: 0px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-right: 0px;
+    width: 100%;
+}
+.left_box .input-sec{
+  width: 25px;
+  height: 25px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 5px #656565;
+  overflow: hidden;
+  background-color: #f27242;
+  position:absolute;
+  border-radius: 50%;
+  top: 70px;
+  left: 44px;
+
+ }
+ .left_box .input-sec .upld{
+  width: 100%;
+  float: left;
+  position: relative;
+ }
+ .left_box .input-sec input{
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    opacity: 0;
+ }
+ .left_box .input-sec .icon{
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    color: #fff;
+ }
+
+
+.button-inner{
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 700;
+}
+
+.button .activated {
+    background-color:#f27242;
+    opacity: 1;
+}
+.maptext .text-input{
+    font-size: inherit;
+    color: #000;
+    margin: 12px 0px;
+}
+ 
+}

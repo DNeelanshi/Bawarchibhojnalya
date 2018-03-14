@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "251545398931",
+    "firebase_url": "https://rafaho-40524.firebaseio.com",
+    "project_id": "rafaho-40524",
+    "storage_bucket": "rafaho-40524.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251545398931:android:6e192caf0474a5e6",
+        "android_client_info": {
+          "package_name": "io.ionic.chef"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251545398931-hsvdruabk8h0oma8evnn8d4hc9i0vcd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwjDQbf4OIjGqBqSN430fKvgU-_pLiNio"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,18 @@
+page-specialitylists {
+    .header .title-md{
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: calc(100% - 160px);
+        margin: auto;
+    }
+    .item{
+        padding: 0;
+    }
+    .edit{
+        font-size: 18px;
+        margin-top: -5px !important;
+    }
+}

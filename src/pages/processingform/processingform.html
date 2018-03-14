@@ -1,0 +1,201 @@
+<!--
+  Generated template for the ProcessingformPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar color="theme-header">
+        <button style="height:28px;" start ion-button clear (click)="back()"><ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon></button>
+    <ion-title>Processing Form</ion-title>
+  </ion-toolbar>
+
+<div class="circle-top">
+  <ul>
+    <li class="one-circle"></li>
+    <li class="two-circle"></li>
+    <li class="three-circle"></li>
+    
+    <div class="circle-line">
+      </div>
+    </ul>
+  </div>
+
+</ion-header>
+
+<ion-content>
+  
+ <div class="content-sec">
+   <div class="text-sec">
+  <h2>General Information</h2>
+  </div>
+
+
+
+  
+  <div class="sign">
+      <form class="form-sec" #processform="ngForm" novalidate>
+    <ion-list>
+         <ion-grid>
+          <ion-row>
+      <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>COMPANY NAME</ion-label>
+          <ion-input type="text" [(ngModel)]="data.companyname" name="companyname" #companyname="ngModel" required></ion-input>
+        </ion-item>
+         <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="companyname.errors && (companyname.dirty || companyname.touched)">
+                    <div [hidden]="!companyname.errors.required">
+                      Comapany name is required
+                    </div>
+                  </div>
+                </div>
+      </ion-col>
+      <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>POSITION</ion-label>
+          <ion-input type="text" [(ngModel)]="data.position" name="position" #position="ngModel"  required></ion-input>
+        </ion-item>
+          <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="position.errors && (position.dirty || position.touched)">
+                    <div [hidden]="!position.errors.required">
+                      Position is required
+                    </div>
+                  </div>
+                </div>
+      </ion-col>
+      <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>ALTERNATIVE PHONE NUMBER (xxx-xxx-xxxx) </ion-label>         
+          <ion-input  type="tel" [(ngModel)]="data.phone" name="phone" #phone="ngModel"  pattern="^[0-9]+(-[0-9]+)+$" maxlength="12" required (input)="phonevalidation(data.phone)"></ion-input>
+        </ion-item>
+        <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="phone.errors && (phone.dirty || phone.touched)">
+                    <div [hidden]="!phone.errors.required">
+                      Phone number required
+                    </div>
+                    <div [hidden]="!phone.errors.pattern">
+                      Only number allowed in valid format( xxx-xxx-xxx-xxx-xxx)
+                    </div>
+                 
+                  </div>
+                </div>
+      </ion-col>
+      <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>CHEF HOME ADDRESS</ion-label>
+          <ion-input type="text" [(ngModel)]="data.address" name="address" #address="ngModel" required></ion-input>
+        </ion-item>
+         <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="address.errors && (address.dirty || address.touched)">
+                    <div [hidden]="!address.errors.required">
+                     Chef home address is required
+                    </div>
+                  </div>
+                </div>
+      </ion-col>
+                 <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>CHEF KITCHEN ADDRESS</ion-label>
+          <ion-input (focus)="chefadres()" type="text" [(ngModel)]="data.workaddress" name="workaddress" #workaddress="ngModel" required></ion-input>
+        </ion-item>
+         <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="workaddress.errors && (workaddress.dirty || workaddress.touched)">
+                    <div [hidden]="!workaddress.errors.required">
+                      Chef kitchen address is required
+                    </div>
+                  </div>
+                </div>
+      </ion-col>
+      <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>RESPONSIBLE CONTACT NAME</ion-label>
+          <ion-input type="text" [(ngModel)]="data.contactname" name="contactname" #contactname="ngModel" required></ion-input>
+        </ion-item>
+         <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="contactname.errors && (contactname.dirty || contactname.touched)">
+                    <div [hidden]="!contactname.errors.required">
+                      Contact name is required
+                    </div>
+                  </div>
+                </div>
+      </ion-col>
+      <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>RESPONSIBLE CONTACT NUMBER (xxx-xxx-xxxx)</ion-label>
+          <ion-input  type="tel" [(ngModel)]="data.contactnumber" name="contactnumber" #contactnumber="ngModel" pattern="^[0-9]+(-[0-9]+)+$" maxlength="12" required (input)="contactvalidation(data.contactnumber)"></ion-input>
+        </ion-item>
+      <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="contactnumber.errors && (contactnumber.dirty || contactnumber.touched)">
+                    <div [hidden]="!contactnumber.errors.required">
+                      Phone number required
+                    </div>
+                    <div [hidden]="!contactnumber.errors.pattern">
+                      Only number allowed in valid format( xxx-xxx-xxx-xxx-xxx)
+                    </div>
+                 
+                  </div>
+                </div>
+      </ion-col>
+       <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>OCCUPATION OF CHEF</ion-label>
+          <ion-input type="text" [(ngModel)]="data.occupationchef" name="occupationchef" #occupationchef="ngModel" required></ion-input>
+        </ion-item>
+         <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="occupationchef.errors && (occupationchef.dirty || occupationchef.touched)">
+                    <div [hidden]="!occupationchef.errors.required">
+                      Occupation of Chef is required
+                    </div>
+                  </div>
+                </div>
+      </ion-col>
+               <ion-col col-12 class="left right">
+        <ion-item>
+          <ion-label stacked>EXPERIENCE</ion-label>
+          <ion-input type="text" [(ngModel)]="data.experience" name="experience" #experience="ngModel" required></ion-input>
+        </ion-item>
+         <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="experience.errors && (experience.dirty || experience.touched)">
+                    <div [hidden]="!experience.errors.required">
+                      Experience is required
+                    </div>
+                  </div>
+                </div>
+      </ion-col>
+<!--               <ion-col col-6 class="left">
+        <ion-item>
+          <ion-label stacked>EXPERIENCE</ion-label>
+          <ion-input type="number" placeholder="In Years" value="0" [(ngModel)]="data.experienceyr" name="experienceyr" #experienceyr="ngModel"  min="0" max="100" required></ion-input>
+        </ion-item>
+         <div class="alert alert-danger " color="danger">
+                  <div *ngIf="experienceyr.errors && (experienceyr.dirty || experienceyr.touched)">
+                    <div [hidden]="!experienceyr.errors.required">
+                    Field is required
+                    </div>
+                  </div>
+                </ion-col>
+               <ion-col col-6 class="right ">
+        <ion-item>
+          <ion-label stacked>EXPERIENCE</ion-label>
+          <ion-input type="number" placeholder="In Months" value="0" [(ngModel)]="data.experiencemn" name="experiencemn" #experiencemn="ngModel" min="0" max="12" required></ion-input>
+        </ion-item>
+         <div class="alert alert-danger" color="danger">
+                  <div *ngIf="experienceyr.errors && (experienceyr.dirty || experienceyr.touched)">
+                    <div [hidden]="!experiencemn.errors.required">
+                    Field is required
+                    </div>
+                  </div>
+                </ion-col>-->
+     </ion-row>
+      </ion-grid>
+    </ion-list>
+          <div class="bottombutton">
+         <button ion-button full color="theme-header" (click)="Processing(processform)" [disabled]="!processform.valid">Next</button>
+    </div>
+   </form>
+  </div>
+ </div>
+</ion-content>
+

@@ -1,0 +1,284 @@
+page-profile {
+
+
+    .main_box {
+    width: 100%;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.left_box {
+    width: 100%;
+    float: left;
+    padding: 0px 0px 0px 60px;
+    position: relative;
+    background-color: #f2f2f2;
+    // height: 110px;
+}
+
+.right_box {
+        width: 68%;
+    float: right;
+    background: #ff563f;
+    border-radius: 6px;
+    padding: 0px;
+    margin-left: -17px;
+    color: #fff;
+    margin-left: 5px;
+    margin-top: 7px;
+}
+
+.content01{
+    float: left;
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 7000;
+    color: #000000;
+
+    
+}
+.content01 h5{
+   
+    float: left;
+
+    border-radius: 6px;
+    margin-left: 10px;
+    margin-left: 15px;
+    float: left;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 700;
+}
+ 
+       
+.reviews{
+    font-size: 13px;
+    font-family: roboto;
+    font-weight: 500;
+    float: left;
+    padding-left: 5px;
+    margin-bottom: 0px;
+    margin-top: 2px;
+}
+
+.content01 p {
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    margin: 0;
+    margin-top: -8px;
+    margin-left: 17px;
+    padding: 0px;
+}
+.pick0 {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.content{
+  width: 100%;
+  float: left;
+ }
+ .content-sec{
+ 
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    font-family: roboto;
+    font-weight: 500;
+ }
+ .content .list{
+  width: 100%;
+  float: left;
+  margin: 0;
+ }
+ .content .list .item{
+  width: 100%;
+     padding-left: 0px;
+     float: left;
+ }
+ .content .list .item:first-child{
+  border-top: none;
+ }
+ .content .list .item .icon{
+  color: #020202;
+     font-size: 16px;
+     margin-bottom: 0;
+ }
+ .content .list .item .label{
+  padding-left: 25px;
+    color: #565656;
+    font-weight: 500;
+    font-size: 14px;
+ }
+ .content .main{
+  width: 100%;
+  float: left;
+      margin-top: 30px;
+ }
+ .content .main .top-sec{
+  width: 100%;
+  float: left;
+  text-align: center;
+ }
+ .content .main .top-sec .main-img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+     margin: auto;
+
+ }
+ .content .main .top-sec .main-img img{
+  width: 100%;
+
+ }
+ .content .main .top-sec .text-sec{
+  width: 100%;
+  float: left;
+      padding: 0px 22px;
+ }
+ .content .main .top-sec .text-sec h3{
+  width: 100%;
+  float: left;
+  color:#f27242;
+  font-size: 21px;
+        font-weight: 700;
+        margin-bottom: 5px;
+
+ }
+ .content .main .top-sec .text-sec  h6{
+  width: 100%;
+     float: left;
+     color: #6a6a6a;
+     margin-top: 0px;
+     border-bottom: 2px dotted #b9b9b9;
+     padding-bottom: 13px;
+ }
+ .content .main .top-sec .text-sec  h6 .icon{
+   color: #6a6a6a;
+   padding-right: 9px;
+            font-size: 20px;
+ }
+
+
+
+
+
+
+
+
+
+
+age-chat {
+
+    .main_box {
+    width: 100%;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.left_box {
+    width: 85%;
+    float: left;
+    padding: 0px 0px 0px 60px;
+    position: relative;
+}
+
+.right_box {
+        width: 68%;
+    float: right;
+    background: #ff563f;
+    border-radius: 6px;
+    padding: 0px;
+    margin-left: -17px;
+    color: #fff;
+    margin-left: 5px;
+    margin-top: 7px;
+}
+
+.content01 {
+    
+    float: left;
+    background: #efeff4;
+    border-radius: 6px;
+    padding: 7px;
+    margin-top: 7px;
+    
+}
+
+.content01 p {
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    margin: 0;
+    margin-top: 7px;
+}
+.pick0 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.right_box content02 {
+    width: 100%;
+    background: #efeff4;
+    float: left;
+    font-size: 14px;
+    margin: 0;
+    margin-left: 5px;
+    
+}
+.am_1{
+        margin-left: 127px;
+}  
+
+.am_2{
+        margin-left: 86px;
+}  
+
+.am_3{
+        margin-left: 180px;
+}  
+
+.content02 p{
+ margin-left: 5px;
+}
+
+
+}
+.content01 ul{
+    width: 100%;
+    float: left;
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    padding-left: 17px;
+    margin: 0;
+}
+.content01 ul li{
+    display: inline-block;
+    float: left;
+
+ }
+ .content01 ul h5{
+     margin-top: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 18px;
+ }
+
+}

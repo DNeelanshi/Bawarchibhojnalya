@@ -1,0 +1,142 @@
+page-home {
+.segment-sec{
+  width: 100%;
+  float: left;
+ }
+ .segment-sec .segment{
+      background-color: #ffffff;
+    color: #000;
+ }
+ .segment-sec .segment .segment-button{
+  border: none;
+     color: #000;
+     max-width: 100%;
+     width: 100%;
+     margin-top: 8px;
+     text-transform: uppercase;
+     font-weight: 700;
+     padding-bottom: 33px;
+ }
+ .segment-sec .segment .segment-activated{
+   border-bottom: 2px solid #f27242;
+   background-color: #fff;
+ }
+
+    
+
+.toolbar-title toolbar-title-ios {
+        font-size: 12px;
+    margin-top: 29px;
+
+}
+.list .p {
+        color:white;
+     margin-left: 49px;
+    }
+.box .list{
+    margin-bottom: 0;
+}
+.back-button{
+    display: none;
+}
+.aaa {
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin:0;
+    color: #fff;
+    font-size: 12px;
+    font-family: roboto;
+    font-weight: 500;
+    
+}
+.input-wrapper.p { 
+    margin-top: -35px
+
+}
+ion-segment-button{
+    color:#000000;
+}
+span.rightp{
+      color: #666;
+    font-weight: 400;
+    float: right;
+    font-size: 12px;
+}
+.lefep{
+    font-size: 13px
+}
+
+.tab-button[aria-selected=true] .tab-button-icon {
+    color: #f27242;
+}
+.cancel{
+    width: 100%;
+    float: left;
+    font-size: 12px;
+    color: #000;
+    font-weight: 700;
+    padding: 16px;
+    margin: 0;
+    background-color: #f2f2f2;
+}
+
+.item-ios p {
+    overflow: inherit;
+    line-height: normal;
+    text-overflow: inherit;
+    color: #8e9093;
+    margin: 0 0 2px;
+    font-size: 12px;
+    font-family: roboto;
+   
+
+}
+.segment-sec .segment .segment-button {
+    border: none;
+    color: #000;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 8px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-bottom: 33px;
+    font-size: 12px;
+    font-family: roboto;
+}
+
+.item h2 {
+    margin: 0 0 2px;
+    font-size: 1.7rem;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: roboto;
+    color: #000000;
+}
+
+.item-ios p:last-child {
+    margin-bottom: 0px;
+    font-size: 12px;
+    font-family: roboto;
+    font-weight: 500;
+}
+.segment .segment-activated {
+    border-bottom: 2px solid #f27242 ! important;
+    background-color: #fff;
+}
+
+.item-block:first-child {
+    border-top: 0.55px solid #c8c7cc
+}
+
+
+.item-md ion-thumbnail ion-img, .item-md ion-thumbnail img {
+    width: 56px;
+    height: 56px;
+}
+.item-md ion-thumbnail {
+    min-width: 56px;
+    min-height: 56px;
+}
+}
+

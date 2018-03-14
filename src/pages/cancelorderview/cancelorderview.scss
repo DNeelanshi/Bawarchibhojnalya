@@ -1,0 +1,224 @@
+page-cancelorderview {
+.aaa {
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin:0;
+    color: #fff;
+    font-size: 12px;
+    font-family: roboto;
+    font-weight: 500;
+
+
+}
+ .item-ios ion-avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.card.card-ios{
+    width: 100%;
+    margin: 0px;
+
+}
+
+
+.card-content{
+    padding: 0px 0px 1px;
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+ 
+
+.phone {
+  font-size: 13px;
+  margin-top: 17px;
+
+}
+
+.order {
+    margin: 0 0 2px;
+    font-size: 1.7rem;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+
+ .content-sec{
+  width: 100%;
+  float: left;
+ }
+ .content-sec .heading{
+  width: 100%;
+  float: left;
+  padding-left: 15px;
+ }
+ .content-sec .heading h3{
+    width: 100%;
+    float: left;
+    font-weight: 700;
+    font-size: 14px;
+    color: #111111;
+    margin-top: 15px;
+    margin-left: -15px;
+}
+ 
+ .content-sec .list{
+  width: 100%;
+  float: left;
+  margin:0px;
+
+ }
+ .content-sec .item{
+  width: 100%;
+  float: left;
+  align-items: inherit !important;
+  border-bottom: 1px solid #d2d2d2;
+  padding: 0px 0px;
+  border-top: none !important;
+ }
+ .content-sec .item .label{
+  margin-top: 8px;
+  
+ }
+ .item-inner{
+  border:none !important;
+  padding-right: 0px !important;
+ }
+ .content-sec .item .label h2{
+  margin: 0;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: roboto;
+    color: #000000;
+ 
+ }
+ .content-sec .item .label p{
+  width: 100%;
+     float: left;
+     color: #6a6a6a;
+     font-size: 12px;
+     font-weight: 500;
+ }
+ .item .left-p{
+     color: #383838;
+     font-size: 12px;
+     font-weight: 500;
+     padding-top: 5px;
+     margin-right: 0px;
+     font-family: roboto;
+ }
+ .item .note{
+  color: #383838;
+     font-size: 12px;
+     font-weight: 500;
+     padding-top: 16px;
+     margin-right: 0px;
+ }
+ .content-sec .item ion-thumbnail {
+  width: 55px !important;
+  min-width: auto;
+  min-height: auto;
+
+ }
+ .content-sec .item ion-thumbnail img{
+  width: 100% !important;
+  float:left !important;
+  height: auto !important;
+ }
+
+ .imgicon{
+  margin-right: 5px;
+  margin-top: 1px;
+ }
+ .total{
+  width: 100%;
+  float: left;
+  padding:14px;
+
+ }
+ .total h2{
+  width: 100%;
+  float: left;
+  text-align: right;
+  font-size: 13px;
+  color: #000;
+  font-weight: 700;
+  margin: 0px;
+ }
+ .total .left{
+    width: 50%;
+    float: left;
+    text-align: right;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 700;
+
+ }
+ .total .right{
+  width: 50%;
+  float: left;
+  text-align: right;
+  font-size: 14px;
+  font-family: roboto;
+  font-weight: 700;
+
+ }
+
+.user{
+ font-size: 14px;
+ font-family: roboto;
+ font-weight: 700;
+ color: #000000;
+}
+.paragraph{ 
+    overflow: inherit;
+    line-height: normal;
+    text-overflow: inherit;
+    color: #8e9093;
+    margin: 0 0 2px;
+    font-size: 12px;
+    font-family: roboto;
+}
+
+.mob1 h2{
+    
+    font-size: 1.6rem;
+    font-weight: normal;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: 11px;
+
+}
+
+.mob1 p {
+    margin-bottom: 0;
+    font-size: 1.4rem;
+    color: #666;
+    font-size: 12px;
+    color: #000;
+}
+.decline .button{
+    margin: 0;
+    font-size: 12px;
+    width: 100%;
+}
+    .contact{
+    border-top: 1px solid #cecbcb;
+    background-color: #f8f8f8
+}
+.back-button.show-back-button {
+    display: inline-block;
+    z-index: 9999;
+}
+.mob1{
+    width: 100%;
+    float: left;
+    margin-top: 6px;
+    }
+}
+

@@ -1,0 +1,104 @@
+page-stafflist {
+    .btnprofile{
+		font-size: 12px;
+	    font-weight: 400;
+	    text-align: center;
+    }
+    .back-button{
+        display: none !important;
+    }
+    .content{
+        width: 100%;
+        float: left;
+    }
+    .list{
+        width: 100%;
+        float: left;
+    }
+    .item{
+        width: 100%;
+        float: left;
+        border-bottom: 1px solid #dedede;
+        padding: 0;
+    }
+    .item .item-inner{
+        border-bottom: none !important;
+    }
+    .item h2{
+        margin: 0 0 2px;
+        font-weight: 700;
+        font-size: 14px;
+        font-family: roboto;
+        color: #000000;
+        
+    }
+
+
+   [padding] h1:first-child, [padding] h2:first-child, [padding] h3:first-child, [padding] h4:first-child, [padding] h5:first-child, [padding] h6:first-child{
+        margin-top: 0;
+    }
+    .item:first-child{
+        border-top: none !important;
+    }
+    .item h2 span{
+        float: right;
+        cursor: pointer;
+    }
+    .item p{
+        margin: 0 0 2px;
+        overflow: inherit;
+        font-size: 1.4rem;
+        line-height: normal;
+        text-overflow: inherit;
+        color: #666;
+    }
+    .item p span{
+        float: right;
+        cursor: pointer;
+        
+    }
+
+.back-button-icon-md {
+    margin: 0;
+    padding: 0 6px;
+    text-align: left;
+    text-align: start;
+    font-size: 2.4rem;
+    font-weight: normal;
+}
+
+.button ion-icon.icon.icon-md.ion-md-arrow-back{
+    padding: 0 10px;
+    margin: 0 6px;
+    height: 28px;
+    color: #fff;
+    /* padding: 0 0 0 3px; */
+    font-size: 2.7rem;
+}
+
+//   .toolbar-content-md{
+//     position: absolute;
+//     width: 100%;
+//     padding: 0 60px;
+//     left: 0;
+//     right: 0;
+// }
+// .toolbar-title {
+//     font-size: 16px;
+//     font-weight: 700;
+//     font-family: roboto;
+//     text-align: center;
+// }
+    
+    ion-header .toolbar-content ion-title {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0 35px;
+    left: 0;
+    right: 0;
+    }
+    
+}

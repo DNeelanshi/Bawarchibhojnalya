@@ -1,0 +1,183 @@
+page-register {
+
+
+
+    ion-header .toolbar-content ion-title {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0 35px;
+}
+    .backgroundbanner {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    float: left;
+  }
+ .content{
+  width: 100%;
+  float: left;
+ }
+
+  .content-sec{
+  width: 100%;
+  float: left;
+  padding:0px 30px 50px 30px;
+
+ }
+ .content-sec .sign{
+  width: 100%;
+  float: left;
+  margin-top: 25px;
+
+ }
+ .content-sec .sign .form-sec{
+  width: 100%;
+  float: left;
+ }
+ .content-sec .sign .form-sec .list{
+  width: 100%;
+  float: left;
+  margin-bottom: 0px;
+ }
+ .content-sec .sign .form-sec .list .grid{
+   padding: 0px;
+ }
+ .form-sec .list .item{
+	width: 100%;
+	float: left;
+	padding: 0px;
+	border:none;
+	border-bottom: 1px solid #c8c7cc !important;
+	}
+	.form-sec .list .item .item-inner{
+	border-bottom: none !important;
+	}
+ .content-sec .sign .form-sec .list .item input{
+  font-size: 12px;
+        margin-top: 0px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-right: 0px;
+        width: 100%;
+ }
+ 
+ .content-sec .frgtpwd{
+  width: 100%;
+  float: left;
+  padding-top: 12px;
+ }
+ .content-sec .frgtpwd button{
+  width: 100%;
+  float: left;
+  background-color: #ff563f;
+  font-weight: 500;
+  margin-top: 20px;
+  font-size: 14px;
+ }
+ 
+ .left{
+  padding-left: 0px;
+ }
+ .right{
+  padding-right: 0px;
+ }
+ .right.gender .item{
+    font-size: 12px;
+    margin-top: 0px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-right: 0px;
+    width: 100%;
+    min-height: 2.9rem;
+ }
+ .right.gender .item .select{
+ padding: 0px !important;
+    width: 100%;
+    float: left;
+    font-size: 12px;
+    color: #000;
+    font-weight: 500;
+    max-width: 100%;
+ }
+ .right.gender .item .select .select-icon{
+      width: 19px;
+ }
+ .right.gender .label{
+  margin-bottom: 0px;
+    margin-top: 10px;
+    color: #a6a6a6;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+ }
+    .span.button-inner{
+      font-size: 14px;
+    font-family: roboto;
+    font-weight: 700;
+}
+ .content-sec .sign .form-sec .list .item .label {
+    margin-bottom: 0px;
+    margin-top: 10px;
+    color: #a6a6a6;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    font-family: roboto;
+}
+.datetime {
+  padding: 8px 4px 7px 0;
+}
+.geoloc{
+    color: #333;
+    position: absolute;
+    right: 0;
+    top: 7px;
+    font-size: 15px;
+}
+
+.datetime-text {
+    min-height: 1.2em;
+    font-size: inherit;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    font-size: 12px;
+    margin-top: 0px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-right: 0px;
+    width: 100%;
+}
+
+.register{
+    padding: 9px 4px 6px 0px;
+}
+.select-text{
+    line-height: 20px;
+}
+
+
+.header .button span{
+      color: #fff;
+    font-size: 23px;
+}
+
+.itemouter {
+    position:  relative;
+    width: 100%;
+    float: left;
+}
+
+ion-icon {
+
+    display: inline-block;
+    font-size: 14px;
+    padding-right: 5px;
+}
+
+
+}

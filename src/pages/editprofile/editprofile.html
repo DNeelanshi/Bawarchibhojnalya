@@ -1,0 +1,134 @@
+<!--
+  Generated template for the EditprofilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="theme-header">
+    <ion-title>Edit Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+ <div class="main_box">
+ <div class="left_box">
+ <img *ngIf="srcImage" class="pick0" [src]="srcImage">
+ <img *ngIf="!srcImage" class="pick0" src="assets/image/profile_img.png">
+      <div class="input-sec"  (click)="CameraAction()">
+      <div class="upld">
+      <ion-icon name="ios-camera-outline"></ion-icon>
+      <button class="camera camerabg" ion-button icon-only>
+			
+		</button>
+      </div>
+      </div>
+ <div class="content01">
+<h5>{{proffile?.firstname}}</h5>
+<p>{{proffile?.email}}</p>
+ </div>
+   </div>
+</div>
+
+
+<form class="form-sec" #editInfo="ngForm" novalidate (submit)="edituserprofile(editInfo)">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>FIRST NAME</ion-label>
+        <ion-input type="text" [(ngModel)]="data.firstname" name='firstname' #firstname="ngModel" required></ion-input>
+        <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="firstname.errors && (firstname.dirty || firstname.touched)">
+                    <div [hidden]="!firstname.errors.required">
+                      First name is required
+                    </div>
+                  </div>
+                </div>
+      </ion-item>
+
+
+
+      <ion-item>
+        <ion-label stacked>LAST NAME</ion-label>
+        <ion-input type="text"  [(ngModel)]="data.lastname" name='lastname' #lastname="ngModel" required></ion-input>
+         <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="lastname.errors && (lastname.dirty || lastname.touched)">
+                    <div [hidden]="!lastname.errors.required">
+                      Last name is required
+                    </div>
+                  </div>
+                </div>
+      </ion-item>
+
+     
+      <ion-item>
+        <ion-label stacked>PHONE NUMBER (xxx-xxx-xxxx)</ion-label>
+        <ion-input type="tel"  [(ngModel)]="data.phone" name='phone' #phone="ngModel" pattern="^[0-9]+(-[0-9]+)+$" maxlength="12" required  (input)="phonevalidation(data.phone)"></ion-input>
+      <div class="alert alert-danger red" color="danger">
+                  <div *ngIf="phone.errors && (phone.dirty || phone.touched)">
+                    <div [hidden]="!phone.errors.required">
+                      Phone number required
+                    </div>
+                    <div [hidden]="!phone.errors.pattern">
+                      Only number allowed with pattern (xxx-xxx-xxx-xxx-xxx)
+                    </div>
+                  </div>
+                </div>
+      </ion-item>
+        <ion-col col-12>
+            
+         <ion-item>
+              <ion-label stacked>BIRTHDAY</ion-label>
+	   <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="data.dob" name="dob" #dob="ngModel" max="{{date}}" required></ion-datetime>
+	  </ion-item>
+	</ion-col>
+	<ion-col col-12>
+	<ion-item>
+               <ion-label stacked>GENDER</ion-label>
+	<ion-select [(ngModel)]="data.gender" name="gender" #gender="ngModel" required>
+		   <ion-option value="female">Female</ion-option>
+	 <ion-option value="male">Male</ion-option>
+							  </ion-select>
+						  </ion-item>
+	</ion-col>
+
+
+      <!--<ion-item>
+        <ion-label stacked>ALTERNATIVE PHONE NUMBER</ion-label>
+        <ion-input type="text"  maxlength="15"></ion-input>
+      </ion-item>-->
+<div class="content-lable">
+    <div style="position: relative; overflow: hidden;">
+    <ion-icon ios="ios-locate-outline" md="md-locate" (click)="openmapmodal()" style="position: absolute;
+    top: 4px;
+    right: -24px;
+    width: 50px;
+    height: 50px;
+    /* display: block; */
+    color: #000;
+    z-index: 999; 
+    font-size:26px;
+    "></ion-icon>
+
+
+        <ion-label stacked>EDIT GEOLOCATION </ion-label>
+        <ion-input  type="text" class="maptext" [(ngModel)]="data.geolocation" [readonly]="isReadonly()"  name='geolocation' #geolocation="ngModel" style="margin:0;" ></ion-input>
+ 
+</div>
+
+</div>
+
+    </ion-list>
+ <div class="frgtpwd">
+   <button ion-button type="submit" [disabled]="!editInfo.valid">Save</button>
+  </div>
+   </form>
+
+
+
+
+
+</ion-content>
