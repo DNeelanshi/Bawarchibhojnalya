@@ -82,6 +82,27 @@ gettags(){
          console.log(this.suggestions);
      })  
 }
+onKeydown(event) {
+  if (event.key === "a") {
+    console.log(event);
+  }
+}
+//onKeydown(events,tagi){
+//    alert(events);
+//     console.log(tagi);
+//      console.log(this.tag);
+//      if(tagi.length > 8){
+//            let toast = this.toastCtrl.create({
+//      message: 'Only 8 tags can be added',
+//      duration: 2000,
+//      position: 'middle'
+//    });
+//    toast.present();
+//          tagi.pop()
+//     this.tag = tagi;
+//     this.tag = tagi
+//      }
+//}
 getcommision(){
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');

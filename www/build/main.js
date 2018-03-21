@@ -3025,10 +3025,23 @@ RegisterPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'page-register',template:/*ion-inline-start:"D:\bawarchibhojnalya\src\pages\register\register.html"*/'<!--\n  Generated template for the RegisterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n<ion-toolbar color="theme-header">\n        <button style="height:28px;" start ion-button clear (click)="backtosignin()"><ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon></button>\n    <ion-title>Register</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <div class="background banner">\n    <img src="assets/image/background banner.png">\n  </div>\n\n  <div class="content-sec">\n    <div class="sign">\n      <form class="form-sec" #registrationForm="ngForm" novalidate (submit)="Registration(registrationForm)">\n        <ion-list>\n          <ion-grid>\n            <ion-row>\n              <ion-col col-6 class="left" style="position:initial;">\n                <ion-item>\n                  <ion-label stacked>FIRST NAME</ion-label>\n                  <ion-input type="text" [(ngModel)]="data.firstname" required name=\'firstname\' #firstname="ngModel"></ion-input>\n                </ion-item>\n                <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="firstname.errors && (firstname.dirty || firstname.touched)">\n                    <div [hidden]="!firstname.errors.required">\n                      First name is required\n                    </div>\n                  </div>\n                </div>\n              </ion-col>\n              <ion-col col-6 class="right" style="position:initial;">\n                <ion-item>\n                  <ion-label stacked>LAST NAME</ion-label>\n                  <ion-input type="text" [(ngModel)]="data.lastname" name="lastname" #lastname="ngModel" required></ion-input>\n                </ion-item>\n                <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="lastname.errors && (lastname.dirty || lastname.touched)">\n                    <div [hidden]="!lastname.errors.required">\n                      Last name is required\n                    </div>\n                  </div>\n                </div>\n              </ion-col>\n              <ion-col col-6 class="left" style="position:initial;">\n                <ion-item>\n                  <ion-label stacked>BIRTHDAY</ion-label>\n                  <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"  [(ngModel)]="data.dob" name="dob" #dob="ngModel" max="{{date}}"  required></ion-datetime>\n                  <!-- <ion-input type="date" [(ngModel)]="data.dob" name="dob" #dob="ngModel" required></ion-input> -->\n                </ion-item>\n                <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="dob.errors && (dob.dirty || dob.touched)">\n                    <div [hidden]="!dob.errors.required">\n                      What\'s your date of birth?\n                    </div>\n                  </div>\n                </div>\n              </ion-col>\n              <ion-col col-6 class="right gender" style="position:initial;">\n                <ion-label>GENDER</ion-label>\n                <ion-item>\n                  <ion-select [(ngModel)]="data.gender" name="gender" #gender="ngModel" required>\n                    <ion-option value="female">Female</ion-option>\n                    <ion-option value="male">Male</ion-option>\n                  </ion-select>\n                </ion-item>\n                <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="gender.errors && (gender.dirty || gender.touched)">\n                    <div [hidden]="!gender.errors.required">\n                      You are?\n                    </div>\n                  </div>\n                </div>\n              </ion-col>\n              <ion-col col-12 class="left right" style="position:initial;">\n                <ion-item>\n                  <ion-label stacked>ADDRESS</ion-label>\n                  <ion-input type="text" [(ngModel)]="data.address" name="address" #address="ngModel" required></ion-input>\n                </ion-item>\n                <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="address.errors && (address.dirty || address.touched)">\n                    <div [hidden]="!address.errors.required">\n                      Address is required\n                    </div>\n                  </div>\n                </div>\n              </ion-col>\n              <ion-col col-12 class="left right" style="position:initial;">\n                <ion-item>\n                  <ion-label stacked>PHONE NUMBER (xxx-xxx-xxxx)</ion-label>\n               \n                  <ion-input (input)="phonevalidation(data.phone)" type="tel" [(ngModel)]="data.phone" name="phone" #phone="ngModel" pattern="^[0-9]+(-[0-9]+)+$" maxlength="12" required></ion-input>\n                </ion-item>\n                <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="phone.errors && (phone.dirty || phone.touched) && data.phone">\n                    <div [hidden]="!phone.errors.required">\n                      Phone number required\n                    </div>\n                    <div [hidden]="!phone.errors.pattern">\n                      Only number allowed\n                    </div>\n                  </div>\n                </div>\n              </ion-col>\n              <ion-col col-12 class="left right" style="position:initial;">\n                <ion-item>\n                  <ion-label stacked>EMAIL</ion-label>\n                  <!--"^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9.]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"-->\n                      <ion-input type="text" autocapitalize="none" [(ngModel)]="data.email" name="email" #email=\'ngModel\' pattern="^[a-z0-9]+(\.[_a-z0-9]+)+([@{1}])+(\.[a-z0-9-]+)+([.{1}])(\.[a-z]{1,15})$" required></ion-input>\n                </ion-item>\n                <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="email.errors && (email.dirty || email.touched)">\n                    <div [hidden]="!email.errors.required">\n                      Email is required\n                    </div>\n                    <div [hidden]="!email.errors.pattern">\n                      Invalid email\n                    </div>\n                  </div>\n                </div>\n              </ion-col>\n              <!--<ion-col col-12 class="left right" style="position:initial;">-->\n                  <div class="itemouter" style="position: initial !important;">\n                <ion-item >\n                  <ion-label stacked>PASSWORD</ion-label>\n                  <ion-input type="{{ptype}}" [(ngModel)]="data.password" name="password" #password="ngModel"     pattern="(?!^[0-9]*$)(?!^[0-9@/*/-/#/&/^/$/\/|/;/_/,/~/?/!/./\'\'/`/<>/%/:/{}/()/+/=]*$)(?!^[a-zA-Z@/*/#/&/^/$/;/_/,/~/?/\/|/\'\'/-/`/./\/!/<>/%/:/()/{}/+/=]*$)(?!^[a-zA-Z0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9@/*/#/&/$/;/_/{}/%/:/^/?/~/`/\'\'/|/,/-/<>/!/\/./()/+/=]{6,30})"   required></ion-input>\n                 <button class="eyemain" ion-button clear type="button" color="dark" item-right>\n                   <ion-icon name="{{iconname}}" (click)="showPassword()" ></ion-icon>\n                  </button>\n                </ion-item>\n                   <!--<ion-icon name="{{iconname}}" (click)="showPassword()" ></ion-icon>-->  \n                <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="password.errors && (password.dirty || password.touched)">\n                    <div [hidden]="!password.errors.required">\n                      Password is required\n                    </div>\n                    <div [hidden]="!password.errors.minlength">\n                      Password must be at least 6 digits\n                    </div>\n                      <div [hidden]="!password.errors.pattern">\n                      Password is weak(It should be combination of a-z,A-Z,0-9,@*#)\n                    </div>\n                  </div>\n                </div>\n                  </div>\n              <!--</ion-col>-->\n              <!--<ion-col col-12 class="left right">-->\n                  <div class="itemouter"  style="position: initial !important;">\n                <ion-item item-right>\n                  <ion-label stacked>CONFIRM PASSWORD</ion-label>\n                  <ion-input type="{{Ctype}}" [(ngModel)]="data.cpassword" name="cpassword" #cpassword="ngModel" validateEqual="registrationForm.value.password" required></ion-input>\n               \n                  \n                  <button class="eyemain" ion-button clear type="button" color="dark" item-right>\n                    <ion-icon name="{{iconname1}}" (click)="showCPassword()" ></ion-icon>\n                  </button>\n                </ion-item>\n                 \n                <ion-label class="alert alert-danger red" color="danger">\n                    <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)">\n                        <div [hidden]="!cpassword.errors.required">\n                          Confirm password is required\n                        </div></div>\n                        \n                         <!--<div *ngIf="registrationForm.value.password != registrationForm.value.cpassword">\n                    Password mismatch\n                  </div>-->\n                      \n                 \n                   <!--<span class="spn" ng-show="data.password != data.cpassword">Your passwords must match.</span>-->\n                </ion-label>\n                <!-- <small [hidden]="cpassword.valid || (cpassword.pristine && !f.submitted)">\n                  Password mismatch\n              </small> -->\n                  </div>\n              <!--</ion-col>-->\n              <ion-col col-12 class="left right" style="position:initial;">\n                  <div style="position: relative; overflow: hidden;">\n\n                    <div style="\n    width: 50px;\n    height: 35px;\n    float: right;\n    position: absolute;\n    right: 0;\n    text-align: center;\n    display:block;\n    cursor:pointer;\n" (click)="openmapmodal()">    \n                  <ion-icon ios="ios-locate-outline" md="md-locate"  style="position: absolute;\n    top: 0;\n    right: 0;\n    width: 50px;\n    height: 28px;\n    display: block;\n    color: #000;\n    z-index: 999;\n    bottom: 0;\n    font-size: 26px;\n    margin: auto;\n                  "></ion-icon>\n                    </div>\n                <ion-item>\n                  <ion-label stacked>GEOLOCATION </ion-label>\n                  \n                  <ion-input   type="text" [(ngModel)]= "data.result" [readonly]="isReadonly()" name="result" #result="ngModel" required></ion-input>\n                  \n                </ion-item>\n              </div>\n              </ion-col>\n            </ion-row> \n          </ion-grid>\n        </ion-list>\n            \n<!--           <countryPicker [setValue]="ccn3" [flag]="true"></countryPicker>-->\n        <div class="frgtpwd">\n          <button ion-button type="submit" [disabled]="!registrationForm.valid">Register</button>\n        </div>\n      </form>\n    </div>\n\n\n  </div>\n</ion-content>'/*ion-inline-end:"D:\bawarchibhojnalya\src\pages\register\register.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ToastController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ToastController"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_geocoder__["a" /* NativeGeocoder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_geocoder__["a" /* NativeGeocoder */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__providers_appsetting__["a" /* Appsetting */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_appsetting__["a" /* Appsetting */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_fcm__["a" /* FCM */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_fcm__["a" /* FCM */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_http__["Http"]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_9__ionic_native_device__["a" /* Device */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__ionic_native_device__["a" /* Device */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_13_angular2_countrypicker__["CountryPickerService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_13_angular2_countrypicker__["CountryPickerService"]) === "function" && _o || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ToastController"],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"],
+        __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__["a" /* Geolocation */],
+        __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_geocoder__["a" /* NativeGeocoder */],
+        __WEBPACK_IMPORTED_MODULE_5__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_8__ionic_native_fcm__["a" /* FCM */],
+        __WEBPACK_IMPORTED_MODULE_6__angular_http__["Http"],
+        __WEBPACK_IMPORTED_MODULE_9__ionic_native_device__["a" /* Device */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"],
+        __WEBPACK_IMPORTED_MODULE_13_angular2_countrypicker__["CountryPickerService"]
+        // private datePipe: DatePipe
+    ])
 ], RegisterPage);
 
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
 //# sourceMappingURL=register.js.map
 
 /***/ }),
@@ -4357,7 +4370,7 @@ var EditproductPage = (function () {
 }());
 EditproductPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-editproduct',template:/*ion-inline-start:"D:\bawarchibhojnalya\src\pages\editproduct\editproduct.html"*/'<!--\n  Generated template for the EditproductPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-toolbar color="theme-header">\n     \n      <button ion-button start style="height: 28px;    color: #fff;    padding: 0 0 0 3px;    font-size: 12px;\n    float: left;    width: 7%; margin: 0;" start ion-button clear (click)="backtopro()"><ion-icon ios="ios-arrow-back" md="md-arrow-back" style="font-size: 2.2em;"></ion-icon></button>\n     \n    <ion-title>Edit Product</ion-title>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n<ion-content>\n    <div class="content-text">\n  <h1>Edit Product</h1>\n  </div>\n  <div class="content-sec">\n  <div class="sign">\n   <form class="form-sec" #productForm="ngForm" novalidate >\n    <ion-list>\n         <ion-grid>\n          <ion-row>\n            <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>PRODUCT NAME 1 </ion-label>\n          <ion-input type="text" [(ngModel)]="data.productname" required name=\'productname\' #productname="ngModel" required></ion-input>\n        </ion-item>\n<!--                <div class="alert alert-danger" color="danger">\n                  <div *ngIf="productname.errors && (productname.dirty || productname.touched)&& data.productname !=\'\'">\n                    <div [hidden]="!productname.errors.required">\n                      Product name is required\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n\n           <ion-col col-6 class="left">\n        <ion-item>\n          <ion-label stacked>PRODUCT PRICE </ion-label>\n          <ion-input type="tel" [(ngModel)]="data.productprice" required name=\'productprice\' #productprice="ngModel"  pattern="[0-9]+(\.[0-9][0-9]?)?"  required (input)="commisioncal()"></ion-input>\n        </ion-item>\n<!--                <div class="alert alert-danger" color="danger">\n                  <div *ngIf="productprice.errors && (productprice.dirty || productprice.touched) && data.productprice !=\'\'">\n                    <div [hidden]="!productprice.errors.required">\n                      Product price required\n                    </div>\n                    <div [hidden]="!productprice.errors.pattern">\n                      Only Number allowed with 2 decimal digits maximum\n                    </div>\n                        \n                  </div>\n                </div>-->\n      </ion-col>\n\n <ion-col col-6 class="right">\n        <ion-item>\n          <ion-label stacked>RAFAHO PRICE</ion-label>\n             <ion-input type="text" [(ngModel)]="data.rafahoprice" required name=\'rafahoprice\' #rafahoprice="ngModel" [readonly]="isReadonly()" required ></ion-input>\n        </ion-item>\n      </ion-col>\n      \n\n<ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>CHEF RECEIVED</ion-label>\n             <ion-input type="text" [(ngModel)]="data.chefrecieved" required name=\'chefrecieved\' #chefrecieved="ngModel" [readonly]="isReadonly()" required ></ion-input>\n        </ion-item>\n      </ion-col>\n\n\n\n\n\n\n  <ion-col col-12 class="select left" >\n        \n        <ion-item>\n <ion-label stacked class="why">DISCOUNT PRECENTAGE</ion-label>\n     <ion-select class="active"  [(ngModel)]="data.discount" name=\'discount\' #discount="ngModel" required>\n            <ion-option value="0">0%</ion-option>\n    <ion-option value="10">10%</ion-option>\n    <ion-option value="20">20%</ion-option>\n      <ion-option value="30">30%</ion-option>\n        <ion-option value="40">40%</ion-option>\n          <ion-option value="50">50%</ion-option>\n\n  </ion-select>\n        </ion-item>\n      </ion-col>\n\n\n<div>\n  <h1 class="main">Main Dish and Accompainment</h1>\n</div>\n\n\n      <ion-col col-12 class="left right">\n<div style="position:initial !important">\n          <ion-label stacked style="margin-top: 17px;" >PRODUCT INGREDIENTS</ion-label>\n<div>\n    <rl-tag-input placeholder="+Ingredients" [addOnBlur]=\'true\' [addOnComma]=\'true\' [addOnEnter]=\'true\' [addOnPaste]=\'true\' [(ngModel)]="tagss" [ngModelOptions]="{standalone: true}" (focusout)="onChanges(tagss)" required></rl-tag-input>\n      <!--<ion-tags-input data-tap-disabled="true" style="position:initial;" placeholder="+Ingredients" [once]="\'true\'" [(ngModel)]="tagss" [ngModelOptions]="{standalone: true}" (onChange)="onChanges($event)" (focusout)="focus($event)" required></ion-tags-input>-->\n<!--<div class="alert alert-danger" color="danger">\n                  <div *ngIf="tagss.errors && (tagss.dirty || tagss.touched)">\n                    <div [hidden]="!tagss.errors.required">\n                      Product Ingredients are required\n                    </div>\n                  </div>\n                </div>-->\n</div></div>\n      </ion-col>\n\n\n       <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>PRODUCT DESCRIPTION</ion-label>\n          <ion-textarea type="text" [(ngModel)]="data.productdesc"  name=\'productdesc\' #productdesc="ngModel" maxlength="3000"  required></ion-textarea>\n        </ion-item>\n<!--           <div class="alert alert-danger" color="danger">\n                  <div *ngIf="productdesc.errors && (productdesc.dirty || productdesc.touched)&& data.productdesc !=\'\'" >\n                    <div [hidden]="!productdesc.errors.required">\n                      Product description is required\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n   <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>DIET RESTRICTION</ion-label>\n          <ion-textarea type="text" [(ngModel)]="data.diet" required name=\'diet\' #diet="ngModel" maxlength="3000"  required></ion-textarea>\n        </ion-item>\n<!--           <div class="alert alert-danger" color="danger">\n                  <div *ngIf="diet.errors && (diet.dirty || diet.touched)&& data.diet !=\'\'" >\n                    <div [hidden]="!diet.errors.required">\n                    Diet Restriction is required\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n\n\n  <div class="maxium">\n<p style="text-align:right">Maximum 3000 letter.</p>\n  </div>\n               <ion-col col-12 class="left right">\n         \n        \n        <ion-label stacked style="margin-top: 17px;" >TAGS</ion-label>\n<div>\n      <rl-tag-input style="position:initial !important;" placeholder="+tags" [addOnBlur]=\'true\' [addOnComma]=\'true\' (onChange)="onChange(tag)"  (input)="tagslength(tag)" (focusout)="tagslength(tag)" [addOnEnter]=\'true\'\n                    [addOnPaste]=\'true\'  [(ngModel)]="tag" [ngModelOptions]="{standalone: true}" (onChange)="onChange(tag)"  (input)="tagslength(tag)" (focusout)="tagslength(tag)" [autocomplete]=\'true\' [autocompleteSelectFirstItem]=\'true\' [autocompleteMustMatch]=\'false\' [autocompleteItems]="suggestions" required></rl-tag-input>\n</div>\n\n\n          \n          \n      </ion-col>\n\n<ion-grid>\n  <ion-row>\n\n\n      <ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>MINIMUM ORDER</ion-label>\n             <ion-input type="tel" [(ngModel)]="data.minorder" required name=\'minorder\' #minorder="ngModel" pattern="^(0|[1-9][0-9]*)$" maxlength="4" required></ion-input>\n        </ion-item>\n<!--     <div class="alert alert-danger" color="danger">\n                  <div *ngIf="minorder.errors && (minorder.dirty || minorder.touched) && data.minorder !=\'\'">\n                    <div [hidden]="!minorder.errors.required">\n                      Minimum order required\n                    </div>\n                    <div [hidden]="!minorder.errors.pattern">\n                      Only number allowed\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n      \n      <ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>PRODUCT CUISINE</ion-label>\n             <ion-input type="text" [(ngModel)]="data.cuisine" required name=\'cuisine\' #cuisine="ngModel" maxlength="3000"required></ion-input>\n        </ion-item>\n<!--     <div class="alert alert-danger" color="danger">\n                  <div *ngIf="minorder.errors && (minorder.dirty || minorder.touched) && data.minorder !=\'\'">\n                    <div [hidden]="!minorder.errors.required">\n                      Minimum order required\n                    </div>\n                    <div [hidden]="!minorder.errors.pattern">\n                      Only number allowed\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n     \n      <ion-col col-12 class="left">\n     <ion-label stacked>SERVICES YOU CAN PROVIDE:</ion-label>\n \n  <ion-item>\n    <ion-label>Home Delivery</ion-label>\n    <ion-checkbox  checked=data.home [(ngModel)]="data.home" [ngModelOptions]="{standalone: true}"  ></ion-checkbox>\n  </ion-item>\n\n  <ion-item>\n    <ion-label>Cook at client place</ion-label>\n    <ion-checkbox checked=data.clientcook [(ngModel)]="data.clientcook"  [ngModelOptions]="{standalone: true}" ></ion-checkbox>\n  </ion-item>\n\n  <ion-item>\n    <ion-label>Cook at chef place</ion-label>\n    <ion-checkbox checked=data.chefcook [(ngModel)]="data.chefcook" [ngModelOptions]="{standalone: true}"  ></ion-checkbox>\n  </ion-item>\n <!--[(ngModel)]="data.chefcook" [ngModelOptions]="{standalone: true}" (click)="service2(data.chefcook)"-->\n\n </ion-col>\n      \n      \n      \n      \n   <ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>COOKING TIME AT CHEF PLACE</ion-label>\n           <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm"  [(ngModel)]="data.cookingatchef" name="cookingatchef" #cookingatchef="ngModel" (click)="datetime(data.cookingatchef)" required></ion-datetime>\n          <!--<ion-input type="tel" [(ngModel)]="data.cookingatclient" required name=\'cookingatclient\' #cookingatclient="ngModel" pattern="^(0|[1-9][0-9]*)$" required></ion-input>-->\n        </ion-item>\n<!--     <div class="alert alert-danger" color="danger">\n                  <div *ngIf="cookingatchef.errors && (cookingatchef.dirty || cookingatchef.touched)">\n                    <div [hidden]="!cookingatchef.errors.required">\n                      Cooking time at chef place required\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n      </ion-row>\n      </ion-grid>\n\n\n\n\n\n          </ion-row>\n    </ion-grid>\n    </ion-list>\n \n\n<!--   <div class="latter">\n<p>AFTER SELECT PREPARATION</p>\n  </div>-->\n\n    \n<ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>COOKING TIME AT CLIENT PLACE</ion-label>\n           <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm"  [(ngModel)]="data.cookingatclient" name="cookingatclient" #cookingatclient="ngModel"  required></ion-datetime>\n          <!--<ion-input type="tel" [(ngModel)]="data.cookingatclient" required name=\'cookingatclient\' #cookingatclient="ngModel" pattern="^(0|[1-9][0-9]*)$" required></ion-input>-->\n        </ion-item>\n<!--     <div class="alert alert-danger" color="danger">\n                  <div *ngIf="cookingatclient.errors && (cookingatclient.dirty || cookingatclient.touched)">\n                    <div [hidden]="!cookingatclient.errors.required">\n                      Cooking time at client place required\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n\n<!--      <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked style="margin-top: 17px;">TAGS</ion-label>\n          <ion-textarea placeholder="e.g Paneer" [(ngModel)]="data.tags" required name=\'tags\' #tags="ngModel">Paneer</ion-textarea>\n          <span><ion-icon name="close">Paneer</ion-icon></span>\n\n          \n          \n        </ion-item>\n      </ion-col>-->\n\n\n<!--       <ion-col col-12 class="select">\n         <ion-label stacked class="why">STATUS</ion-label>\n        <ion-item>\n\n     <ion-select class="active" >\n    <ion-option value="Active">Active</ion-option>\n    <ion-option value="Deactive">Deactive</ion-option>\n\n  </ion-select>\n        </ion-item>\n      </ion-col>-->\n\n\n\n<div class="add">\n  <h2 >ADD PRODUCT IMAGE <span style="font-size: 9px;">Maximum 3 Photos</span></h2>\n<ion-grid style="padding:0;">\n  <ion-row>\n    <ion-col col-3 style="padding-left:0px;">\n      <div class="image" >\n          \n    <img *ngIf="SrcImage" class="pick0" [src]="SrcImage" >\n <img *ngIf="!SrcImage" class="pick0" src="assets/image/profile_img.png">\n  <!--<ion-icon name="create" (click)="CameraAction(0)"></ion-icon>-->\n      </div>\n      </ion-col>\n\n\n      <ion-col col-3 style="padding-left:0px;">\n      <div class="image">\n<!--          <ion-icon name="close" (click)=delimage(1)></ion-icon>-->\n   <img *ngIf="srcImage1" class="pick0" [src]="srcImage1" >\n <img *ngIf="!srcImage1" class="pick0" src="assets/image/profile_img.png">\n   <!--<ion-icon name="create" (click)="CameraAction(1)"></ion-icon>-->\n      </div>\n      </ion-col>\n\n\n      <ion-col col-3 style="padding-left:0px;">\n      <div class="image">\n          <!--<ion-icon name="close" (click)=delimage(2)></ion-icon>-->\n      <img *ngIf="srcImage2" class="pick0" [src]="srcImage2" >\n <img *ngIf="!srcImage2" class="pick0" src="assets/image/profile_img.png">\n    <!--<ion-icon name="create" (click)="CameraAction(2)"></ion-icon>-->\n      </div>\n      </ion-col>\n\n\n<ion-col col-3 style="padding-left:0px;" >\n  <div class="input-sec" (click)="CameraAction()">\n      <div class="upld">\n      \n       <ion-icon ios="ios-add" md="md-add"></ion-icon>\n      </div>\n      </div>\n      </ion-col>\n\n   \n  </ion-row>\n    \n</ion-grid>\n</div>\n  \n\n\n \n <div class="plusbtn">\n <button ion-fab mini   (click)="EditProduct(productForm)" [disabled]="!productForm.valid"><ion-icon name="add"></ion-icon></button>\n\n</div>\n  </form>\n  </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"D:\bawarchibhojnalya\src\pages\editproduct\editproduct.html"*/,
+        selector: 'page-editproduct',template:/*ion-inline-start:"D:\bawarchibhojnalya\src\pages\editproduct\editproduct.html"*/'<!--\n  Generated template for the EditproductPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-toolbar color="theme-header">\n     \n      <button ion-button start style="height: 28px;    color: #fff;    padding: 0 0 0 3px;    font-size: 12px;\n    float: left;    width: 7%; margin: 0;" start ion-button clear (click)="backtopro()"><ion-icon ios="ios-arrow-back" md="md-arrow-back" style="font-size: 2.2em;"></ion-icon></button>\n     \n    <ion-title>Edit Product</ion-title>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n<ion-content>\n    <div class="content-text">\n  <h1>Edit Product</h1>\n  </div>\n  <div class="content-sec">\n  <div class="sign">\n   <form class="form-sec" #productForm="ngForm" novalidate >\n    <ion-list>\n         <ion-grid>\n          <ion-row>\n            <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>PRODUCT NAME 1 </ion-label>\n          <ion-input type="text" [(ngModel)]="data.productname" required name=\'productname\' #productname="ngModel" required></ion-input>\n        </ion-item>\n<!--                <div class="alert alert-danger" color="danger">\n                  <div *ngIf="productname.errors && (productname.dirty || productname.touched)&& data.productname !=\'\'">\n                    <div [hidden]="!productname.errors.required">\n                      Product name is required\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n\n           <ion-col col-6 class="left">\n        <ion-item>\n          <ion-label stacked>PRODUCT PRICE </ion-label>\n          <ion-input type="number" [(ngModel)]="data.productprice" required name=\'productprice\' #productprice="ngModel"  pattern="[0-9]+(\.[0-9][0-9]?)?"  required (input)="commisioncal()"></ion-input>\n        </ion-item>\n<!--                <div class="alert alert-danger" color="danger">\n                  <div *ngIf="productprice.errors && (productprice.dirty || productprice.touched) && data.productprice !=\'\'">\n                    <div [hidden]="!productprice.errors.required">\n                      Product price required\n                    </div>\n                    <div [hidden]="!productprice.errors.pattern">\n                      Only Number allowed with 2 decimal digits maximum\n                    </div>\n                        \n                  </div>\n                </div>-->\n      </ion-col>\n\n <ion-col col-6 class="right">\n        <ion-item>\n          <ion-label stacked>RAFAHO PRICE</ion-label>\n             <ion-input type="number" [(ngModel)]="data.rafahoprice" required name=\'rafahoprice\' #rafahoprice="ngModel" [readonly]="isReadonly()" required ></ion-input>\n        </ion-item>\n      </ion-col>\n      \n\n<ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>CHEF RECEIVED</ion-label>\n             <ion-input type="number" [(ngModel)]="data.chefrecieved" required name=\'chefrecieved\' #chefrecieved="ngModel" [readonly]="isReadonly()" required ></ion-input>\n        </ion-item>\n      </ion-col>\n\n\n\n\n\n\n  <ion-col col-12 class="select left" >\n        \n        <ion-item>\n <ion-label stacked class="why">DISCOUNT PRECENTAGE</ion-label>\n     <ion-select class="active"  [(ngModel)]="data.discount" name=\'discount\' #discount="ngModel" required>\n            <ion-option value="0">0%</ion-option>\n    <ion-option value="10">10%</ion-option>\n    <ion-option value="20">20%</ion-option>\n      <ion-option value="30">30%</ion-option>\n        <ion-option value="40">40%</ion-option>\n          <ion-option value="50">50%</ion-option>\n\n  </ion-select>\n        </ion-item>\n      </ion-col>\n\n\n<div>\n  <h1 class="main">Main Dish and Accompainment</h1>\n</div>\n\n\n      <ion-col col-12 class="left right">\n<div style="position:initial !important">\n          <ion-label stacked style="margin-top: 17px;" >PRODUCT INGREDIENTS</ion-label>\n<div>\n    <rl-tag-input placeholder="+Type and Enter" [addOnBlur]=\'true\' [addOnComma]=\'true\' [addOnEnter]=\'true\' [addOnPaste]=\'true\' [(ngModel)]="tagss" [ngModelOptions]="{standalone: true}" (focusout)="onChanges(tagss)" required></rl-tag-input>\n      <!--<ion-tags-input data-tap-disabled="true" style="position:initial;" placeholder="+Ingredients" [once]="\'true\'" [(ngModel)]="tagss" [ngModelOptions]="{standalone: true}" (onChange)="onChanges($event)" (focusout)="focus($event)" required></ion-tags-input>-->\n<!--<div class="alert alert-danger" color="danger">\n                  <div *ngIf="tagss.errors && (tagss.dirty || tagss.touched)">\n                    <div [hidden]="!tagss.errors.required">\n                      Product Ingredients are required\n                    </div>\n                  </div>\n                </div>-->\n</div></div>\n      </ion-col>\n\n\n       <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>PRODUCT DESCRIPTION</ion-label>\n          <ion-textarea type="text" [(ngModel)]="data.productdesc"  name=\'productdesc\' #productdesc="ngModel" maxlength="3000"  required></ion-textarea>\n        </ion-item>\n<!--           <div class="alert alert-danger" color="danger">\n                  <div *ngIf="productdesc.errors && (productdesc.dirty || productdesc.touched)&& data.productdesc !=\'\'" >\n                    <div [hidden]="!productdesc.errors.required">\n                      Product description is required\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n   <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>DIET RESTRICTION</ion-label>\n          <ion-textarea type="text" [(ngModel)]="data.diet" required name=\'diet\' #diet="ngModel" maxlength="3000"  required></ion-textarea>\n        </ion-item>\n<!--           <div class="alert alert-danger" color="danger">\n                  <div *ngIf="diet.errors && (diet.dirty || diet.touched)&& data.diet !=\'\'" >\n                    <div [hidden]="!diet.errors.required">\n                    Diet Restriction is required\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n\n\n  <div class="maxium">\n<p style="text-align:right">Maximum 3000 letter.</p>\n  </div>\n               <ion-col col-12 class="left right">\n         \n        \n        <ion-label stacked style="margin-top: 17px;" >TAGS</ion-label>\n<div>\n      <rl-tag-input style="position:initial !important;" placeholder="+Type and Enter" [addOnBlur]=\'true\' [addOnComma]=\'true\' (onChange)="onChange(tag)"  (input)="tagslength(tag)" (focusout)="tagslength(tag)" [addOnEnter]=\'true\'\n                    [addOnPaste]=\'true\'  [(ngModel)]="tag" [ngModelOptions]="{standalone: true}" (onChange)="onChange(tag)"  (input)="tagslength(tag)" (focusout)="tagslength(tag)" [autocomplete]=\'true\' [autocompleteSelectFirstItem]=\'true\' [autocompleteMustMatch]=\'false\' [autocompleteItems]="suggestions" required></rl-tag-input>\n</div>\n\n\n          \n          \n      </ion-col>\n\n<ion-grid>\n  <ion-row>\n\n\n      <ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>MINIMUM ORDER</ion-label>\n             <ion-input type="tel" [(ngModel)]="data.minorder" required name=\'minorder\' #minorder="ngModel" pattern="^(0|[1-9][0-9]*)$" maxlength="4" required></ion-input>\n        </ion-item>\n<!--     <div class="alert alert-danger" color="danger">\n                  <div *ngIf="minorder.errors && (minorder.dirty || minorder.touched) && data.minorder !=\'\'">\n                    <div [hidden]="!minorder.errors.required">\n                      Minimum order required\n                    </div>\n                    <div [hidden]="!minorder.errors.pattern">\n                      Only number allowed\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n      \n      <ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>PRODUCT CUISINE</ion-label>\n             <ion-input type="text" [(ngModel)]="data.cuisine" required name=\'cuisine\' #cuisine="ngModel" maxlength="3000"required></ion-input>\n        </ion-item>\n<!--     <div class="alert alert-danger" color="danger">\n                  <div *ngIf="minorder.errors && (minorder.dirty || minorder.touched) && data.minorder !=\'\'">\n                    <div [hidden]="!minorder.errors.required">\n                      Minimum order required\n                    </div>\n                    <div [hidden]="!minorder.errors.pattern">\n                      Only number allowed\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n     \n      <ion-col col-12 class="left">\n     <ion-label stacked>SERVICES YOU CAN PROVIDE:</ion-label>\n \n  <ion-item>\n    <ion-label>Home Delivery</ion-label>\n    <ion-checkbox  checked=data.home [(ngModel)]="data.home" [ngModelOptions]="{standalone: true}"  ></ion-checkbox>\n  </ion-item>\n\n  <ion-item>\n    <ion-label>Cook at client place</ion-label>\n    <ion-checkbox checked=data.clientcook [(ngModel)]="data.clientcook"  [ngModelOptions]="{standalone: true}" ></ion-checkbox>\n  </ion-item>\n\n  <ion-item>\n    <ion-label>Cook at chef place</ion-label>\n    <ion-checkbox checked=data.chefcook [(ngModel)]="data.chefcook" [ngModelOptions]="{standalone: true}"  ></ion-checkbox>\n  </ion-item>\n <!--[(ngModel)]="data.chefcook" [ngModelOptions]="{standalone: true}" (click)="service2(data.chefcook)"-->\n\n </ion-col>\n      \n      \n      \n      \n   <ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>COOKING TIME AT CHEF PLACE</ion-label>\n           <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm"  [(ngModel)]="data.cookingatchef" name="cookingatchef" #cookingatchef="ngModel" (click)="datetime(data.cookingatchef)" required></ion-datetime>\n          <!--<ion-input type="tel" [(ngModel)]="data.cookingatclient" required name=\'cookingatclient\' #cookingatclient="ngModel" pattern="^(0|[1-9][0-9]*)$" required></ion-input>-->\n        </ion-item>\n<!--     <div class="alert alert-danger" color="danger">\n                  <div *ngIf="cookingatchef.errors && (cookingatchef.dirty || cookingatchef.touched)">\n                    <div [hidden]="!cookingatchef.errors.required">\n                      Cooking time at chef place required\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n      </ion-row>\n      </ion-grid>\n\n\n\n\n\n          </ion-row>\n    </ion-grid>\n    </ion-list>\n \n\n<!--   <div class="latter">\n<p>AFTER SELECT PREPARATION</p>\n  </div>-->\n\n    \n<ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>COOKING TIME AT CLIENT PLACE</ion-label>\n           <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm"  [(ngModel)]="data.cookingatclient" name="cookingatclient" #cookingatclient="ngModel"  required></ion-datetime>\n          <!--<ion-input type="tel" [(ngModel)]="data.cookingatclient" required name=\'cookingatclient\' #cookingatclient="ngModel" pattern="^(0|[1-9][0-9]*)$" required></ion-input>-->\n        </ion-item>\n<!--     <div class="alert alert-danger" color="danger">\n                  <div *ngIf="cookingatclient.errors && (cookingatclient.dirty || cookingatclient.touched)">\n                    <div [hidden]="!cookingatclient.errors.required">\n                      Cooking time at client place required\n                    </div>\n                  </div>\n                </div>-->\n      </ion-col>\n\n<!--      <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked style="margin-top: 17px;">TAGS</ion-label>\n          <ion-textarea placeholder="e.g Paneer" [(ngModel)]="data.tags" required name=\'tags\' #tags="ngModel">Paneer</ion-textarea>\n          <span><ion-icon name="close">Paneer</ion-icon></span>\n\n          \n          \n        </ion-item>\n      </ion-col>-->\n\n\n<!--       <ion-col col-12 class="select">\n         <ion-label stacked class="why">STATUS</ion-label>\n        <ion-item>\n\n     <ion-select class="active" >\n    <ion-option value="Active">Active</ion-option>\n    <ion-option value="Deactive">Deactive</ion-option>\n\n  </ion-select>\n        </ion-item>\n      </ion-col>-->\n\n\n\n<div class="add">\n  <h2 >ADD PRODUCT IMAGE <span style="font-size: 9px;">Maximum 3 Photos</span></h2>\n<ion-grid style="padding:0;">\n  <ion-row>\n    <ion-col col-3 style="padding-left:0px;">\n      <div class="image" >\n          \n    <img *ngIf="SrcImage" class="pick0" [src]="SrcImage" >\n <img *ngIf="!SrcImage" class="pick0" src="assets/image/profile_img.png">\n  <!--<ion-icon name="create" (click)="CameraAction(0)"></ion-icon>-->\n      </div>\n      </ion-col>\n\n\n      <ion-col col-3 style="padding-left:0px;">\n      <div class="image">\n<!--          <ion-icon name="close" (click)=delimage(1)></ion-icon>-->\n   <img *ngIf="srcImage1" class="pick0" [src]="srcImage1" >\n <img *ngIf="!srcImage1" class="pick0" src="assets/image/profile_img.png">\n   <!--<ion-icon name="create" (click)="CameraAction(1)"></ion-icon>-->\n      </div>\n      </ion-col>\n\n\n      <ion-col col-3 style="padding-left:0px;">\n      <div class="image">\n          <!--<ion-icon name="close" (click)=delimage(2)></ion-icon>-->\n      <img *ngIf="srcImage2" class="pick0" [src]="srcImage2" >\n <img *ngIf="!srcImage2" class="pick0" src="assets/image/profile_img.png">\n    <!--<ion-icon name="create" (click)="CameraAction(2)"></ion-icon>-->\n      </div>\n      </ion-col>\n\n\n<ion-col col-3 style="padding-left:0px;" >\n  <div class="input-sec" (click)="CameraAction()">\n      <div class="upld">\n      \n       <ion-icon ios="ios-add" md="md-add"></ion-icon>\n      </div>\n      </div>\n      </ion-col>\n\n   \n  </ion-row>\n    \n</ion-grid>\n</div>\n  \n\n\n \n <div class="plusbtn">\n <button ion-fab mini   (click)="EditProduct(productForm)" [disabled]="!productForm.valid"><ion-icon name="add"></ion-icon></button>\n\n</div>\n  </form>\n  </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"D:\bawarchibhojnalya\src\pages\editproduct\editproduct.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ToastController"],
@@ -5036,71 +5049,71 @@ var map = {
 		40
 	],
 	"../pages/addreference/addreference.module": [
-		507,
+		498,
 		39
 	],
 	"../pages/addspecialities/addspecialities.module": [
-		498,
+		502,
 		38
 	],
 	"../pages/calender/calender.module": [
-		538,
+		501,
 		37
 	],
 	"../pages/cancelorderview/cancelorderview.module": [
-		503,
+		500,
 		36
 	],
 	"../pages/cancelorderviewcalendar/cancelorderviewcalendar.module": [
-		500,
+		504,
 		35
 	],
 	"../pages/changepassword/changepassword.module": [
-		501,
+		505,
 		34
 	],
 	"../pages/chat/chat.module": [
-		504,
+		506,
 		33
 	],
 	"../pages/edit/edit.module": [
-		502,
+		503,
 		3
 	],
 	"../pages/editproduct/editproduct.module": [
-		505,
+		507,
 		32
 	],
 	"../pages/editprofile/editprofile.module": [
-		506,
+		508,
 		31
 	],
 	"../pages/editspeciality/editspeciality.module": [
-		511,
+		509,
 		30
 	],
 	"../pages/editstaff/editstaff.module": [
-		509,
+		512,
 		29
 	],
 	"../pages/extrastaff/extrastaff.module": [
-		508,
+		513,
 		28
 	],
 	"../pages/forgot/forgot.module": [
-		513,
+		514,
 		27
 	],
 	"../pages/frequentquestions/frequentquestions.module": [
-		512,
+		510,
 		26
 	],
 	"../pages/geolocation/geolocation.module": [
-		510,
+		511,
 		25
 	],
 	"../pages/help/help.module": [
-		517,
+		518,
 		24
 	],
 	"../pages/historyorderview/historyorderview.module": [
@@ -5108,35 +5121,35 @@ var map = {
 		23
 	],
 	"../pages/historyorderviewcalendar/historyorderviewcalendar.module": [
-		514,
+		516,
 		22
 	],
 	"../pages/mapmodal/mapmodal.module": [
-		519,
+		520,
 		21
 	],
 	"../pages/mapmodell/mapmodell.module": [
-		516,
+		517,
 		2
 	],
 	"../pages/neworderdate/neworderdate.module": [
-		522,
+		521,
 		20
 	],
 	"../pages/orderlist/orderlist.module": [
-		518,
+		519,
 		19
 	],
 	"../pages/orderview/orderview.module": [
-		521,
+		523,
 		18
 	],
 	"../pages/orderviewcalendar/orderviewcalendar.module": [
-		523,
+		525,
 		17
 	],
 	"../pages/payment/payment.module": [
-		520,
+		522,
 		16
 	],
 	"../pages/pendingorderdate/pendingorderdate.module": [
@@ -5148,39 +5161,39 @@ var map = {
 		15
 	],
 	"../pages/pendingorderviewcalendar/pendingorderviewcalendar.module": [
-		525,
+		527,
 		14
 	],
 	"../pages/processingform/processingform.module": [
-		529,
+		530,
 		13
 	],
 	"../pages/productlist/productlist.module": [
-		530,
+		531,
 		12
 	],
 	"../pages/profile/profile.module": [
-		534,
+		532,
 		11
 	],
 	"../pages/rafaho/rafaho.module": [
-		527,
+		528,
 		0
 	],
 	"../pages/rafahofeedback/rafahofeedback.module": [
-		528,
+		529,
 		10
 	],
 	"../pages/register/register.module": [
-		531,
+		533,
 		9
 	],
 	"../pages/signin/signin.module": [
-		533,
+		535,
 		8
 	],
 	"../pages/specialitylists/specialitylists.module": [
-		532,
+		534,
 		7
 	],
 	"../pages/stafflist/stafflist.module": [
@@ -5192,7 +5205,7 @@ var map = {
 		5
 	],
 	"../pages/term/term.module": [
-		535,
+		538,
 		4
 	]
 };
@@ -5253,10 +5266,35 @@ var TabsPage = (function () {
         this.tab4Root = __WEBPACK_IMPORTED_MODULE_4__accounts_accounts__["a" /* AccountsPage */];
         this.tab5Root = __WEBPACK_IMPORTED_MODULE_5__profile_profile__["a" /* ProfilePage */];
     }
+    TabsPage.prototype.tabIndex = function (event) {
+        console.log(event);
+        console.log('calling----' + event.srcElement);
+        var domevent = event.srcElement.parentNode.id || event.path[1].id;
+        console.log(domevent);
+        var split = domevent.split('-');
+        var target = split[2];
+        console.log(target);
+        if (target == '1') {
+            console.log('hogya');
+            this.events.publish('index', '1');
+        }
+        else if (target == '2') {
+            this.events.publish('index', '2');
+        }
+        else if (target == '3') {
+            this.events.publish('index', '3');
+        }
+        else if (target == '4') {
+            this.events.publish('index', '4');
+        }
+        else if (target == '0') {
+            this.events.publish('index', '0');
+        }
+    };
     return TabsPage;
 }());
 TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"D:\bawarchibhojnalya\src\pages\tabs\tabs.html"*/'<ion-tabs color="navyb" >\n  <ion-tab [root]="tab1Root" tabTitle="RAFAHO"  tabIcon="cls2"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="CALENDAR" tabIcon="cls3"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="CHAT" tabIcon="cls4"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle="ACCOUNTS" tabIcon="cls5"></ion-tab>\n  <ion-tab [root]="tab5Root" tabTitle="PROFILE" tabIcon="cls6"></ion-tab>\n</ion-tabs>\n\n\n\n\n'/*ion-inline-end:"D:\bawarchibhojnalya\src\pages\tabs\tabs.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"D:\bawarchibhojnalya\src\pages\tabs\tabs.html"*/'<ion-tabs color="navyb" (click)="tabIndex($event)" >\n  <ion-tab [root]="tab1Root" tabTitle="RAFAHO"  tabIcon="cls2"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="CALENDAR" tabIcon="cls3"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="CHAT" tabIcon="cls4"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle="ACCOUNTS" tabIcon="cls5"></ion-tab>\n  <ion-tab [root]="tab5Root" tabTitle="PROFILE" tabIcon="cls6"></ion-tab>\n</ion-tabs>\n\n\n\n\n'/*ion-inline-end:"D:\bawarchibhojnalya\src\pages\tabs\tabs.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["NavController"],
         __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["NavParams"],
@@ -5327,15 +5365,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ProfilePage = (function () {
-    function ProfilePage(navCtrl, navParams, http, appsetting, loadingCtrl, toastCtrl, app) {
+    function ProfilePage(navCtrl, navParams, http, appsetting, loadingCtrl, toastCtrl, events, app) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.http = http;
         this.appsetting = appsetting;
         this.loadingCtrl = loadingCtrl;
         this.toastCtrl = toastCtrl;
+        this.events = events;
         this.app = app;
-        this.Userprofile();
+        events.subscribe('index', function (res) {
+            console.log(res);
+            if (res == 4) {
+                _this.Userprofile();
+            }
+        });
     }
     ProfilePage.prototype.Userprofile = function () {
         var _this = this;
@@ -5458,6 +5503,7 @@ ProfilePage = __decorate([
         __WEBPACK_IMPORTED_MODULE_2__providers_appsetting__["a" /* Appsetting */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ToastController"],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Events"],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["App"]])
 ], ProfilePage);
 
@@ -5505,7 +5551,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var SigninPage = (function () {
     function SigninPage(navCtrl, navParams, appsetting, http, fcm, alertCtrl, toastCtrl, loadingCtrl) {
-        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.appsetting = appsetting;
@@ -5518,19 +5563,16 @@ var SigninPage = (function () {
         this.showpass = false;
         this.ptype = 'password';
         this.data = '';
-        fcm.getToken().then(function (token) {
-            _this.devicetokenn = token;
-        });
-        fcm.onNotification().subscribe(function (data) {
-            if (data.wasTapped) {
-                console.log("Received in background");
-            }
-            else {
-                console.log("Received in foreground");
-            }
-            ;
-        });
-        //    alert('updated yayyiiii');
+        //     fcm.getToken().then(token=>{
+        //     this.devicetokenn = token;
+        //     })
+        //     fcm.onNotification().subscribe(data=>{
+        //  if(data.wasTapped){
+        //    console.log("Received in background");
+        //  } else {
+        //    console.log("Received in foreground");
+        //  };
+        //})
     }
     SigninPage.prototype.Signin = function (logindata) {
         var _this = this;
@@ -5589,7 +5631,7 @@ var SigninPage = (function () {
                         }
                     }
                     else {
-                        var alert = _this.alertCtrl.create({
+                        var alert_1 = _this.alertCtrl.create({
                             title: 'RAFAHO',
                             message: response.message,
                             buttons: [
@@ -5602,7 +5644,7 @@ var SigninPage = (function () {
                                 }
                             ]
                         });
-                        alert.present();
+                        alert_1.present();
                         //      this.ToastMsg(response.message);
                         Loading.dismissAll();
                     }
@@ -5697,10 +5739,16 @@ SigninPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'page-signin',template:/*ion-inline-start:"D:\bawarchibhojnalya\src\pages\signin\signin.html"*/'<!--\n  Generated template for the SigninPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header hidden>\n\n  <ion-navbar>\n    <ion-title>Sign In</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="main">\n    <div class="top-img">\n      <img src="assets/image/ionic2-split-pane-banner.png" style="width: 100%;">\n    </div>\n    <div class="text">\n      <h2>WELCOME TO</h2>\n      <h6>RAFAHO SERVICES</h6>\n    </div>\n   \n  </div>\n\n\n\n  <div class="text-sec">\n    <h2>Sign In</h2>\n    <h3>WELCOME TO RAFAHO SERVICES</h3>\n  </div>\n  <div class="content-sec">\n    <div class="sign">\n      <form class="form-sec" #SigninForm="ngForm" (submit)="Signin(SigninForm)">\n        <ion-list>\n          <ion-item>\n            <ion-label stacked>EMAIL</ion-label>\n            <ion-input type="email" autocapitalize="none" [(ngModel)]="data.email" name=\'email\' #email="ngModel" pattern="^[a-z0-9]+(\.[_a-z0-9]+)+([@{1}])+(\.[a-z0-9-]+)+([.{1}])(\.[a-z]{1,15})$"  required></ion-input>\n          </ion-item>\n           <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="email.errors && (email.dirty || email.touched)">\n                    <div [hidden]="!email.errors.required">\n                      Email is required\n                    </div>\n                    <div [hidden]="!email.errors.pattern">\n                      Invalid email\n                    </div>\n                  </div>\n                </div>\n            <!--<div style="position:initial !important">-->\n            <div class="itemouter" style="position: initial !important;">\n          <ion-item  >\n            <ion-label stacked>PASSWORD</ion-label>\n            <ion-input  type="{{ptype}}" [(ngModel)]="data.password" #password="ngModel" name="password"  minlength="6" required></ion-input>\n            <button class="eyemain" ion-button clear type="button" color="dark" item-right>\n                    <ion-icon name="{{iconname}}" (click)="showPassword()" ></ion-icon>\n                  </button>\n          </ion-item>\n               <!--<ion-icon name="{{iconname}}" (click)="showPassword()" ></ion-icon>--> \n         			 <div class=\'red\' *ngIf="password.errors && (password.dirty || password.touched)">\n              <div [hidden]="!password.errors.required">\n                Password is required\n              </div>\n							<div [hidden]="!password.errors.minlength">\n								Password must be at least 6 digits\n							</div>\n                                         \n            </div>\n            </div>\n                \n            <!--</div>-->\n        </ion-list>\n        <div class="btn-sec">\n          <button color="danger" ion-button full type="submit" [disabled]="!SigninForm.valid">Sign In</button>\n        </div>\n      </form>\n    </div>\n    <div class="forgtpwd" (click)="forgot()">\n      <h1>Forgot password?</h1>\n    </div>\n\n\n    <div class="registerlast">\n      <h3 class="register">Don’t have an account?\n        <span (click)="register()">Register</span>\n      </h3>\n    </div>\n  </div>\n</ion-content>'/*ion-inline-end:"D:\bawarchibhojnalya\src\pages\signin\signin.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["Http"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_fcm__["a" /* FCM */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_fcm__["a" /* FCM */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ToastController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ToastController"]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]) === "function" && _h || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"],
+        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_4__angular_http__["Http"],
+        __WEBPACK_IMPORTED_MODULE_7__ionic_native_fcm__["a" /* FCM */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ToastController"],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
 ], SigninPage);
 
-var _a, _b, _c, _d, _e, _f, _g, _h;
 //# sourceMappingURL=signin.js.map
 
 /***/ }),
@@ -5800,12 +5848,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var CalenderPage = (function () {
-    function CalenderPage(navCtrl, navParams, alertCtrl, loadCtrl, appsetting, toastCtrl, http) {
+    function CalenderPage(navCtrl, navParams, alertCtrl, loadCtrl, appsetting, events, toastCtrl, http) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
         this.loadCtrl = loadCtrl;
         this.appsetting = appsetting;
+        this.events = events;
         this.toastCtrl = toastCtrl;
         this.http = http;
         this.chef = [];
@@ -5828,8 +5878,12 @@ var CalenderPage = (function () {
             current.setHours(0, 0, 0);
             return date < current;
         };
-        this.getdata();
-        //        this.loadEvents();
+        events.subscribe('index', function (res) {
+            console.log(res);
+            if (res == 1) {
+                _this.getdata();
+            }
+        });
     }
     CalenderPage.prototype.loadEvents = function () {
         console.log(this.previousdateMulti);
@@ -6123,6 +6177,7 @@ CalenderPage = __decorate([
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"],
         __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Events"],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ToastController"], __WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"]])
 ], CalenderPage);
 
@@ -6343,47 +6398,47 @@ AppModule = __decorate([
                     { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/accounts/accounts.module#AccountsPageModule', name: 'AccountsPage', segment: 'accounts', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/accountnumber/accountnumber.module#AccountnumberPageModule', name: 'AccountnumberPage', segment: 'accountnumber', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/addspecialities/addspecialities.module#AddspecialitiesPageModule', name: 'AddspecialitiesPage', segment: 'addspecialities', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/addreference/addreference.module#AddreferencePageModule', name: 'AddreferencePage', segment: 'addreference', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/addproduct/addproduct.module#AddproductPageModule', name: 'AddproductPage', segment: 'addproduct', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/cancelorderview/cancelorderview.module#CancelorderviewPageModule', name: 'CancelorderviewPage', segment: 'cancelorderview', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/calender/calender.module#CalenderPageModule', name: 'CalenderPage', segment: 'calender', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/addspecialities/addspecialities.module#AddspecialitiesPageModule', name: 'AddspecialitiesPage', segment: 'addspecialities', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/edit/edit.module#EditPageModule', name: 'EditPage', segment: 'edit', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/cancelorderviewcalendar/cancelorderviewcalendar.module#CancelorderviewcalendarPageModule', name: 'CancelorderviewcalendarPage', segment: 'cancelorderviewcalendar', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/changepassword/changepassword.module#ChangepasswordPageModule', name: 'ChangepasswordPage', segment: 'changepassword', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/edit/edit.module#EditPageModule', name: 'EditPage', segment: 'edit', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/cancelorderview/cancelorderview.module#CancelorderviewPageModule', name: 'CancelorderviewPage', segment: 'cancelorderview', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/chat/chat.module#ChatPageModule', name: 'ChatPage', segment: 'chat', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/editproduct/editproduct.module#EditproductPageModule', name: 'EditproductPage', segment: 'editproduct', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/editprofile/editprofile.module#EditprofilePageModule', name: 'EditprofilePage', segment: 'editprofile', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/addreference/addreference.module#AddreferencePageModule', name: 'AddreferencePage', segment: 'addreference', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/extrastaff/extrastaff.module#ExtrastaffPageModule', name: 'ExtrastaffPage', segment: 'extrastaff', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/editstaff/editstaff.module#EditstaffPageModule', name: 'EditstaffPage', segment: 'editstaff', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/geolocation/geolocation.module#GeolocationPageModule', name: 'GeolocationPage', segment: 'geolocation', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/editspeciality/editspeciality.module#EditspecialityPageModule', name: 'EditspecialityPage', segment: 'editspeciality', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/frequentquestions/frequentquestions.module#FrequentquestionsPageModule', name: 'FrequentquestionsPage', segment: 'frequentquestions', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/geolocation/geolocation.module#GeolocationPageModule', name: 'GeolocationPage', segment: 'geolocation', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/editstaff/editstaff.module#EditstaffPageModule', name: 'EditstaffPage', segment: 'editstaff', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/extrastaff/extrastaff.module#ExtrastaffPageModule', name: 'ExtrastaffPage', segment: 'extrastaff', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/forgot/forgot.module#SigninPageModule', name: 'ForgotPage', segment: 'forgot', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/historyorderviewcalendar/historyorderviewcalendar.module#HistoryorderviewcalendarPageModule', name: 'HistoryorderviewcalendarPage', segment: 'historyorderviewcalendar', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/historyorderview/historyorderview.module#HistoryorderviewPageModule', name: 'HistoryorderviewPage', segment: 'historyorderview', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/historyorderviewcalendar/historyorderviewcalendar.module#HistoryorderviewcalendarPageModule', name: 'HistoryorderviewcalendarPage', segment: 'historyorderviewcalendar', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/mapmodell/mapmodell.module#MapmodellPageModule', name: 'MapmodellPage', segment: 'mapmodell', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/help/help.module#HelpPageModule', name: 'HelpPage', segment: 'help', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/orderlist/orderlist.module#OrderlistPageModule', name: 'OrderlistPage', segment: 'orderlist', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/mapmodal/mapmodal.module#MapmodalPageModule', name: 'MapmodalPage', segment: 'mapmodal', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/neworderdate/neworderdate.module#NeworderdatePageModule', name: 'NeworderdatePage', segment: 'neworderdate', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/payment/payment.module#PaymentPageModule', name: 'PaymentPage', segment: 'payment', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/orderview/orderview.module#OrderviewPageModule', name: 'OrderviewPage', segment: 'orderview', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/neworderdate/neworderdate.module#NeworderdatePageModule', name: 'NeworderdatePage', segment: 'neworderdate', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/orderviewcalendar/orderviewcalendar.module#OrderviewcalendarPageModule', name: 'OrderviewcalendarPage', segment: 'orderviewcalendar', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/pendingorderdate/pendingorderdate.module#PendingorderdatePageModule', name: 'PendingorderdatePage', segment: 'pendingorderdate', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/pendingorderviewcalendar/pendingorderviewcalendar.module#PendingorderviewcalendarPageModule', name: 'PendingorderviewcalendarPage', segment: 'pendingorderviewcalendar', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/orderviewcalendar/orderviewcalendar.module#OrderviewcalendarPageModule', name: 'OrderviewcalendarPage', segment: 'orderviewcalendar', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/pendingorderview/pendingorderview.module#PendingorderviewPageModule', name: 'PendingorderviewPage', segment: 'pendingorderview', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/pendingorderviewcalendar/pendingorderviewcalendar.module#PendingorderviewcalendarPageModule', name: 'PendingorderviewcalendarPage', segment: 'pendingorderviewcalendar', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/rafaho/rafaho.module#RafahoPageModule', name: 'RafahoPage', segment: 'rafaho', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/rafahofeedback/rafahofeedback.module#RafahofeedbackPageModule', name: 'RafahofeedbackPage', segment: 'rafahofeedback', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/processingform/processingform.module#ProcessingformPageModule', name: 'ProcessingformPage', segment: 'processingform', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/productlist/productlist.module#ProductlistPageModule', name: 'ProductlistPage', segment: 'productlist', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/specialitylists/specialitylists.module#SpecialitylistsPageModule', name: 'SpecialitylistsPage', segment: 'specialitylists', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/signin/signin.module#SigninPageModule', name: 'SigninPage', segment: 'signin', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/term/term.module#TermPageModule', name: 'TermPage', segment: 'term', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/stafflist/stafflist.module#StafflistPageModule', name: 'StafflistPage', segment: 'stafflist', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/subcriptionbill/subcriptionbill.module#SubcriptionbillPageModule', name: 'SubcriptionbillPage', segment: 'subcriptionbill', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/calender/calender.module#CalenderPageModule', name: 'CalenderPage', segment: 'calender', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/term/term.module#TermPageModule', name: 'TermPage', segment: 'term', priority: 'low', defaultHistory: [] }
                 ]
             })
         ],
@@ -6941,7 +6996,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var HomePage = (function () {
-    function HomePage(navCtrl, navParams, platform, alertCtrl, loadCtrl, appsetting, toastCtrl, http) {
+    function HomePage(navCtrl, navParams, platform, alertCtrl, loadCtrl, appsetting, events, toastCtrl, http) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -6949,6 +7004,7 @@ var HomePage = (function () {
         this.alertCtrl = alertCtrl;
         this.loadCtrl = loadCtrl;
         this.appsetting = appsetting;
+        this.events = events;
         this.toastCtrl = toastCtrl;
         this.http = http;
         this.notavail = 0;
@@ -6965,6 +7021,10 @@ var HomePage = (function () {
         this.canceledorders = [];
         this.users1 = [];
         this.users2 = [];
+        this.activeorder();
+        this.pendingorder();
+        this.historyorder();
+        this.canceledorder();
         this.platform.ready().then(function () {
             var lastTimeBackPress = 0;
             var timePeriodToExit = 2000;
@@ -6986,11 +7046,16 @@ var HomePage = (function () {
                 }
             });
         });
+        events.subscribe('index', function (res) {
+            console.log(res);
+            if (res == 0) {
+                _this.activeorder();
+                _this.pendingorder();
+                _this.historyorder();
+                _this.canceledorder();
+            }
+        });
         this.pet = "ACTIVEORDER";
-        this.activeorder();
-        this.pendingorder();
-        this.historyorder();
-        this.canceledorder();
         //    alert('ajksdfh');
     }
     HomePage.prototype.doRefresh = function (refresher) {
@@ -7413,6 +7478,7 @@ HomePage = __decorate([
         __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["AlertController"],
         __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["LoadingController"],
         __WEBPACK_IMPORTED_MODULE_7__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["Events"],
         __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["ToastController"], __WEBPACK_IMPORTED_MODULE_6__angular_http__["Http"]])
 ], HomePage);
 
@@ -7584,6 +7650,27 @@ var AddproductPage = AddproductPage_1 = (function () {
             console.log(_this.suggestions);
         });
     };
+    AddproductPage.prototype.onKeydown = function (event) {
+        if (event.key === "a") {
+            console.log(event);
+        }
+    };
+    //onKeydown(events,tagi){
+    //    alert(events);
+    //     console.log(tagi);
+    //      console.log(this.tag);
+    //      if(tagi.length > 8){
+    //            let toast = this.toastCtrl.create({
+    //      message: 'Only 8 tags can be added',
+    //      duration: 2000,
+    //      position: 'middle'
+    //    });
+    //    toast.present();
+    //          tagi.pop()
+    //     this.tag = tagi;
+    //     this.tag = tagi
+    //      }
+    //}
     AddproductPage.prototype.getcommision = function () {
         var _this = this;
         var headers = new __WEBPACK_IMPORTED_MODULE_7__angular_http__["Headers"]();
@@ -8061,7 +8148,7 @@ var AddproductPage = AddproductPage_1 = (function () {
 }());
 AddproductPage = AddproductPage_1 = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-        selector: 'page-addproduct',template:/*ion-inline-start:"D:\bawarchibhojnalya\src\pages\addproduct\addproduct.html"*/'<!--\n  Generated template for the AddproductPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-toolbar color="theme-header">\n     \n      <button ion-button start style="height: 20px;    color: #fff;    padding: 0 0 0 3px;    font-size: 12px;\n    float: left;    width: 7%; margin: 0;" start ion-button clear (click)="backtopro()"><ion-icon ios="ios-arrow-back" md="md-arrow-back" style="font-size: 2.2em;"></ion-icon></button>\n     \n    <ion-title>Add Product</ion-title>\n\n  </ion-toolbar>\n  \n</ion-header>\n\n<ion-content>\n    <div class="content-text">\n  <h1>Add Product</h1>\n  </div>\n  <div class="content-sec">\n  <div class="sign">\n   <form class="form-sec" #productForm="ngForm" novalidate >\n    <ion-list>\n         <ion-grid>\n          <ion-row>\n            <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>PRODUCT NAME 1 </ion-label>\n          <ion-input type="text" [(ngModel)]="data.productname" required name=\'productname\' #productname="ngModel" required></ion-input>\n        </ion-item>\n                <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="productname.errors && (productname.dirty || productname.touched)&& data.productname !=\'\'">\n                    <div [hidden]="!productname.errors.required">\n                      Product name is required\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n\n           <ion-col col-6 class="left">\n        <ion-item>\n          <ion-label stacked>PRODUCT PRICE </ion-label>\n          <ion-input type="tel" [(ngModel)]="data.productprice" required name=\'productprice\' #productprice="ngModel"  pattern="[0-9]+(\.[0-9][0-9]?)?"  required (input)="commisioncal()"></ion-input>\n        </ion-item>\n                <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="productprice.errors && (productprice.dirty || productprice.touched) && data.productprice !=\'\'">\n                    <div [hidden]="!productprice.errors.required">\n                      Product price required\n                    </div>\n                    <div [hidden]="!productprice.errors.pattern">\n                      Only Number allowed with 2 decimal digits maximum\n                    </div>\n                        \n                  </div>\n                </div>\n      </ion-col>\n\n      <ion-col col-6 class="right">\n        <ion-item>\n          <ion-label stacked>RAFAHO PRICE</ion-label>\n             <ion-input type="text" [(ngModel)]="data.rafahoprice" required name=\'rafahoprice\' #rafahoprice="ngModel" [readonly]="isReadonly()" required ></ion-input>\n        </ion-item>\n      </ion-col>\n      \n\n<ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>CHEF RECEIVED</ion-label>\n             <ion-input type="text" [(ngModel)]="data.chefrecieved" required name=\'chefrecieved\' #chefrecieved="ngModel" [readonly]="isReadonly()" required ></ion-input>\n        </ion-item>\n      </ion-col>\n\n\n\n\n\n\n  <ion-col col-12 class="select left" >\n        \n        <ion-item>\n <ion-label stacked class="why">DISCOUNT PRECENTAGE</ion-label>\n     <ion-select class="active"  [(ngModel)]="data.discount" name=\'discount\' #discount="ngModel" required>\n          <ion-option value="0">0%</ion-option>\n    <ion-option value="10">10%</ion-option>\n    <ion-option value="20">20%</ion-option>\n      <ion-option value="30">30%</ion-option>\n        <ion-option value="40">40%</ion-option>\n          <ion-option value="50">50%</ion-option>\n\n  </ion-select>\n        </ion-item>\n      </ion-col>\n\n\n<div>\n  <h1 class="main">Main Dish and Accompainment</h1>\n</div>\n\n\n      <ion-col col-12 class="left right">\n<!--        <ion-item>\n          <ion-label stacked>PRODUCT INGREDIENTS</ion-label>\n          <ion-input type="text" [(ngModel)]="data.productingredients" required name=\'productingredients\' #productingredients="ngModel" required></ion-input>\n        </ion-item>\n          <div class="alert alert-danger" color="danger">\n                  <div *ngIf="productingredients.errors && (productingredients.dirty || productingredients.touched) && data.productingredients !=\'\'">\n                    <div [hidden]="!productingredients.errors.required">\n                      Product ingredients are required\n                    </div>\n                  </div>\n                </div>-->\n          <ion-label stacked>PRODUCT INGREDIENTS</ion-label>\n<div>\n    <rl-tag-input placeholder="+Ingredients" [addOnBlur]=\'true\' [addOnComma]=\'true\' [addOnEnter]=\'true\' [addOnPaste]=\'true\' [(ngModel)]="tagss" [ngModelOptions]="{standalone: true}" (focusout)="onChanges(tagss)" required></rl-tag-input>\n<div class="alert alert-danger red" color="danger">\n                  <div *ngIf="tagss.errors && (tagss.dirty || tagss.touched)">\n                    <div [hidden]="!tagss.errors.required">\n                      Product Ingredients are required\n                    </div>\n                  </div>\n                </div>\n</div>\n      </ion-col>\n\n     <ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>MINIMUM ORDER</ion-label>\n             <ion-input type="tel" [(ngModel)]="data.minorder" required name=\'minorder\' #minorder="ngModel" pattern="^(0|[1-9][0-9]*)$" maxlength="4" required></ion-input>\n        </ion-item>\n     <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="minorder.errors && (minorder.dirty || minorder.touched) && data.minorder !=\'\'">\n                    <div [hidden]="!minorder.errors.required">\n                      Minimum order required\n                    </div>\n                    <div [hidden]="!minorder.errors.pattern">\n                      Only number allowed\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n       <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>PRODUCT CUISINE</ion-label>\n          <ion-input type="text" [(ngModel)]="data.cuisine" required name=\'cuisine\' #cuisine="ngModel" maxlength="3000"  required></ion-input>\n        </ion-item>\n           <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="cuisine.errors && (cuisine.dirty || cuisine.touched)&& data.cuisine !=\'\'" >\n                    <div [hidden]="!cuisine.errors.required">\n                      Cuisine is required\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n              <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>PRODUCT DESCRIPTION</ion-label>\n          <ion-textarea  [(ngModel)]="data.productdesc" required name=\'productdesc\' #productdesc="ngModel" maxlength="3000"  required></ion-textarea>\n        </ion-item>\n           <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="productdesc.errors && (productdesc.dirty || productdesc.touched)&& data.productdesc !=\'\'" >\n                    <div [hidden]="!productdesc.errors.required">\n                      Product description is required\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n   <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>DIET RESTRICTION</ion-label>\n          <ion-textarea type="text" [(ngModel)]="data.diet" required name=\'diet\' #diet="ngModel" maxlength="3000"  required></ion-textarea>\n        </ion-item>\n           <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="diet.errors && (diet.dirty || diet.touched)&& data.diet !=\'\'" >\n                    <div [hidden]="!diet.errors.required">\n                    Diet Restriction is required\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n\n\n  <div class="maxium">\n<p style="text-align:right">Maximum 3000 letter.</p>\n  </div>\n               <ion-col col-12 class="left right" style="position: initial !important;">\n\n         \n            \n        <ion-label stacked>TAGS</ion-label>\n        <rl-tag-input  [addOnBlur]=\'true\' [addOnComma]=\'true\' [addOnEnter]=\'true\' [addOnPaste]=\'true\' [(ngModel)]="tag" [ngModelOptions]="{standalone: true}" (onChange)="onChange(tag)"  (input)="tagslength(tag)" (focusout)="tagslength(tag)" [autocomplete]=\'true\' [autocompleteSelectFirstItem]=\'true\' [autocompleteMustMatch]=\'false\' [autocompleteItems]="suggestions" required></rl-tag-input>\n\n      \n<!--            <div class="tag-container">\n    <span class="tag" *ngFor="let tag of tags">\n      {{ tag }}\n      <ion-icon name="close" (click)="deleteTag(tag)"></ion-icon>\n    </span>\n  </div>-->\n\n  \n          \n          <!--<tags-input formControlName="animals"></tags-input>-->\n          <!--<input name="hashtags" type="tags" pattern="^#" placeholder="#hashtags">-->\n          <!--<ion-textarea  type="text" name="tags-input" placeholder="e.g Paneer"> <span><ion-icon name="close">Paneer</ion-icon></span></ion-textarea>-->\n<!--          <ion-textarea placeholder="e.g Paneer" [(ngModel)]="data.tags | TagModel" required name=\'tags\' #tags="ngModel">Paneer</ion-textarea>-->\n         \n\n          \n          \n      </ion-col>\n\n\n<ion-grid>\n  <ion-row>\n\n<ion-col col-12 class="left">\n     <ion-label stacked>SERVICES YOU CAN PROVIDE:</ion-label>\n \n  <ion-item>\n    <ion-label>Home Delivery</ion-label>\n    <ion-checkbox [(ngModel)]="data.home" [ngModelOptions]="{standalone: true}" (click)="service(data.home)" ></ion-checkbox>\n  </ion-item>\n\n  <ion-item>\n    <ion-label>Cook at client place</ion-label>\n    <ion-checkbox [(ngModel)]="data.clientcook"  [ngModelOptions]="{standalone: true}" (click)="service1(data.clientcook)"></ion-checkbox>\n  </ion-item>\n\n  <ion-item>\n    <ion-label>Cook at chef place</ion-label>\n    <ion-checkbox [(ngModel)]="data.chefcook" [ngModelOptions]="{standalone: true}" (click)="service2(data.chefcook)"></ion-checkbox>\n  </ion-item>\n\n\n </ion-col>\n\n\n     \n\n   <ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>COOKING TIME AT CHEF PLACE</ion-label>\n           <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm"  [(ngModel)]="data.cookingatchef" name="cookingatchef" #cookingatchef="ngModel"  required></ion-datetime>\n          <!--<ion-input type="tel" [(ngModel)]="data.cookingatclient" required name=\'cookingatclient\' #cookingatclient="ngModel" pattern="^(0|[1-9][0-9]*)$" required></ion-input>-->\n        </ion-item>\n     <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="cookingatchef.errors && (cookingatchef.dirty || cookingatchef.touched)">\n                    <div [hidden]="!cookingatchef.errors.required">\n                      Cooking time at chef place required\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n      </ion-row>\n      </ion-grid>\n\n\n\n\n\n          </ion-row>\n    </ion-grid>\n    </ion-list>\n \n\n<!--   <div class="latter">\n<p>AFTER SELECT PREPARATION</p>\n  </div>-->\n\n    \n<ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>COOKING TIME AT CLIENT PLACE</ion-label>\n           <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm"  [(ngModel)]="data.cookingatclient" name="cookingatclient" #cookingatclient="ngModel"  required></ion-datetime>\n          <!--<ion-input type="tel" [(ngModel)]="data.cookingatclient" required name=\'cookingatclient\' #cookingatclient="ngModel" pattern="^(0|[1-9][0-9]*)$" required></ion-input>-->\n        </ion-item>\n     <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="cookingatclient.errors && (cookingatclient.dirty || cookingatclient.touched)">\n                    <div [hidden]="!cookingatclient.errors.required">\n                      Cooking time at client place required\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n\n<!--      <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked style="margin-top: 17px;">TAGS</ion-label>\n          <ion-textarea placeholder="e.g Paneer" [(ngModel)]="data.tags" required name=\'tags\' #tags="ngModel">Paneer</ion-textarea>\n          <span><ion-icon name="close">Paneer</ion-icon></span>\n\n          \n          \n        </ion-item>\n      </ion-col>-->\n\n\n<!--       <ion-col col-12 class="select">\n         <ion-label stacked class="why">STATUS</ion-label>\n        <ion-item>\n\n     <ion-select class="active" >\n    <ion-option value="Active">Active</ion-option>\n    <ion-option value="Deactive">Deactive</ion-option>\n\n  </ion-select>\n        </ion-item>\n      </ion-col>-->\n\n\n\n<div class="add">\n  <h2 >ADD PRODUCT IMAGE <span style="font-size: 11px;">Maximum 3 Photos</span></h2>\n   <button *ngIf="bit<=2" type="button" (click)="CameraAction()" style="margin-top:5px;"><ion-icon name="add" style="font-size: 2.2em;"></ion-icon></button>\n<ion-grid style="padding:0;" *ngIf="arr.length>0">\n  <ion-row>\n      <ion-col col-3 style="padding-left:0px;"  *ngFor = "let ar of arr;let i = index">\n      <div class="image"  >\n      <img class="pick0" src="{{ar}}">\n      <!--<ion-icon name="close" (click)="delimage(i)"></ion-icon>-->\n <!--<img *ngIf="!srcImage" class="pick0" src="assets/image/profile_img.png">-->\n      </div>\n      </ion-col>\n\n\n<!--      <ion-col col-3 style="padding-left:0px;">\n      <div class="image">\n   <img *ngIf="srcImage1" class="pick0" [src]="srcImage1" >\n <img *ngIf="!srcImage1" class="pick0" src="assets/image/profile_img.png">\n      </div>\n      </ion-col>-->\n\n\n<!--      <ion-col col-3 style="padding-left:0px;">\n      <div class="image">\n      <img *ngIf="srcImage2" class="pick0" [src]="srcImage2" >\n <img *ngIf="!srcImage2" class="pick0" src="assets/image/profile_img.png">\n      </div>\n      </ion-col>-->\n\n\n\n   \n  </ion-row>\n    \n</ion-grid>\n  \n<!--<ion-col col-3 style="padding-left:0px;"  *ngIf="bit<=2">\n  <div class="input-sec" (click)="CameraAction()">\n      <div class="upld">\n      \n       <ion-icon ios="ios-add" md="md-add"></ion-icon>\n      </div>\n      </div>\n      </ion-col>-->\n</div>\n  \n\n\n \n <div class="plusbtn">\n <button ion-fab mini   (click)="AddProduct(productForm)" [disabled]="!productForm.valid"><ion-icon name="add"></ion-icon></button>\n\n</div>\n  </form>\n  </div>\n  </div>\n</ion-content>\n\n\n\n<!--<ion-footer>\n  <ion-toolbar >\n      <button ion-button full (click)="subcriptionbill()" color="theme-header">Done</button>\n  </ion-toolbar>\n</ion-footer>-->\n'/*ion-inline-end:"D:\bawarchibhojnalya\src\pages\addproduct\addproduct.html"*/,
+        selector: 'page-addproduct',template:/*ion-inline-start:"D:\bawarchibhojnalya\src\pages\addproduct\addproduct.html"*/'<!--\n  Generated template for the AddproductPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-toolbar color="theme-header">\n     \n      <button ion-button start style="height: 20px;    color: #fff;    padding: 0 0 0 3px;    font-size: 12px;\n    float: left;    width: 7%; margin: 0;" start ion-button clear (click)="backtopro()"><ion-icon ios="ios-arrow-back" md="md-arrow-back" style="font-size: 2.2em;"></ion-icon></button>\n     \n    <ion-title>Add Product</ion-title>\n\n  </ion-toolbar>\n  \n</ion-header>\n\n<ion-content>\n    <div class="content-text">\n  <h1>Add Product</h1>\n  </div>\n  <div class="content-sec">\n  <div class="sign">\n   <form class="form-sec" #productForm="ngForm" novalidate >\n    <ion-list>\n         <ion-grid>\n          <ion-row>\n            <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>PRODUCT NAME 1 </ion-label>\n          <ion-input type="text" [(ngModel)]="data.productname" required name=\'productname\' #productname="ngModel" required></ion-input>\n        </ion-item>\n                <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="productname.errors && (productname.dirty || productname.touched)&& data.productname !=\'\'">\n                    <div [hidden]="!productname.errors.required">\n                      Product name is required\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n\n           <ion-col col-6 class="left">\n        <ion-item>\n          <ion-label stacked>PRODUCT PRICE </ion-label>\n          <ion-input type="tel" [(ngModel)]="data.productprice" required name=\'productprice\' #productprice="ngModel"  pattern="[0-9]+(\.[0-9][0-9]?)?"  required (input)="commisioncal()"></ion-input>\n        </ion-item>\n                <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="productprice.errors && (productprice.dirty || productprice.touched) && data.productprice !=\'\'">\n                    <div [hidden]="!productprice.errors.required">\n                      Product price required\n                    </div>\n                    <div [hidden]="!productprice.errors.pattern">\n                      Only Number allowed with 2 decimal digits maximum\n                    </div>\n                        \n                  </div>\n                </div>\n      </ion-col>\n\n      <ion-col col-6 class="right">\n        <ion-item>\n          <ion-label stacked>RAFAHO PRICE</ion-label>\n             <ion-input type="text" [(ngModel)]="data.rafahoprice" required name=\'rafahoprice\' #rafahoprice="ngModel" [readonly]="isReadonly()" required ></ion-input>\n        </ion-item>\n      </ion-col>\n      \n\n<ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>CHEF RECEIVED</ion-label>\n             <ion-input type="text" [(ngModel)]="data.chefrecieved" required name=\'chefrecieved\' #chefrecieved="ngModel" [readonly]="isReadonly()" required ></ion-input>\n        </ion-item>\n      </ion-col>\n\n\n\n\n\n\n  <ion-col col-12 class="select left" >\n        \n        <ion-item>\n <ion-label stacked class="why">DISCOUNT PRECENTAGE</ion-label>\n     <ion-select class="active"  [(ngModel)]="data.discount" name=\'discount\' #discount="ngModel" required>\n          <ion-option value="0">0%</ion-option>\n    <ion-option value="10">10%</ion-option>\n    <ion-option value="20">20%</ion-option>\n      <ion-option value="30">30%</ion-option>\n        <ion-option value="40">40%</ion-option>\n          <ion-option value="50">50%</ion-option>\n\n  </ion-select>\n        </ion-item>\n      </ion-col>\n\n\n<div>\n  <h1 class="main">Main Dish and Accompainment</h1>\n</div>\n\n\n      <ion-col col-12 class="left right">\n<!--        <ion-item>\n          <ion-label stacked>PRODUCT INGREDIENTS</ion-label>\n          <ion-input type="text" [(ngModel)]="data.productingredients" required name=\'productingredients\' #productingredients="ngModel" required></ion-input>\n        </ion-item>\n          <div class="alert alert-danger" color="danger">\n                  <div *ngIf="productingredients.errors && (productingredients.dirty || productingredients.touched) && data.productingredients !=\'\'">\n                    <div [hidden]="!productingredients.errors.required">\n                      Product ingredients are required\n                    </div>\n                  </div>\n                </div>-->\n          <ion-label stacked>PRODUCT INGREDIENTS</ion-label>\n<div>\n    <rl-tag-input placeholder="+Type and Enter" [addOnBlur]=\'true\' [addOnComma]=\'true\' [addOnEnter]=\'true\' [addOnPaste]=\'true\' [(ngModel)]="tagss" [ngModelOptions]="{standalone: true}" (focusout)="onChanges(tagss)" required></rl-tag-input>\n<div class="alert alert-danger red" color="danger">\n                  <div *ngIf="tagss.errors && (tagss.dirty || tagss.touched)">\n                    <div [hidden]="!tagss.errors.required">\n                      Product Ingredients are required\n                    </div>\n                  </div>\n                </div>\n</div>\n      </ion-col>\n\n     <ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>MINIMUM ORDER</ion-label>\n             <ion-input type="tel" [(ngModel)]="data.minorder" required name=\'minorder\' #minorder="ngModel" pattern="^(0|[1-9][0-9]*)$" maxlength="4" required></ion-input>\n        </ion-item>\n     <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="minorder.errors && (minorder.dirty || minorder.touched) && data.minorder !=\'\'">\n                    <div [hidden]="!minorder.errors.required">\n                      Minimum order required\n                    </div>\n                    <div [hidden]="!minorder.errors.pattern">\n                      Only number allowed\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n       <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>PRODUCT CUISINE</ion-label>\n          <ion-input type="text" [(ngModel)]="data.cuisine" required name=\'cuisine\' #cuisine="ngModel" maxlength="3000"  required></ion-input>\n        </ion-item>\n           <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="cuisine.errors && (cuisine.dirty || cuisine.touched)&& data.cuisine !=\'\'" >\n                    <div [hidden]="!cuisine.errors.required">\n                      Cuisine is required\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n              <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>PRODUCT DESCRIPTION</ion-label>\n          <ion-textarea  [(ngModel)]="data.productdesc" required name=\'productdesc\' #productdesc="ngModel" maxlength="3000"  required></ion-textarea>\n        </ion-item>\n           <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="productdesc.errors && (productdesc.dirty || productdesc.touched)&& data.productdesc !=\'\'" >\n                    <div [hidden]="!productdesc.errors.required">\n                      Product description is required\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n   <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>DIET RESTRICTION</ion-label>\n          <ion-textarea type="text" [(ngModel)]="data.diet" required name=\'diet\' #diet="ngModel" maxlength="3000"  ></ion-textarea>\n        </ion-item>\n           <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="diet.errors && (diet.dirty || diet.touched)&& data.diet !=\'\'" >\n                    <div [hidden]="!diet.errors.required">\n                    Diet Restriction is required\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n\n\n  <div class="maxium">\n<p style="text-align:right">Maximum 3000 letter.</p>\n  </div>\n               <ion-col col-12 class="left right" style="position: initial !important;">\n\n         \n            \n        <ion-label stacked>TAGS</ion-label>\n        <rl-tag-input  placeholder="+Type and Enter"\n            [addOnBlur]=\'true\' [addOnComma]=\'true\' [addOnEnter]=\'true\' (keydown)="onKeydown($event)" [addOnPaste]=\'true\' [(ngModel)]="tag" \n            [ngModelOptions]="{standalone: true}" (onChange)="onChange(tag)"  \n            (input)="tagslength(tag)" (focusout)="tagslength(tag)" [autocomplete]=\'true\' [autocompleteSelectFirstItem]=\'true\'\n            [autocompleteMustMatch]=\'false\' [autocompleteItems]="suggestions" required></rl-tag-input>\n\n      \n<!--            <div class="tag-container">\n    <span class="tag" *ngFor="let tag of tags">\n      {{ tag }}\n      <ion-icon name="close" (click)="deleteTag(tag)"></ion-icon>\n    </span>\n  </div>-->\n\n  \n          \n          <!--<tags-input formControlName="animals"></tags-input>-->\n          <!--<input name="hashtags" type="tags" pattern="^#" placeholder="#hashtags">-->\n          <!--<ion-textarea  type="text" name="tags-input" placeholder="e.g Paneer"> <span><ion-icon name="close">Paneer</ion-icon></span></ion-textarea>-->\n<!--          <ion-textarea placeholder="e.g Paneer" [(ngModel)]="data.tags | TagModel" required name=\'tags\' #tags="ngModel">Paneer</ion-textarea>-->\n         \n\n          \n          \n      </ion-col>\n\n\n<ion-grid>\n  <ion-row>\n\n<ion-col col-12 class="left">\n     <ion-label stacked>SERVICES YOU CAN PROVIDE:</ion-label>\n \n  <ion-item>\n    <ion-label>Home Delivery</ion-label>\n    <ion-checkbox [(ngModel)]="data.home" [ngModelOptions]="{standalone: true}" (click)="service(data.home)" ></ion-checkbox>\n  </ion-item>\n\n  <ion-item>\n    <ion-label>Cook at client place</ion-label>\n    <ion-checkbox [(ngModel)]="data.clientcook"  [ngModelOptions]="{standalone: true}" (click)="service1(data.clientcook)"></ion-checkbox>\n  </ion-item>\n\n  <ion-item>\n    <ion-label>Cook at chef place</ion-label>\n    <ion-checkbox [(ngModel)]="data.chefcook" [ngModelOptions]="{standalone: true}" (click)="service2(data.chefcook)"></ion-checkbox>\n  </ion-item>\n\n\n </ion-col>\n\n\n     \n\n   <ion-col col-12 class="left">\n        <ion-item>\n          <ion-label stacked>COOKING TIME AT CHEF PLACE</ion-label>\n           <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm"  [(ngModel)]="data.cookingatchef" name="cookingatchef" #cookingatchef="ngModel"  required></ion-datetime>\n          <!--<ion-input type="tel" [(ngModel)]="data.cookingatclient" required name=\'cookingatclient\' #cookingatclient="ngModel" pattern="^(0|[1-9][0-9]*)$" required></ion-input>-->\n        </ion-item>\n     <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="cookingatchef.errors && (cookingatchef.dirty || cookingatchef.touched)">\n                    <div [hidden]="!cookingatchef.errors.required">\n                      Cooking time at chef place required\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n      </ion-row>\n      </ion-grid>\n\n\n\n\n\n          </ion-row>\n    </ion-grid>\n    </ion-list>\n \n\n<!--   <div class="latter">\n<p>AFTER SELECT PREPARATION</p>\n  </div>-->\n\n    \n<ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked>COOKING TIME AT CLIENT PLACE</ion-label>\n           <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm"  [(ngModel)]="data.cookingatclient" name="cookingatclient" #cookingatclient="ngModel"  required></ion-datetime>\n          <!--<ion-input type="tel" [(ngModel)]="data.cookingatclient" required name=\'cookingatclient\' #cookingatclient="ngModel" pattern="^(0|[1-9][0-9]*)$" required></ion-input>-->\n        </ion-item>\n     <div class="alert alert-danger red" color="danger">\n                  <div *ngIf="cookingatclient.errors && (cookingatclient.dirty || cookingatclient.touched)">\n                    <div [hidden]="!cookingatclient.errors.required">\n                      Cooking time at client place required\n                    </div>\n                  </div>\n                </div>\n      </ion-col>\n\n<!--      <ion-col col-12 class="left right">\n        <ion-item>\n          <ion-label stacked style="margin-top: 17px;">TAGS</ion-label>\n          <ion-textarea placeholder="e.g Paneer" [(ngModel)]="data.tags" required name=\'tags\' #tags="ngModel">Paneer</ion-textarea>\n          <span><ion-icon name="close">Paneer</ion-icon></span>\n\n          \n          \n        </ion-item>\n      </ion-col>-->\n\n\n<!--       <ion-col col-12 class="select">\n         <ion-label stacked class="why">STATUS</ion-label>\n        <ion-item>\n\n     <ion-select class="active" >\n    <ion-option value="Active">Active</ion-option>\n    <ion-option value="Deactive">Deactive</ion-option>\n\n  </ion-select>\n        </ion-item>\n      </ion-col>-->\n\n\n\n<div class="add">\n  <h2 >ADD PRODUCT IMAGE <span style="font-size: 11px;">Maximum 3 Photos</span></h2>\n   <button *ngIf="bit<=2" type="button" (click)="CameraAction()" style="margin-top:5px;"><ion-icon name="add" style="font-size: 2.2em;"></ion-icon></button>\n<ion-grid style="padding:0;" *ngIf="arr.length>0">\n  <ion-row>\n      <ion-col col-3 style="padding-left:0px;"  *ngFor = "let ar of arr;let i = index">\n      <div class="image"  >\n      <img class="pick0" src="{{ar}}">\n      <!--<ion-icon name="close" (click)="delimage(i)"></ion-icon>-->\n <!--<img *ngIf="!srcImage" class="pick0" src="assets/image/profile_img.png">-->\n      </div>\n      </ion-col>\n\n\n<!--      <ion-col col-3 style="padding-left:0px;">\n      <div class="image">\n   <img *ngIf="srcImage1" class="pick0" [src]="srcImage1" >\n <img *ngIf="!srcImage1" class="pick0" src="assets/image/profile_img.png">\n      </div>\n      </ion-col>-->\n\n\n<!--      <ion-col col-3 style="padding-left:0px;">\n      <div class="image">\n      <img *ngIf="srcImage2" class="pick0" [src]="srcImage2" >\n <img *ngIf="!srcImage2" class="pick0" src="assets/image/profile_img.png">\n      </div>\n      </ion-col>-->\n\n\n\n   \n  </ion-row>\n    \n</ion-grid>\n  \n<!--<ion-col col-3 style="padding-left:0px;"  *ngIf="bit<=2">\n  <div class="input-sec" (click)="CameraAction()">\n      <div class="upld">\n      \n       <ion-icon ios="ios-add" md="md-add"></ion-icon>\n      </div>\n      </div>\n      </ion-col>-->\n</div>\n  \n\n\n \n <div class="plusbtn">\n <button ion-fab mini   (click)="AddProduct(productForm)" [disabled]="!productForm.valid"><ion-icon name="add"></ion-icon></button>\n\n</div>\n  </form>\n  </div>\n  </div>\n</ion-content>\n\n\n\n<!--<ion-footer>\n  <ion-toolbar >\n      <button ion-button full (click)="subcriptionbill()" color="theme-header">Done</button>\n  </ion-toolbar>\n</ion-footer>-->\n'/*ion-inline-end:"D:\bawarchibhojnalya\src\pages\addproduct\addproduct.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"],
         __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ToastController"],
@@ -9759,7 +9846,7 @@ var ProductlistPage = (function () {
 }());
 ProductlistPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-productlist',template:/*ion-inline-start:"D:\bawarchibhojnalya\src\pages\productlist\productlist.html"*/'<!--\n  Generated template for the ProductlistPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n<ion-toolbar color="theme-header">\n    <button style="height:28px; color: #fff; padding: 0 0 0 3px; font-size: 2.7rem;" start ion-button clear (click)="backtoprofile()"><ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon></button>\n    <ion-title>PRODUCT LIST</ion-title>\n    <ion-buttons end>\n        <button ion-button icon-only clear class="btnprofile" (click)="addpro()"> <ion-icon name="add" style="font-size: 2.2em;" ></ion-icon></button>\n    </ion-buttons>\n<!--    <ion-icon  ios="ios-add" md="md-add"  (click)="add()"></ion-icon>-->\n  </ion-toolbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list >\n    <ion-item *ngFor="let dat of products" >\n      <ion-thumbnail item-start>\n         <img [src]="dat.product_image0">\n\n      </ion-thumbnail>\n        <h2 > {{dat?.product_name}}<span (click)="editpro(dat)" ><ion-icon name="create"></ion-icon>\n</span></h2>\n        <p>Cuisine:{{dat?.cuisine}} </p>\n     <p>Price:${{dat?.product_price}}<span (click)="ndelete(dat?._id)"> <ion-icon name="trash"></ion-icon> </span></p>\n<!--    <p item-end class="rightp"  (click)="edit(dat)">Edit Info</p>-->\n<!--     <p item-end class="rightp"  >Delete</p>-->\n    </ion-item>\n  \n  \n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\bawarchibhojnalya\src\pages\productlist\productlist.html"*/,
+        selector: 'page-productlist',template:/*ion-inline-start:"D:\bawarchibhojnalya\src\pages\productlist\productlist.html"*/'<!--\n  Generated template for the ProductlistPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n<ion-toolbar color="theme-header">\n    <button style="height:28px; color: #fff; padding: 0 0 0 3px; font-size: 2.7rem;" start ion-button clear (click)="backtoprofile()"><ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon></button>\n    <ion-title>PRODUCT LIST</ion-title>\n    <ion-buttons end>\n        <button ion-button icon-only clear class="btnprofile" (click)="addpro()"> <ion-icon name="add" style="font-size: 2.2em;" ></ion-icon></button>\n    </ion-buttons>\n<!--    <ion-icon  ios="ios-add" md="md-add"  (click)="add()"></ion-icon>-->\n  </ion-toolbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list >\n    <ion-item *ngFor="let dat of products" >\n      <ion-thumbnail item-start>\n         <img [src]="dat.product_image0">\n\n      </ion-thumbnail>\n        <h2 > {{dat?.product_name}}<span (click)="editpro(dat)" ><ion-icon name="create"></ion-icon>\n</span></h2>\n        <p>Cuisine:{{dat?.cuisine}} </p>\n     <p>Price:${{dat?.product_price| number}}<span (click)="ndelete(dat?._id)"> <ion-icon name="trash"></ion-icon> </span></p>\n<!--    <p item-end class="rightp"  (click)="edit(dat)">Edit Info</p>-->\n<!--     <p item-end class="rightp"  >Delete</p>-->\n    </ion-item>\n  \n  \n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\bawarchibhojnalya\src\pages\productlist\productlist.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"],

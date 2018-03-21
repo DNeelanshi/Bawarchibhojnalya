@@ -45,7 +45,7 @@
            <ion-col col-6 class="left">
         <ion-item>
           <ion-label stacked>PRODUCT PRICE </ion-label>
-          <ion-input type="tel" [(ngModel)]="data.productprice" required name='productprice' #productprice="ngModel"  pattern="[0-9]+(\.[0-9][0-9]?)?"  required (input)="commisioncal()"></ion-input>
+          <ion-input type="number" [(ngModel)]="data.productprice" required name='productprice' #productprice="ngModel"  pattern="[0-9]+(\.[0-9][0-9]?)?"  required (input)="commisioncal()"></ion-input>
         </ion-item>
 <!--                <div class="alert alert-danger" color="danger">
                   <div *ngIf="productprice.errors && (productprice.dirty || productprice.touched) && data.productprice !=''">
@@ -63,7 +63,7 @@
  <ion-col col-6 class="right">
         <ion-item>
           <ion-label stacked>RAFAHO PRICE</ion-label>
-             <ion-input type="text" [(ngModel)]="data.rafahoprice" required name='rafahoprice' #rafahoprice="ngModel" [readonly]="isReadonly()" required ></ion-input>
+             <ion-input type="number" [(ngModel)]="data.rafahoprice" required name='rafahoprice' #rafahoprice="ngModel" [readonly]="isReadonly()" required ></ion-input>
         </ion-item>
       </ion-col>
       
@@ -71,7 +71,7 @@
 <ion-col col-12 class="left">
         <ion-item>
           <ion-label stacked>CHEF RECEIVED</ion-label>
-             <ion-input type="text" [(ngModel)]="data.chefrecieved" required name='chefrecieved' #chefrecieved="ngModel" [readonly]="isReadonly()" required ></ion-input>
+             <ion-input type="number" [(ngModel)]="data.chefrecieved" required name='chefrecieved' #chefrecieved="ngModel" [readonly]="isReadonly()" required ></ion-input>
         </ion-item>
       </ion-col>
 
@@ -106,7 +106,7 @@
 <div style="position:initial !important">
           <ion-label stacked style="margin-top: 17px;" >PRODUCT INGREDIENTS</ion-label>
 <div>
-    <rl-tag-input placeholder="+Ingredients" [addOnBlur]='true' [addOnComma]='true' [addOnEnter]='true' [addOnPaste]='true' [(ngModel)]="tagss" [ngModelOptions]="{standalone: true}" (focusout)="onChanges(tagss)" required></rl-tag-input>
+    <rl-tag-input placeholder="+Type and Enter" [addOnBlur]='true' [addOnComma]='true' [addOnEnter]='true' [addOnPaste]='true' [(ngModel)]="tagss" [ngModelOptions]="{standalone: true}" (focusout)="onChanges(tagss)" required></rl-tag-input>
       <!--<ion-tags-input data-tap-disabled="true" style="position:initial;" placeholder="+Ingredients" [once]="'true'" [(ngModel)]="tagss" [ngModelOptions]="{standalone: true}" (onChange)="onChanges($event)" (focusout)="focus($event)" required></ion-tags-input>-->
 <!--<div class="alert alert-danger" color="danger">
                   <div *ngIf="tagss.errors && (tagss.dirty || tagss.touched)">
@@ -155,7 +155,7 @@
         
         <ion-label stacked style="margin-top: 17px;" >TAGS</ion-label>
 <div>
-      <rl-tag-input style="position:initial !important;" placeholder="+tags" [addOnBlur]='true' [addOnComma]='true' (onChange)="onChange(tag)"  (input)="tagslength(tag)" (focusout)="tagslength(tag)" [addOnEnter]='true'
+      <rl-tag-input style="position:initial !important;" placeholder="+Type and Enter" [addOnBlur]='true' [addOnComma]='true' (onChange)="onChange(tag)"  (input)="tagslength(tag)" (focusout)="tagslength(tag)" [addOnEnter]='true'
                     [addOnPaste]='true'  [(ngModel)]="tag" [ngModelOptions]="{standalone: true}" (onChange)="onChange(tag)"  (input)="tagslength(tag)" (focusout)="tagslength(tag)" [autocomplete]='true' [autocompleteSelectFirstItem]='true' [autocompleteMustMatch]='false' [autocompleteItems]="suggestions" required></rl-tag-input>
 </div>
 

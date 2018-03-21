@@ -3,7 +3,7 @@ import { OrderviewPage } from '../orderview/orderview';
 import { CancelorderviewPage } from '../cancelorderview/cancelorderview';
 import {PendingorderviewPage} from '../pendingorderview/pendingorderview';
 import {HistoryorderviewPage} from '../historyorderview/historyorderview';
-import { IonicPage, NavController, NavParams,AlertController,ToastController,LoadingController, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController,ToastController,LoadingController, Platform ,Events} from 'ionic-angular';
 import { Http, Headers, RequestOptions, RequestMethod } from '@angular/http';
 import { Appsetting } from '../../providers/appsetting';
 import * as moment from 'moment';
@@ -38,7 +38,13 @@ export class HomePage {
       private alertCtrl:AlertController,
       private loadCtrl:LoadingController,
       public appsetting: Appsetting,
+       public events: Events,
       private toastCtrl:ToastController, public http: Http) {
+      this.activeorder();
+    this.pendingorder();
+    this.historyorder();
+    this.canceledorder();
+
       this.platform.ready().then(() => {
             var lastTimeBackPress = 0;
             var timePeriodToExit = 2000;
@@ -60,11 +66,17 @@ export class HomePage {
                 }
             });
         });
-    this.pet = "ACTIVEORDER";
-    this.activeorder();
+                 events.subscribe('index', (res) => {
+             console.log(res);
+       if(res == 0){
+           this.activeorder();
     this.pendingorder();
     this.historyorder();
     this.canceledorder();
+       }
+            })
+    this.pet = "ACTIVEORDER";
+  
 //    alert('ajksdfh');
   }
   

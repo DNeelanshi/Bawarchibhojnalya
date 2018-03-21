@@ -34,6 +34,7 @@
     "angular2-countrypicker": "^1.0.0",
     "angular2-moment": "^1.8.0",
     "angular2-tag-input": "^1.2.3",
+    "cordova-android": "^6.3.0",
     "cordova-ios": "^4.5.4",
     "cordova-plugin-camera": "^3.0.0",
     "cordova-plugin-device": "^1.1.4",
@@ -55,8 +56,7 @@
     "ng-tags-input": "^3.2.0",
     "rxjs": "5.4.3",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.18",
-    "cordova-android": "~6.3.0"
+    "zone.js": "0.8.18"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.0.0",

@@ -6,7 +6,7 @@ import {OrderviewPage} from '../orderview/orderview';
 import {CancelorderviewPage} from '../cancelorderview/cancelorderview';
 import {PendingorderviewPage} from '../pendingorderview/pendingorderview';
 import {HistoryorderviewPage} from '../historyorderview/historyorderview';
-import {IonicPage, NavController, NavParams, AlertController, ToastController, LoadingController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, AlertController, ToastController, LoadingController,Events} from 'ionic-angular';
 import {Http, Headers, RequestOptions, RequestMethod} from '@angular/http';
 import {Appsetting} from '../../providers/appsetting';
 import * as moment from 'moment';
@@ -60,9 +60,15 @@ move:any=0;
         private alertCtrl: AlertController,
         private loadCtrl: LoadingController,
         public appsetting: Appsetting,
+            public events: Events,
         private toastCtrl: ToastController, public http: Http) {
-        this.getdata();
-//        this.loadEvents();
+
+                events.subscribe('index', (res) => {
+            console.log(res);
+            if (res == 1) {
+                 this.getdata();
+            }
+        })
     }
     loadEvents() {
         console.log(this.previousdateMulti);

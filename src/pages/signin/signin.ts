@@ -35,17 +35,16 @@ public data:any = '';
     public toastCtrl:ToastController,
     public loadingCtrl:LoadingController
   ) {
-     fcm.getToken().then(token=>{
-     this.devicetokenn = token;
-     })
-     fcm.onNotification().subscribe(data=>{
-  if(data.wasTapped){
-    console.log("Received in background");
-  } else {
-    console.log("Received in foreground");
-  };
-})
-//    alert('updated yayyiiii');
+//     fcm.getToken().then(token=>{
+//     this.devicetokenn = token;
+//     })
+//     fcm.onNotification().subscribe(data=>{
+//  if(data.wasTapped){
+//    console.log("Received in background");
+//  } else {
+//    console.log("Received in foreground");
+//  };
+//})
   }
 
 Signin(logindata){

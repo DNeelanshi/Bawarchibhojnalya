@@ -115,7 +115,7 @@
                 </div>-->
           <ion-label stacked>PRODUCT INGREDIENTS</ion-label>
 <div>
-    <rl-tag-input placeholder="+Ingredients" [addOnBlur]='true' [addOnComma]='true' [addOnEnter]='true' [addOnPaste]='true' [(ngModel)]="tagss" [ngModelOptions]="{standalone: true}" (focusout)="onChanges(tagss)" required></rl-tag-input>
+    <rl-tag-input placeholder="+Type and Enter" [addOnBlur]='true' [addOnComma]='true' [addOnEnter]='true' [addOnPaste]='true' [(ngModel)]="tagss" [ngModelOptions]="{standalone: true}" (focusout)="onChanges(tagss)" required></rl-tag-input>
 <div class="alert alert-danger red" color="danger">
                   <div *ngIf="tagss.errors && (tagss.dirty || tagss.touched)">
                     <div [hidden]="!tagss.errors.required">
@@ -171,7 +171,7 @@
    <ion-col col-12 class="left right">
         <ion-item>
           <ion-label stacked>DIET RESTRICTION</ion-label>
-          <ion-textarea type="text" [(ngModel)]="data.diet" required name='diet' #diet="ngModel" maxlength="3000"  required></ion-textarea>
+          <ion-textarea type="text" [(ngModel)]="data.diet" required name='diet' #diet="ngModel" maxlength="3000"  ></ion-textarea>
         </ion-item>
            <div class="alert alert-danger red" color="danger">
                   <div *ngIf="diet.errors && (diet.dirty || diet.touched)&& data.diet !=''" >
@@ -191,7 +191,11 @@
          
             
         <ion-label stacked>TAGS</ion-label>
-        <rl-tag-input  [addOnBlur]='true' [addOnComma]='true' [addOnEnter]='true' [addOnPaste]='true' [(ngModel)]="tag" [ngModelOptions]="{standalone: true}" (onChange)="onChange(tag)"  (input)="tagslength(tag)" (focusout)="tagslength(tag)" [autocomplete]='true' [autocompleteSelectFirstItem]='true' [autocompleteMustMatch]='false' [autocompleteItems]="suggestions" required></rl-tag-input>
+        <rl-tag-input  placeholder="+Type and Enter"
+            [addOnBlur]='true' [addOnComma]='true' [addOnEnter]='true' (keydown)="onKeydown($event)" [addOnPaste]='true' [(ngModel)]="tag" 
+            [ngModelOptions]="{standalone: true}" (onChange)="onChange(tag)"  
+            (input)="tagslength(tag)" (focusout)="tagslength(tag)" [autocomplete]='true' [autocompleteSelectFirstItem]='true'
+            [autocompleteMustMatch]='false' [autocompleteItems]="suggestions" required></rl-tag-input>
 
       
 <!--            <div class="tag-container">

@@ -28,7 +28,7 @@
         <h2 > {{dat?.product_name}}<span (click)="editpro(dat)" ><ion-icon name="create"></ion-icon>
 </span></h2>
         <p>Cuisine:{{dat?.cuisine}} </p>
-     <p>Price:${{dat?.product_price}}<span (click)="ndelete(dat?._id)"> <ion-icon name="trash"></ion-icon> </span></p>
+     <p>Price:${{dat?.product_price| number}}<span (click)="ndelete(dat?._id)"> <ion-icon name="trash"></ion-icon> </span></p>
 <!--    <p item-end class="rightp"  (click)="edit(dat)">Edit Info</p>-->
 <!--     <p item-end class="rightp"  >Delete</p>-->
     </ion-item>
