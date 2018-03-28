@@ -44,10 +44,10 @@ export class NeworderdatePage {
       private toastCtrl:ToastController, public http: Http) {
        this.pet = "ACTIVEORDER";
         var Loading = this.loadCtrl.create({
-            spinner: 'hide',
+             spinner: 'bubbles',
             cssClass: 'loader',
-            content: "<img src='assets/image/icons3.gif'>",
-            dismissOnPageChange:true
+            content: "Loading",
+    dismissOnPageChange:true
      });
      Loading.present().then(() => {
          

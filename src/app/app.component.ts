@@ -67,7 +67,7 @@ this.http.post(this.appsetting.myGlobalVar + 'userinfo', serialized, options).ma
        }
    //  }
     platform.ready().then(() => {
-      statusBar.overlaysWebView(true);
+     statusBar.overlaysWebView(true);
       statusBar.hide();
     
       splashScreen.hide();

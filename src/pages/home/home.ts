@@ -112,10 +112,10 @@ activeorder(){
     }
       var serialized = this.serializeObj(postdata);
            var Loading = this.loadCtrl.create({
-            spinner: 'hide',
+             spinner: 'bubbles',
             cssClass: 'loader',
-            content: "<img src='assets/image/icons3.gif'>",
-            dismissOnPageChange:true
+            content: "Loading",
+    dismissOnPageChange:true
      });
      Loading.present().then(() => {
     this.http.post(this.appsetting.myGlobalVar + 'order/getorder_chef', serialized, options).map(res => res.json()).subscribe(data1 => {

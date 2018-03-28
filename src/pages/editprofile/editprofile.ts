@@ -31,6 +31,7 @@ export class EditprofilePage {
   proffile: any;
   public lat: number;
   public long: number;
+  locstatus:boolean = false;
    date:any;
 
   public data: any = ''
@@ -43,9 +44,9 @@ export class EditprofilePage {
     private toastCtrl: ToastController,
     private nativeGeocoder: NativeGeocoder, public modalCtrl: ModalController, ) {
     var Loading = this.loadingCtrl.create({
-      spinner: 'hide',
-    cssClass: 'loader',
-    content: "<img src='assets/image/icons3.gif'>",
+      spinner: 'bubbles',
+            cssClass: 'loader',
+            content: "Loading",
     dismissOnPageChange:true
      });
      Loading.present().then(() => {
@@ -82,6 +83,7 @@ export class EditprofilePage {
         this.nativeGeocoder.reverseGeocode(parseFloat(data1.data.latitude), parseFloat(data1.data.longitude))
         .then((result: NativeGeocoderReverseResult) => {console.log(JSON.stringify(result))
       if (result.subThoroughfare){
+          this.locstatus = true;
         this.data.geolocation = result.subThoroughfare+','+result.thoroughfare+','+ result.subLocality+','+result.locality+','+result.postalCode+','+result.countryName;
             } else if (result.thoroughfare){
                  this.data.geolocation = result.thoroughfare+','+ result.subLocality+','+result.locality+','+result.postalCode+','+result.countryName;
@@ -152,9 +154,9 @@ export class EditprofilePage {
     console.log(this.data);
     var serialized = this.serializeObj(this.data);
      var Loading = this.loadingCtrl.create({
-      spinner: 'hide',
-    cssClass: 'loader',
-    content: "<img src='assets/image/icons3.gif'>",
+       spinner: 'bubbles',
+            cssClass: 'loader',
+            content: "Loading",
     dismissOnPageChange:true
      });
      Loading.present().then(() => {
@@ -329,7 +331,8 @@ this.http.post(this.appsetting.myGlobalVar +'user_profile_pic', postdata).map(re
   // }
 
   openmapmodal() {
-    let modal = this.modalCtrl.create(MapmodalPage);
+      if(          this.locstatus == true){
+           let modal = this.modalCtrl.create(MapmodalPage);
     modal.onDidDismiss(data => {
 //      alert(data.address);
       this.data.geolocation = data.address;
@@ -340,6 +343,15 @@ this.http.post(this.appsetting.myGlobalVar +'user_profile_pic', postdata).map(re
       this.long = data.longi
     });
     modal.present();
+      }else{
+          let toast = this.toastCtrl.create({
+            message: 'Please turn on your location',
+            duration: 3000,
+            position: 'middle'
+        });
+        toast.present();
+      }
+   
   }
 
   ionViewDidLoad() {

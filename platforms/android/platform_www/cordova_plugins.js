@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
   {
+    "id": "cordova-plugin-android-permissions.Permissions",
+    "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
+    "pluginId": "cordova-plugin-android-permissions",
+    "clobbers": [
+      "cordova.plugins.permissions"
+    ]
+  },
+  {
     "id": "cordova-plugin-camera.Camera",
     "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
     "pluginId": "cordova-plugin-camera",
@@ -100,6 +108,7 @@ module.exports.metadata =
 // TOP OF METADATA
 {
   "cordova-plugin-add-swift-support": "1.7.0",
+  "cordova-plugin-android-permissions": "1.0.0",
   "cordova-plugin-camera": "3.0.0",
   "cordova-plugin-device": "1.1.4",
   "cordova-plugin-fcm": "2.1.2",

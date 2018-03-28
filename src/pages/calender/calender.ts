@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component,Directive} from '@angular/core';
 //import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {CalendarModule, CalendarComponentOptions} from "ion2-calendar";
 //import { Component } from '@angular/core';
@@ -11,6 +11,8 @@ import {Http, Headers, RequestOptions, RequestMethod} from '@angular/http';
 import {Appsetting} from '../../providers/appsetting';
 import * as moment from 'moment';
 import {NeworderdatePage} from '../neworderdate/neworderdate';
+import { Gesture } from "ionic-angular/gestures/gesture";
+
 //import { CalendarModal, CalendarModalOptions, DayConfig, CalendarResult } from "ion2-calendar";
 //import { CalendarComponentOptions } from 'ion2-calendar'
 /**
@@ -25,6 +27,9 @@ import {NeworderdatePage} from '../neworderdate/neworderdate';
     selector: 'page-calender',
     templateUrl: 'calender.html',
 })
+@Directive({
+  selector: '[longPress]' // Attribute selector
+})
 export class CalenderPage {
     color: any;
     chef: any = [];
@@ -35,6 +40,7 @@ export class CalenderPage {
     isAfter: any;
     isBefore: any;
     isSame1: any;
+    datetosend:any;
     isAfter1: any;
     isBefore1: any;
     particulardata: any = [];
@@ -45,7 +51,7 @@ export class CalenderPage {
     upcomingdateMulti: any = [];
     dates: any = [];
 move:any=0;
-
+   className = '';
     eventSource;
     viewTitle;
     isToday: boolean;
@@ -62,13 +68,36 @@ move:any=0;
         public appsetting: Appsetting,
             public events: Events,
         private toastCtrl: ToastController, public http: Http) {
-
+        
+      
+        console.log(this.chef);
                 events.subscribe('index', (res) => {
             console.log(res);
             if (res == 1) {
                  this.getdata();
+                this.get();
+                 
             }
         })
+    }
+    get(){
+         let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+    var options = new RequestOptions({ headers: headers });
+    
+     var userid = JSON.parse(localStorage.getItem('UserInfo'))._id;
+    var postdata = {
+      id: userid
+    };
+    console.log(postdata)
+    
+    var serialized = this.serializeObj(postdata);
+    // this.loading.dismiss();
+    this.http.post(this.appsetting.myGlobalVar + 'userinfo', serialized, options).map(res => res.json()).subscribe(data1 => {
+      
+      console.log(data1);
+      this.chef = data1.data
+      console.log(this.chef)});
     }
     loadEvents() {
         console.log(this.previousdateMulti);
@@ -88,11 +117,160 @@ move:any=0;
     today() {
         this.calendar.currentDate = new Date();
     }
-    onTimeSelected(ev) {
 
+    ok(){
+        alert('ok');
+    }
+    onTimeSelected(ev) {
+var a = document.getElementsByTagName('td');
+console.log(a);
+        var datetodel:any;
+     var bit:any = false ;
+         let headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new RequestOptions({headers: headers});
+         console.log(ev);
+         if(ev.events.length>0){}else{
+             console.log(this.chef.avalibilities);
+             if(this.chef.avalibilities){
+                 if(this.chef.avalibilities.length == 0){     
+          let alert = this.alertCtrl.create({
+            title: 'RAFAHO',
+            message: 'Mark as Not available',
+            buttons: [
+                {
+                    text: 'OK',
+                    role: 'submit',
+                    handler: () => {
+                        this.datetosend = moment(ev.selectedTime).format('YYYY-MM-DD');
+                        console.log(this.datetosend);
+                          var postdata = {
+//
+            user_id: this.chef._id,
+            notavalibility_dates:this.datetosend
+        }
+        var serialized = this.serializeObj(postdata);
+                   this.http.post(this.appsetting.myGlobalVar + 'users/add_avalibility', serialized, options).map(res => res.json()).subscribe(dat => {
+
+                console.log(dat);
+                if(dat.status == true){
+                    localStorage.setItem('UserInfo',JSON.stringify(dat.data));
+                   ev.events.push({availability:false});
+//                   this.markDisabled(this.datetosend);
+                    console.log(ev);
+//                   this.markDisabled(this.datetosend);
+                    console.log(ev);
+                }
+                });
+                    
+                    }
+                },
+                {
+                      text: 'Cancel',
+                    role: 'submcancelt',
+                    handler: () => {
+                        console.log('ok clicked');
+                       
+                    } 
+                }
+            ]
+        });
+        alert.present();
+        }
+            else{
+                 for(var r =0; r< this.chef.avalibilities.length; r++){
+                   if(this.chef.avalibilities[r].notavalibility_dates == moment(ev.selectedTime).format('YYYY-MM-DD'))  {
+                      datetodel = this.chef.avalibilities[r]._id;
+                      console.log(this.chef.avalibilities[r]._id);
+                      bit = true;
+                   }}
+                   if(bit == true){
+                       console.log(bit);
+                  let alert = this.alertCtrl.create({
+            title: 'RAFAHO',
+            message: 'Mark as available',
+            buttons: [
+                {
+                    text: 'OK',
+                    role: 'submit',
+                    handler: () => {
+   var postdata = {
+//
+           notavalibility_id: datetodel
+        }
+         var serialized = this.serializeObj(postdata);
+                   this.http.post(this.appsetting.myGlobalVar + 'users/remove_avalibility', serialized, options).map(res => res.json()).subscribe(datt => {
+
+                console.log(datt);
+                 ev.events.push({availability:true});
+//                   this.markDisabled(this.datetosend);
+                    console.log(ev);
+                })
+                        
+                   }
+                 },{
+                     text: 'Cancel',
+                    role: 'cancel',
+                    handler: () => {
+  
+                   } 
+                 }
+                 ]
+                  });
+                   alert.present();
+             }else{
+             bit = false ;
+           let alert = this.alertCtrl.create({
+            title: 'RAFAHO',
+            message: 'Mark as Not available',
+            buttons: [
+                {
+                    text: 'OK',
+                    role: 'submit',
+                    handler: () => {
+                        this.datetosend = moment(ev.selectedTime).format('YYYY-MM-DD');
+                        console.log(this.datetosend);
+                          var postdata = {
+//
+            user_id: this.chef._id,
+            notavalibility_dates:this.datetosend
+        }
+        var serialized = this.serializeObj(postdata);
+                   this.http.post(this.appsetting.myGlobalVar + 'users/add_avalibility', serialized, options).map(res => res.json()).subscribe(dat => {
+
+                console.log(dat);
+                if(dat.status == true){
+                    localStorage.setItem('UserInfo',JSON.stringify(dat.data));
+//                   this.markDisabled(this.datetosend);
+                    ev.events.push({availability:false});
+//                   this.markDisabled(this.datetosend);
+                    console.log(ev);
+                }
+                });
+                    
+                    }
+                },
+                {
+                      text: 'Cancel',
+                    role: 'submcancelt',
+                    handler: () => {
+                        console.log('ok clicked');
+                       
+                    } 
+                }
+            ]
+        });
+        alert.present();
+             }}}}
         console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' +
             (ev.events !== undefined && ev.events.length !== 0) + ', disabled: ' + ev.disabled);
     }
+//     markDisabled = (datee) => {
+//         alert('mark');
+////        var current = new Date();
+////        current.setHours(0, 0, 0);
+//        return   datee ;
+//    };
     onCurrentDateChanged(event: Date) {
         console.log(event);
         this.particulardata1 = [];
@@ -154,7 +332,7 @@ move:any=0;
                     // title: 'All Day - ' + i,
                     startTime: startTime,
                     endTime: endTime,
-
+                
                     //allDay: true
                 });
 
@@ -224,7 +402,7 @@ move:any=0;
         }
         console.log(events);
         console.log(events1)
-        console.log(events.concat(events1, events2));
+//        console.log(events.concat(events1, events2));
         if (events == undefined) {
             if (events1 == undefined) {
                 if (events2 == undefined) {
@@ -264,11 +442,7 @@ move:any=0;
     onRangeChanged(ev) {
         console.log('range changed: startTime: ' + ev.startTime + ', endTime: ' + ev.endTime);
     }
-    markDisabled = (date: Date) => {
-        var current = new Date();
-        current.setHours(0, 0, 0);
-        return date < current;
-    };
+   
     //  ***********************************************************************************************************************************************/
     setClasses() {
         console.log(this.isSame, this.isAfter, this.isBefore);
@@ -292,10 +466,10 @@ move:any=0;
         }
         var serialized = this.serializeObj(postdata);
         var Loading = this.loadCtrl.create({
-            spinner: 'hide',
+            spinner: 'bubbles',
             cssClass: 'loader',
-            content: "<img src='assets/image/icons3.gif'>",
-            dismissOnPageChange: true
+            content: "Loading",
+    dismissOnPageChange:true
         });
         Loading.present().then(() => {
             this.http.post(this.appsetting.myGlobalVar + 'order/getorderdataforcalendar', serialized, options).map(res => res.json()).subscribe(data1 => {

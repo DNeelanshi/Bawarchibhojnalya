@@ -37,7 +37,7 @@
         <ion-list>
           <ion-item>
             <ion-label stacked>EMAIL</ion-label>
-            <ion-input type="email" autocapitalize="none" [(ngModel)]="data.email" name='email' #email="ngModel" pattern="^[a-z0-9]+(\.[_a-z0-9]+)+([@{1}])+(\.[a-z0-9-]+)+([.{1}])(\.[a-z]{1,15})$"  required></ion-input>
+            <ion-input type="email" autocapitalize="none" [(ngModel)]="data.email" name='email' #email="ngModel" pattern="^[a-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{1,63})$"  required></ion-input>
           </ion-item>
            <div class="alert alert-danger red" color="danger">
                   <div *ngIf="email.errors && (email.dirty || email.touched)">

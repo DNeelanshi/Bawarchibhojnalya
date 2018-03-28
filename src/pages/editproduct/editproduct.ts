@@ -42,7 +42,9 @@ imgarr:any=[];
   srcImage1:any;
    suggestions:any=[];
    srcImage2:any;
-   
+   cuisiness:any=[];
+  attributes:any=[];
+  Productofficialtosendprice:any=0;
   constructor(public navCtrl: NavController,
     public toastCtrl:ToastController,
     public navParams: NavParams,
@@ -60,8 +62,37 @@ imgarr:any=[];
    this.getdata();
    this.getcommision();
     this.gettags();
-   alert('new1');
+    this.getcuisine();
+     this.getattributes();
+//   alert('new1');
   }
+  getcuisine(){
+      let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+    let options = new RequestOptions({ headers: headers });
+  
+     this.http.get(this.appsetting.myGlobalVar + 'Cuisine/all').map(res => res.json()).subscribe(ress1 => {
+         console.log(ress1.data);
+         for(var u =0; u<ress1.data.length; u++){
+             this.cuisiness.push(ress1.data[u]);
+         }
+        
+         console.log(this.cuisiness);
+     })  
+}
+getattributes(){
+        let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+    let options = new RequestOptions({ headers: headers });
+     this.http.get(this.appsetting.myGlobalVar + 'attribute/all').map(res => res.json()).subscribe(ress=> {
+         console.log(ress);
+         for(var t =0; t<ress.data.length;t++){
+             this.attributes.push(ress.data[t]);
+         }
+         console.log(this.attributes);
+      
+     })  
+}
   gettags(){
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
@@ -90,30 +121,115 @@ getcommision(){
      })
 }
  commisioncal(){
-     var x = (this.commision/100)*this.data.productprice;
+  var pprice:any=0;
+     var PPrice:any=[];
+     pprice = this.data.productprice.replace(/,/g, "");
+  console.log(this.Productofficialtosendprice)
+     var x = (this.commision/100)*parseFloat(this.Productofficialtosendprice);
      
      console.log(x);
-     this.data.rafahoprice = x;
+    x = Number((x).toFixed(2));
    
-     this.data.chefrecieved = this.data.productprice-this.data.rafahoprice;
+
+    this.data.rafahoprice = x.toLocaleString('en')
+    var z = this.data.rafahoprice.replace(/,/g, "");
+   var y = pprice-z;
+     this.data.chefrecieved = y.toLocaleString('en')
      
     
 //      console.log( this.data.productprice);
  }
   commisioncal1(){
       console.log(this.commision);
+     this.productdetails.product_price = this.productdetails.product_price.toLocaleString('en')
      this.data.productprice = this.productdetails.product_price
-     var x1 = (this.commision/100)*this.productdetails.product_price;
+     var d =  this.data.productprice.replace(/,/,"");
+     var x1 = (this.commision/100)*parseFloat(d);
      
      console.log(x1);
-     this.data.rafahoprice = x1;
+     
+     this.data.rafahoprice = x1.toLocaleString('en');
    console.log( this.data.rafahoprice);
-     this.data.chefrecieved = this.productdetails.product_price-this.data.rafahoprice;
+   var r = this.data.rafahoprice.replace(/,/,"");
+     this.data.chefrecieved = d-r;
+    this.data.chefrecieved =  this.data.chefrecieved.toLocaleString('en');
      console.log (this.data.chefrecieved)
      
     
 //      console.log( this.data.productprice);
  }
+ commas(price){
+   
+      this.Productofficialtosendprice = price;
+       this.Productofficialtosendprice = this.Productofficialtosendprice.replace(/,/g, "");
+    var Price:any;
+    console.log(price.length)
+    price = price.replace(/,/g, "")
+    console.log(price);
+        this.data.productprice = this.data.productprice.replace(/,/g, "");
+        console.log(this.data.productprice);
+      Price = this.data.productprice.split('')
+          console.log(Price);
+           var str = price;
+    var n = str.includes(".");
+          if(n == false){
+          if(price.length == 4){
+     this.data.productprice = Price[0]+','+Price[1]+''+Price[2]+''+Price[3];
+     console.log(this.data.productprice);  
+ } else if(price.length == 5){ 
+     this.data.productprice = Price[0]+''+Price[1]+','+Price[2]+''+Price[3]+''+Price[4];
+      console.log(this.data.productprice)
+} else if(price.length == 6){ 
+     this.data.productprice = Price[0]+''+Price[1]+''+Price[2]+','+Price[3]+''+Price[4]+''+Price[5];
+      console.log(this.data.productprice)
+  }
+    else if(price.length == 7) {
+     this.data.productprice = Price[0]+','+Price[1]+''+Price[2]+''+Price[3]+','+Price[4]+','+Price[5]+''+Price[6];
+      console.log(this.data.productprice)
+}
+ else if(price.length == 8){ 
+     this.data.productprice = Price[0]+''+Price[1]+','+Price[2]+''+Price[3]+''+Price[4]+','+Price[5]+''+Price[6]+''+Price[7];
+      console.log(this.data.productprice)
+ }
+ else if(price.length == 9){ 
+     this.data.productprice = Price[0]+''+Price[1]+''+Price[2]+','+Price[3]+''+Price[4]+''+Price[5]+','+Price[6]+''+Price[7]+''+Price[8];
+      console.log(this.data.productprice)
+ }
+ else if(price.length == 10){ 
+     this.data.productprice = Price[0]+','+Price[1]+''+Price[2]+''+Price[3]+','+Price[4]+''+Price[5]+''+Price[6]+','+Price[7]+''+Price[8]+''+Price[9];
+      console.log(this.data.productprice)
+ }
+ else if(price.length == 11){ 
+     this.data.productprice = Price[0]+''+Price[1]+','+Price[2]+''+Price[3]+''+Price[4]+','+Price[5]+''+Price[6]+''+Price[7]+','+Price[8]+''+Price[9]+''+Price[10];
+      console.log(this.data.productprice)
+ }
+          }else{
+       var  Price1 = this.data.productprice.split('.')
+          console.log(Price1[0])
+            price = Price1[0].split('');
+            console.log(price);
+            if(price.length == 4){
+     this.data.productprice = Price[0]+','+Price[1]+''+Price[2]+''+Price[3];
+     console.log(this.data.productprice);  
+ } else if(price.length == 5){ 
+     this.data.productprice = Price[0]+''+Price[1]+','+Price[2]+''+Price[3]+''+Price[4];
+      console.log(this.data.productprice)
+} else if(price.length == 6){ 
+     this.data.productprice = Price[0]+''+Price[1]+''+Price[2]+','+Price[3]+''+Price[4]+''+Price[5];
+      console.log(this.data.productprice)
+  }
+    else if(price.length == 7) { 
+     this.data.productprice = Price[0]+','+Price[1]+''+Price[2]+''+Price[3]+','+Price[4]+''+Price[5]+''+Price[6];
+      console.log(this.data.productprice)
+}
+ else if(price.length == 8){ 
+     this.data.productprice = Price[0]+''+Price[1]+','+Price[2]+''+Price[3]+''+Price[4]+','+Price[5]+''+Price[6]+''+Price[7];
+      console.log(this.data.productprice)
+ } 
+                
+          }
+    
+}
     isReadonly() {
     return this.isReadonly;   //return true/false 
   }
@@ -201,6 +317,7 @@ getdata(){
   this.data.productprice=this.productdetails.product_price,
   this.data.discount=this.productdetails.discount,
      this.data.cuisine = this.productdetails.cuisine,
+      this.data.attribute = this.productdetails.attribute.split(",");
   this.tag = this.str2;
    this.tagss = this.str1; 
   this.data.productdesc=this.productdetails.product_description,
@@ -260,6 +377,10 @@ getdata(){
     }else{
          this.data.home =0;
     }
+
+         var t= this.data.productprice.replace(/,/g,"");
+      
+      console.log(t);
     console.log(this.data.cookingatchef);
     console.log(this.data.cookingatclient);
     
@@ -275,11 +396,12 @@ product_ingredients:this.tagss,
 diet_restriction: this.data.diet,
 product_description:this.data.productdesc,
 cuisine:this.data.cuisine,
+ attribute:this.data.attribute,
 minimum_order:this.data.minorder,
 cooking_time_at_chef_place:this.data.cookingatchef,
 cooking_time_at_user_home:this.data.cookingatclient,
 tags: this.tag,
-product_price:this.data.productprice,
+product_price:t,
 status:1,
   take_away:parseInt(this.data.chefcook) ,
 cook_at_user_place:parseInt(this.data.clientcook),
@@ -288,9 +410,9 @@ home_delivery:parseInt(this.data.home)
     console.log(postdata);
     var serialized = this.serializeObj(postdata);
     var Loading = this.loadingCtrl.create({
-     spinner: 'hide',
-    cssClass: 'loader',
-    content: "<img src='assets/image/icons3.gif'>",
+      spinner: 'bubbles',
+            cssClass: 'loader',
+            content: "Loading",
     dismissOnPageChange:true
     });
     Loading.present().then(() => {
@@ -344,6 +466,9 @@ home_delivery:parseInt(this.data.home)
  datetime(pro){
      console.log(pro);
      
+ }
+ abc(att){
+     console.log(att);
  }
         CameraAction(){
     

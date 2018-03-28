@@ -45,25 +45,25 @@
            <ion-col col-6 class="left">
         <ion-item>
           <ion-label stacked>PRODUCT PRICE </ion-label>
-          <ion-input type="number" [(ngModel)]="data.productprice" required name='productprice' #productprice="ngModel"  pattern="[0-9]+(\.[0-9][0-9]?)?"  required (input)="commisioncal()"></ion-input>
+          <ion-input type="tel" [(ngModel)]="data.productprice" required name='productprice' #productprice="ngModel"   pattern="[0-9/,]+(\.[0-9][0-9]?)?" (input)="commas(data.productprice)"  required (input)="commisioncal()"></ion-input>
         </ion-item>
-<!--                <div class="alert alert-danger" color="danger">
+                <div class="alert alert-danger red" color="danger">
                   <div *ngIf="productprice.errors && (productprice.dirty || productprice.touched) && data.productprice !=''">
                     <div [hidden]="!productprice.errors.required">
                       Product price required
                     </div>
                     <div [hidden]="!productprice.errors.pattern">
                       Only Number allowed with 2 decimal digits maximum
-                    </div>
-                        
+                    </div><!--
+-->                        
                   </div>
-                </div>-->
+                </div>
       </ion-col>
 
  <ion-col col-6 class="right">
         <ion-item>
           <ion-label stacked>RAFAHO PRICE</ion-label>
-             <ion-input type="number" [(ngModel)]="data.rafahoprice" required name='rafahoprice' #rafahoprice="ngModel" [readonly]="isReadonly()" required ></ion-input>
+             <ion-input type="text" [(ngModel)]="data.rafahoprice" required name='rafahoprice' #rafahoprice="ngModel"  [readonly]="isReadonly()" required ></ion-input>
         </ion-item>
       </ion-col>
       
@@ -71,7 +71,7 @@
 <ion-col col-12 class="left">
         <ion-item>
           <ion-label stacked>CHEF RECEIVED</ion-label>
-             <ion-input type="number" [(ngModel)]="data.chefrecieved" required name='chefrecieved' #chefrecieved="ngModel" [readonly]="isReadonly()" required ></ion-input>
+             <ion-input type="text" [(ngModel)]="data.chefrecieved" required name='chefrecieved' #chefrecieved="ngModel" [readonly]="isReadonly()" required ></ion-input>
         </ion-item>
       </ion-col>
 
@@ -185,22 +185,27 @@
                 </div>-->
       </ion-col>
       
-      <ion-col col-12 class="left">
-        <ion-item>
-          <ion-label stacked>PRODUCT CUISINE</ion-label>
-             <ion-input type="text" [(ngModel)]="data.cuisine" required name='cuisine' #cuisine="ngModel" maxlength="3000"required></ion-input>
-        </ion-item>
-<!--     <div class="alert alert-danger" color="danger">
-                  <div *ngIf="minorder.errors && (minorder.dirty || minorder.touched) && data.minorder !=''">
-                    <div [hidden]="!minorder.errors.required">
-                      Minimum order required
-                    </div>
-                    <div [hidden]="!minorder.errors.pattern">
-                      Only number allowed
-                    </div>
-                  </div>
-                </div>-->
-      </ion-col>
+  <ion-col col-12 class="select left" >
+
+                                <ion-item>
+                                    <ion-label stacked class="why">PRODUCT CUISINE</ion-label>
+                                    <ion-select class="active"  [(ngModel)]="data.cuisine" name='cuisine' #cuisine="ngModel"  required>
+                                        <span *ngFor ="let dat of cuisiness">  <ion-option  value="{{dat.cuisine_name}}">{{dat.cuisine_name}}</ion-option></span>
+
+
+                                    </ion-select>
+                                </ion-item>
+                            </ion-col>
+      
+                <ion-col col-12 class="select left" >
+
+                                <ion-item>
+                                    <ion-label stacked class="why">PRODUCT ATTRIBUTE</ion-label>
+                                    <ion-select class="active"  [(ngModel)]="data.attribute" name='attribute' #attribute="ngModel" multiple="true" (ionChange)="abc(data.attribute)"required>
+                                         <span *ngFor ="let dats of attributes"><ion-option *ngIf="dats.attribute_visablity == 2" value="{{dats.attribute_name}}">{{dats.attribute_name}}</ion-option></span> 
+                                    </ion-select>
+                                </ion-item>
+                            </ion-col>
      
       <ion-col col-12 class="left">
      <ion-label stacked>SERVICES YOU CAN PROVIDE:</ion-label>

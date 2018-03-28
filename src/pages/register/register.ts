@@ -34,6 +34,7 @@ export class RegisterPage {
   date: any;
   pass: boolean;
   public lat: number;
+  loststaus:boolean =false;
   public Ctype = 'password';
   public iconname1 = 'eye';
   public long: number;
@@ -74,23 +75,23 @@ export class RegisterPage {
    console.log(this.date);
 
 //alert('update hogai');
-      fcm.getToken().then(token=>{
-//          alert(token);
-          
-     this.devicetoken = token;
-     })
-     fcm.onTokenRefresh().subscribe(newtoken=>{
-//         alert("new");
-//         alert(newtoken)
-        console.log(newtoken);
-    })
-     fcm.onNotification().subscribe(data=>{
-  if(data.wasTapped){
-    console.log("Received in background");
-  } else {
-    console.log("Received in foreground");
-  };
-})
+//      fcm.getToken().then(token=>{
+////          alert(token);
+//          
+//     this.devicetoken = token;
+//     })
+//     fcm.onTokenRefresh().subscribe(newtoken=>{
+////         alert("new");
+////         alert(newtoken)
+//        console.log(newtoken);
+//    })
+//     fcm.onNotification().subscribe(data=>{
+//  if(data.wasTapped){
+//    console.log("Received in background");
+//  } else {
+//    console.log("Received in foreground");
+//  };
+//})
 
    console.log(this.devicetoken);
   }
@@ -143,9 +144,9 @@ if(register.value.phone){
    
     var Serialized = this.serializeObj(postdata);
     var Loading = this.loadingCtrl.create({
-      spinner: 'hide',
-    cssClass: 'loader',
-    content: "<img src='assets/image/icons3.gif'>",
+       spinner: 'bubbles',
+            cssClass: 'loader',
+            content: "Loading",
     dismissOnPageChange:true
       
     });
@@ -186,14 +187,15 @@ if(register.value.phone){
   /*************function for get user corrent location (latitude and longitude) and get address from lat long ************/
   GetLocation(){
         var Loading = this.loadingCtrl.create({
-          spinner: 'hide',
-          cssClass: 'loader',
-         content: "<img src='assets/image/icons3.gif'>",
-          dismissOnPageChange:true
+          spinner: 'bubbles',
+            cssClass: 'loader',
+            content: "Loading",
+    dismissOnPageChange:true
         });
          Loading.present().then(() => {
     this.geolocation.getCurrentPosition().then((resp) => {
               console.log('latitude:'+resp.coords.latitude+'longitude:'+resp.coords.longitude);
+              this.loststaus = true;
           setTimeout(() => {
     Loading.dismiss();
            }, 4000);
@@ -203,7 +205,7 @@ if(register.value.phone){
       this.nativeGeocoder.reverseGeocode(resp.coords.latitude, resp.coords.longitude)
       .then((result: NativeGeocoderReverseResult) => {
         // alert(JSON.stringify(result));
-                 
+                 this.loststaus = true;
       if (result.subThoroughfare){
         this.data.result = result.subThoroughfare+','+result.thoroughfare+','+ result.subLocality+','+result.locality+','+result.postalCode+','+result.countryName;
             } else if (result.thoroughfare){
@@ -272,7 +274,7 @@ backtosignin(){
   }
 
   openmapmodal() {
-    let modal = this.modalCtrl.create(MapmodalPage);
+      if(this.loststaus == true){ let modal = this.modalCtrl.create(MapmodalPage);
     modal.onDidDismiss(data => { 
     this.data.result=data.address;
     console.log(this.data.result)
@@ -281,7 +283,10 @@ backtosignin(){
     this.lat = data.lati
     this.long = data.longi
   });
-    modal.present();
+    modal.present();}else{
+          this.ToastMsg('Please turn on your Location')
+    }
+   
   }
 
   ToastMsg(msg){

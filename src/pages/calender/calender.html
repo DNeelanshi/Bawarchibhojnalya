@@ -13,7 +13,7 @@
             <button ion-button (click)="changeMode('month')">M</button>
             <button ion-button (click)="changeMode('week')">W</button>
             <button ion-button (click)="changeMode('day')">D</button>-->
-            <button ion-button (click)="loadEvents()" end>Load Events</button>
+            <button ion-button (click)="loadEvents()" end>View Events</button>
         </ion-buttons>
   </ion-navbar>
 
@@ -30,4 +30,5 @@
               (onTimeSelected)="onTimeSelected($event)"
               step="30">
     </calendar>
+    <!--<button (click)="markDisabled ()">Set as not availabale</button>-->
 </ion-content>

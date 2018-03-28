@@ -72,10 +72,10 @@ export class ProfilePage {
 
         var serialized = this.serializeObj(postdata);
         var Loading = this.loadingCtrl.create({
-            spinner: 'hide',
+            spinner: 'bubbles',
             cssClass: 'loader',
-            content: "<img src='assets/image/icons3.gif'>",
-            dismissOnPageChange: true
+            content: "Loading",
+    dismissOnPageChange:true
         });
         console.log(postdata);
         Loading.present().then(() => {

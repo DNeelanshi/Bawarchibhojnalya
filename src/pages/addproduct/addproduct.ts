@@ -39,6 +39,7 @@ export class AddproductPage {
   commision:any;
   arr:any=[];
    tag = [];
+   Productofficialtosendprice:any;
    tagss =[];
      tags:any;
      bit: number = 0;
@@ -46,6 +47,8 @@ export class AddproductPage {
      suggestions:any=[];
  servicecookathome:any;
  servicecookatchef:any;
+ attributes:any=[];
+ cuisiness:any=[];
  servicehomedelivery:any;
      taggs:any;
    srcImage;srcImage1;srcImage2;
@@ -65,9 +68,13 @@ export class AddproductPage {
     public alertCtrl: AlertController,
     public loadingCtrl:LoadingController,
    public modalCtrl: ModalController) {
-   
+//   alert('ok');
    this.getcommision();
    this.gettags();
+     this.getattributes();
+   this.getcuisine();
+ this.data.discount = '0';
+ 
   }
 gettags(){
     let headers = new Headers();
@@ -82,27 +89,111 @@ gettags(){
          console.log(this.suggestions);
      })  
 }
+getattributes(){
+        let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+    let options = new RequestOptions({ headers: headers });
+     this.http.get(this.appsetting.myGlobalVar + 'attribute/all').map(res => res.json()).subscribe(ress=> {
+         console.log(ress);
+         for(var t =0; t<ress.data.length;t++){
+             this.attributes.push(ress.data[t]);
+         }
+         console.log(this.attributes);
+         this.data.attribute ='New Year Spacial'
+     })  
+}
+getcuisine(){
+      let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+    let options = new RequestOptions({ headers: headers });
+  
+     this.http.get(this.appsetting.myGlobalVar + 'Cuisine/all').map(res => res.json()).subscribe(ress1 => {
+         console.log(ress1.data);
+         for(var u =0; u<ress1.data.length; u++){
+             this.cuisiness.push(ress1.data[u]);
+         }
+         this.data.cuisine = 'Spanish'
+         console.log(this.cuisiness);
+     })  
+}
+
+commas(price){
+      this.Productofficialtosendprice = price;
+       this.Productofficialtosendprice = this.Productofficialtosendprice.replace(/,/g, "");
+    var Price:any;
+    console.log(price.length)
+    price = price.replace(/,/g, "")
+    console.log(price);
+        this.data.productprice = this.data.productprice.replace(/,/g, "");
+        console.log(this.data.productprice);
+      Price = this.data.productprice.split('')
+          console.log(Price);
+           var str = price;
+    var n = str.includes(".");
+          if(n == false){
+          if(price.length == 4){
+     this.data.productprice = Price[0]+','+Price[1]+''+Price[2]+''+Price[3];
+     console.log(this.data.productprice);  
+ } else if(price.length == 5){ 
+     this.data.productprice = Price[0]+''+Price[1]+','+Price[2]+''+Price[3]+''+Price[4];
+      console.log(this.data.productprice)
+} else if(price.length == 6){ 
+     this.data.productprice = Price[0]+''+Price[1]+''+Price[2]+','+Price[3]+''+Price[4]+''+Price[5];
+      console.log(this.data.productprice)
+  }
+    else if(price.length == 7) {
+     this.data.productprice = Price[0]+','+Price[1]+''+Price[2]+''+Price[3]+','+Price[4]+''+Price[5]+''+Price[6];
+      console.log(this.data.productprice)
+}
+ else if(price.length == 8){ 
+     this.data.productprice = Price[0]+''+Price[1]+','+Price[2]+''+Price[3]+''+Price[4]+','+Price[5]+''+Price[6]+''+Price[7];
+      console.log(this.data.productprice)
+ }
+ else if(price.length == 9){ 
+     this.data.productprice = Price[0]+''+Price[1]+''+Price[2]+','+Price[3]+''+Price[4]+''+Price[5]+','+Price[6]+''+Price[7]+''+Price[8];
+      console.log(this.data.productprice)
+ }
+ else if(price.length == 10){ 
+     this.data.productprice = Price[0]+','+Price[1]+''+Price[2]+''+Price[3]+','+Price[4]+''+Price[5]+''+Price[6]+','+Price[7]+''+Price[8]+''+Price[9];
+      console.log(this.data.productprice)
+ }
+ else if(price.length == 11){ 
+     this.data.productprice = Price[0]+''+Price[1]+','+Price[2]+''+Price[3]+''+Price[4]+','+Price[5]+''+Price[6]+''+Price[7]+','+Price[8]+''+Price[9]+''+Price[10];
+      console.log(this.data.productprice)
+ }
+          }else{
+       var  Price1 = this.data.productprice.split('.')
+          console.log(Price1[0])
+            price = Price1[0].split('');
+            console.log(price);
+            if(price.length == 4){
+     this.data.productprice = Price[0]+','+Price[1]+''+Price[2]+''+Price[3];
+     console.log(this.data.productprice);  
+ } else if(price.length == 5){ 
+     this.data.productprice = Price[0]+''+Price[1]+','+Price[2]+''+Price[3]+''+Price[4];
+      console.log(this.data.productprice)
+} else if(price.length == 6){ 
+     this.data.productprice = Price[0]+''+Price[1]+''+Price[2]+','+Price[3]+''+Price[4]+''+Price[5];
+      console.log(this.data.productprice)
+  }
+    else if(price.length == 7) { 
+     this.data.productprice = Price[0]+','+Price[1]+''+Price[2]+''+Price[3]+','+Price[4]+''+Price[5]+''+Price[6];
+      console.log(this.data.productprice)
+}
+ else if(price.length == 8){ 
+     this.data.productprice = Price[0]+''+Price[1]+','+Price[2]+''+Price[3]+''+Price[4]+','+Price[5]+''+Price[6]+''+Price[7];
+      console.log(this.data.productprice)
+ } 
+                
+          }
+    
+}
 onKeydown(event) {
   if (event.key === "a") {
     console.log(event);
   }
 }
-//onKeydown(events,tagi){
-//    alert(events);
-//     console.log(tagi);
-//      console.log(this.tag);
-//      if(tagi.length > 8){
-//            let toast = this.toastCtrl.create({
-//      message: 'Only 8 tags can be added',
-//      duration: 2000,
-//      position: 'middle'
-//    });
-//    toast.present();
-//          tagi.pop()
-//     this.tag = tagi;
-//     this.tag = tagi
-//      }
-//}
+
 getcommision(){
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
@@ -123,15 +214,102 @@ getcommision(){
     
   };
  commisioncal(){
-     var x = (this.commision/100)*this.data.productprice;
+     var pprice:any=0;
+     var PPrice:any=[];
+     pprice = this.data.productprice.replace(/,/g, "");
+  console.log(this.Productofficialtosendprice)
+     var x = (this.commision/100)*parseFloat(this.Productofficialtosendprice);
      
      console.log(x);
-     this.data.rafahoprice = x;
+    x = Number((x).toFixed(2));
    
-     this.data.chefrecieved = this.data.productprice-this.data.rafahoprice;
-     
-    
-//      console.log( this.data.productprice);
+
+    this.data.rafahoprice = x.toLocaleString('en')
+    console.log(this.data.rafahoprice);
+    var z = this.data.rafahoprice.replace(/,/g, "");
+   var y = pprice-z;
+     this.data.chefrecieved = y.toLocaleString('en')
+//
+//     var rafhoprice = this.data.rafahoprice;
+//     console.log(rafhoprice)
+//    rafhoprice = rafhoprice.replace(/,/g, "")
+//        this.data.rafahoprice = this.data.rafahoprice.replace(/,/g, "");
+//        console.log(this.data.rafahoprice);
+//      PPrice = this.data.rafahoprice.split('')
+//          console.log(PPrice);
+//           var str1 = rafhoprice;
+//           console.log(str1);
+//    var na = str1.includes(".");
+//          if(na == false){
+//          if(rafhoprice.length == 4){
+//    this.data.rafahoprice = PPrice[0]+','+PPrice[1]+''+PPrice[2]+''+PPrice[3];
+//     console.log(  this.data.rafahoprice);  
+// } else if(rafhoprice.length == 5){ 
+//     this.data.rafahoprice = PPrice[0]+''+PPrice[1]+','+PPrice[2]+''+PPrice[3]+''+PPrice[4];
+//      console.log(  this.data.rafahoprice)
+//} else if(rafhoprice.length == 6){ 
+//    this.data.rafahoprice = PPrice[0]+''+PPrice[1]+''+PPrice[2]+','+PPrice[3]+''+PPrice[4]+''+PPrice[5];
+//      console.log(  this.data.rafahoprice)
+//  }
+//    else if(rafhoprice.length == 7) { 
+//     this.data.rafahoprice = PPrice[0]+''+PPrice[1]+','+PPrice[2]+''+PPrice[3]+''+PPrice[4]+','+PPrice[5]+''+PPrice[6];
+//      console.log(  this.data.rafahoprice)
+//}
+// else if(rafhoprice.length == 8){
+//     this.data.rafahoprice = PPrice[0]+''+PPrice[1]+','+PPrice[2]+''+PPrice[3]+''+PPrice[4]+','+PPrice[5]+''+PPrice[6]+''+PPrice[7];
+//      console.log(this.data.rafahoprice)
+// }
+// else if(rafhoprice.length == 9){
+//    this.data.rafahoprice = PPrice[0]+''+PPrice[1]+''+PPrice[2]+','+PPrice[3]+''+PPrice[4]+''+PPrice[5]+','+PPrice[6]+''+PPrice[7]+''+PPrice[8];
+//      console.log(this.data.rafahoprice)
+// }
+// else if(rafhoprice.length == 10){ 
+//     this.data.rafahoprice = PPrice[0]+','+PPrice[1]+''+PPrice[2]+''+PPrice[3]+','+PPrice[4]+''+PPrice[5]+''+PPrice[6]+','+PPrice[7]+''+PPrice[8]+''+PPrice[9];
+//      console.log(this.data.rafahoprice)
+// }
+// else if(rafhoprice.length == 11){ 
+//     this.data.rafahoprice = PPrice[0]+''+PPrice[1]+','+PPrice[2]+''+PPrice[3]+''+PPrice[4]+','+PPrice[5]+''+PPrice[6]+''+PPrice[7]+','+PPrice[8]+''+PPrice[9]+''+PPrice[10];
+//      console.log(this.data.rafahoprice)
+// }
+//          }else{
+//       var  Price1 = this.data.rafahoprice.split('.')
+//          console.log(Price1[0])
+//          console.log(Price1[1]);
+//            rafhoprice = Price1[0].split('');
+//            console.log(rafhoprice);
+//              if(rafhoprice.length == 1){
+//    this.data.rafahoprice = str1;
+//     console.log(  this.data.rafahoprice);  
+// }
+//   if(rafhoprice.length == 2){
+//    this.data.rafahoprice = str1;
+//     console.log(  this.data.rafahoprice);  
+// }
+//   if(rafhoprice.length == 3){
+//    this.data.rafahoprice = str1;
+//     console.log(  this.data.rafahoprice);  
+// }
+//        if(rafhoprice.length == 4){
+//    this.data.rafahoprice = PPrice[0]+','+PPrice[1]+''+PPrice[2]+''+PPrice[3]+'.'+Price1[1];
+//     console.log(  this.data.rafahoprice);  
+// } else if(rafhoprice.length == 5){ 
+//     this.data.rafahoprice = PPrice[0]+''+PPrice[1]+','+PPrice[2]+''+PPrice[3]+''+PPrice[4]+'.'+Price1[1];
+//      console.log(  this.data.rafahoprice)
+//} else if(rafhoprice.length == 6){ 
+//    this.data.rafahoprice = PPrice[0]+''+PPrice[1]+''+PPrice[2]+','+PPrice[3]+''+PPrice[4]+''+PPrice[5]+'.'+Price1[1];
+//      console.log(  this.data.rafahoprice)
+//  }
+//    else if(rafhoprice.length == 7) { PPrice = this.data.productprice.split('')
+//     this.data.rafahoprice = PPrice[0]+''+PPrice[1]+','+PPrice[2]+''+PPrice[3]+''+PPrice[4]+','+PPrice[5]+''+PPrice[6]+'.'+Price1[1];
+//      console.log(  this.data.rafahoprice)
+//}
+// else if(rafhoprice.length == 8){ PPrice = this.data.productprice.split('')
+//     this.data.rafahoprice = PPrice[0]+''+PPrice[1]+','+PPrice[2]+''+PPrice[3]+''+PPrice[4]+','+PPrice[5]+''+PPrice[6]+''+PPrice[7]+'.'+Price1[1];
+//      console.log(this.data.rafahoprice)
+// }
+////                
+//          }
+
  }
 onChange(val){
     console.log(val)
@@ -186,10 +364,8 @@ onChange(val){
           if (this.srcImage2 == undefined){
            this.srcImage2='';
        }
-      if(product.value.productprice.includes('.')){
-          console.log(true);
-      }else{
-          product.value.productprice = product.value.productprice+'.00'
+      if(product.value.productprice.includes(',')){
+         product.value.productprice = product.value.productprice.replace(/,/g,"");
       }
       if(this.servicehomedelivery == undefined){
           this.servicehomedelivery =0;
@@ -200,6 +376,7 @@ onChange(val){
        if(this.servicecookathome == undefined){
           this.servicecookathome =0;
       }
+   
       console.log(this.servicecookathome,
  this.servicecookatchef,
  this.servicehomedelivery);
@@ -215,11 +392,12 @@ onChange(val){
     cooking_time_at_user_home:product.value.cookingatclient,
      tags: this.tag.toString(),
     status: 0,
-    product_image0: this.srcImage,
+    product_image0: 'uihiuiu',
     product_image1:this.srcImage1,
      product_image2:this.srcImage2,
        id: userid,
-       cuisine:product.value.cuisine,
+       cuisine:this.data.cuisine,
+       attribute:this.data.attribute,
       device_token:this.device.uuid,
       take_away: this.servicecookatchef,
 cook_at_user_place: this.servicecookathome,
@@ -233,9 +411,9 @@ home_delivery:this.servicehomedelivery
         if(postdata.product_image0){
      var Serialized = this.serializeObj(postdata);
     var Loading = this.loadingCtrl.create({
-      spinner: 'hide',
-    cssClass: 'loader',
-    content: "<img src='assets/image/icons3.gif'>",
+       spinner: 'bubbles',
+            cssClass: 'loader',
+            content: "Loading",
     dismissOnPageChange:true
     });
     

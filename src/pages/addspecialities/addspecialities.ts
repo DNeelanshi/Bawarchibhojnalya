@@ -66,9 +66,9 @@ export class AddspecialitiesPage {
      if(postdata.specialities_product_image1){
     var serialized = this.serializeObj(postdata);
      var Loading = this.loadingCtrl.create({
-      spinner: 'hide',
-    cssClass: 'loader',
-    content: "<img src='assets/image/icons3.gif'>",
+      spinner: 'bubbles',
+            cssClass: 'loader',
+            content: "Loading",
     dismissOnPageChange:true
     });
     

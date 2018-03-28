@@ -43031,7 +43031,7 @@ page-home .item-md ion-thumbnail {
 }
 
 page-mapmodal #map {
-  height: 92%;
+  height: 100%;
   width: 100%;
 }
 
@@ -43046,18 +43046,64 @@ page-mapmodal .list-ios {
   z-index: 9999;
 }
 
-page-mapmodal ion-icon.icon.icon-md.ion-md-arrow-back {
-  background-position: left 8px center;
-  height: auto;
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 3rem;
-  color: #141414;
-  padding-top: 5px;
+page-mapmodal input.searchbar-input {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #ddd;
 }
 
-page-mapmodal .searchbar-clear-icon {
-  height: 100% !important;
+page-mapmodal .searchbar {
+  margin: 0 !important;
+  padding-bottom: 0;
+}
+
+page-mapmodal .select {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #ddd;
+}
+
+page-mapmodal .text-input {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #ddd;
+  margin: 0px;
+  padding: 8px 10px;
+  background: #fff;
+  width: 100%;
+}
+
+page-mapmodal .searchbar-input {
+  padding: 3px 39px 3px 44px !important;
+  margin-bottom: 3px;
+  font-size: 14px !important;
+}
+
+page-mapmodal .toolbar_top .toolbar-background {
+  background: #fff;
+}
+
+page-mapmodal .searchouter {
+  width: 100%;
+  padding-right: 50px;
+  position: relative;
+}
+
+page-mapmodal .favbtn {
+  position: absolute;
+  right: 5px;
+  top: 15px;
+  background: no-repeat;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid #ddd;
+  color: #f27242;
+  margin-top: -6px;
+  width: 43px;
+}
+
+page-mapmodal .searchouter .list {
+  margin: 0;
 }
 
 page-neworderdate .segment-sec {

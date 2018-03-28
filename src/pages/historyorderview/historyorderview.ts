@@ -79,10 +79,10 @@ this.str2 =  this.prodcts.customer_address.slice(len,  this.prodcts.customer_add
                          
      var serialized = this.serializeObj(postdata1);
         var Loading = this.loadCtrl.create({
-      spinner: 'hide',
+      spinner: 'bubbles',
             cssClass: 'loader',
-            content: "<img src='assets/image/icons3.gif'>",
-            dismissOnPageChange:true
+            content: "Loading",
+    dismissOnPageChange:true
      });
      Loading.present().then(() => {
        this.http.post(this.appsetting.myGlobalVar + 'userinfo', serialized, options).map(res => res.json()).subscribe(response =>  {

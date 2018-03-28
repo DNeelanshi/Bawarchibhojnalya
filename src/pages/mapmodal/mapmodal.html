@@ -1,5 +1,5 @@
 <!--
-  Generated template for the MapmodalPage page.
+  Generated template for the NominatimapPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -13,7 +13,7 @@
       </button>
     </ion-buttons>-->
 
-    <ion-title>Choose Location</ion-title>
+    <ion-title></ion-title>
     
     <ion-buttons end (click)="closeModal()">
         <button clear ion-button>Save</button>
@@ -22,24 +22,83 @@
         <button clear ion-button>Cancel</button>
     </ion-buttons>
   </ion-navbar>
+   <ion-toolbar class="toolbar_top" style="padding: 0 7px 0px 7px; background: #fff; min-height: auto; padding-top: 10px;">
+     <ion-select  placeholder="Select city" style=" max-width: 100%; background: #fff; padding: 8px 10px; margin-bottom: 3px;" id="cittt" [(ngModel)]="data.city" name="city" #city="ngModel" (ionChange)="city1(data.city)"  required>
+  <ion-option value="Bogota" selected>Bogotá DC, Bogotá DC</ion-option>
+  <ion-option value="cun_soacha">Soacha, Cundinamarca</ion-option>
+  <ion-option value="cun_mosquera"> Mosquera, Cundinamarca</ion-option>
+  <ion-option value="cun_madrid">Madrid, Cundinamarca</ion-option>
+  <ion-option value="cun_cajica">Cajicá, Cundinamarca</ion-option>
+  <ion-option value="cun_sopo">Sopó, Cundinamarca</ion-option>
+  <ion-option value="cun_facatativa">Facatativá, Cundinamarca</ion-option>
+  <ion-option value="cun_tenjo">Tenjo,Cundinamarca</ion-option>
+  <ion-option value="cun_tocancipa">Tocancipa, Cundinamarca</ion-option>
+  <ion-option value="cun_guasca">Guasca, Cundinamarca</ion-option>
+  <ion-option value="cun_anapoima">Anapoima, Cundinamarca</ion-option>
+  <ion-option value="cun_villeta">Villeta, Cundinamarca</ion-option>
+  <ion-option value="cun_la_vega">La Vega, Cundinamarca</ion-option>
+  <ion-option value="cun_la_mesa">La Mesa, Cundinamarca</ion-option>
+</ion-select>
+   </ion-toolbar>
 
+<div class="searchouter">
+<ion-searchbar 
+   [(ngModel)]="autocomplete.query" 
+   [showCancelButton]="true" 
+   (ionInput)="updateSearch()" 
+   (ionCancel)="dismiss()"
+   placeholder="Start typing and select ..." required>
+ </ion-searchbar>
+<!--    <button class="favbtn" (click)="fav(autocomplete.query)" ion-button icon-only>
+<ion-icon name="{{iconname}}" ></ion-icon>
+</button>-->
+    
+<!--     <ion-list class="listitm" style="margin:0 !important; padding:0;" *ngIf="omega == 0">
+      <ion-item *ngFor="let item of autocompleteItems;let i = index"
+      (click)="getItem(item)"  >
+     <span > {{ item.description }}</span>
+      </ion-item>
+      </ion-list> 
+    <ion-list *ngIf="omega == 1;let i = index">
+      <ion-item *ngFor="let item of autocompleteItems" 
+      (click)="getItem(item)">
+      {{ item.address }}
+      </ion-item>
+      </ion-list> 
+     <ion-list *ngIf="omega == 2">
+      <ion-item *ngFor="let item of autocompleteItems" 
+      (click)="getItem(item)">
+      {{ item }}
+      </ion-item>
+      </ion-list>-->
+</div>
+    
+<ion-toolbar class="toolbar_top" style="padding: 0 7px 7px 7px; background: #fff;">
+
+    
+<!--<ion-select  placeholder="Select city" style=" max-width: 100%; background: #fff; padding: 8px 10px; margin-bottom: 3px;"  [(ngModel)]="data.city" name="city" #city="ngModel" (ionChange)="city1(data.city)"  required>
+    <ion-option *ngFor="let cit of arr" [value]="cit.city_code" name="hh">{{cit.city}},{{cit?.state}}</ion-option>
+</ion-select>-->
+   
+
+
+<ion-input type="text" placeholder='Additional Address Details' [(ngModel)]="data.additional" name="additional" #additional="ngModel"  ></ion-input>
+
+    <!--<button ion-button full color="theme-header" *ngIf="omega == 0" (click)="chooseItem()" [disabled]="!isenabled">Search</button>-->
+     <button ion-button full color="theme-header" (click)="Searchlocation()" [disabled]="!isenabled">Search</button>
+      <!--<button ion-button full color="theme-header" *ngIf="omega == 2" (click)="chooseItem2()" [disabled]="!isenabled" >Search</button>-->
+</ion-toolbar>
 </ion-header>
 
 
+
 <ion-content>
-  <ion-searchbar 
-    [(ngModel)]="autocomplete.query" 
-    [showCancelButton]="true" 
-    (ionInput)="updateSearch()" 
-    (ionCancel)="dismiss()"
-    placeholder="Start typing and select ...">
-    </ion-searchbar>
-    <ion-list>
-      <ion-item *ngFor="let item of autocompleteItems" 
-      (click)="chooseItem(item)">
-      {{ item.description }}
-      </ion-item>
-      </ion-list>
+
+<!--    <ion-icon name="star" (click)="fav(autocomplete.query)">Add favourite</ion-icon>
+    <ion-item>
+      </ion-item>-->
+   
+    
         
 <div #map id="map"></div>
    

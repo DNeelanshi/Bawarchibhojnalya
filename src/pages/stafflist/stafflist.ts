@@ -52,9 +52,9 @@ export class StafflistPage {
     var serialized = this.serializeObj(postdata);
     // this.loading.dismiss();
     var Loading = this.loadingCtrl.create({
-               spinner: 'hide',
-    cssClass: 'loader',
-    content: "<img src='assets/image/icons3.gif'>",
+               spinner: 'bubbles',
+            cssClass: 'loader',
+            content: "Loading",
     dismissOnPageChange:true
         });
       console.log(postdata);

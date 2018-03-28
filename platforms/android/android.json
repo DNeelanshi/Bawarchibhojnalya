@@ -9,6 +9,10 @@
         "parents": {
           "/*": [
             {
+              "xml": "<feature name=\"Permissions\"><param name=\"android-package\" value=\"com.android.plugins.Permissions\" /></feature>",
+              "count": 1
+            },
+            {
               "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
               "count": 1
             },
@@ -99,6 +103,9 @@
     "cordova-plugin-add-swift-support": {
       "PACKAGE_NAME": "io.ionic.chef"
     },
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "io.ionic.chef"
+    },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "io.ionic.chef"
     },
@@ -132,6 +139,14 @@
   },
   "dependent_plugins": {},
   "modules": [
+    {
+      "id": "cordova-plugin-android-permissions.Permissions",
+      "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
+      "pluginId": "cordova-plugin-android-permissions",
+      "clobbers": [
+        "cordova.plugins.permissions"
+      ]
+    },
     {
       "id": "cordova-plugin-camera.Camera",
       "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
@@ -230,6 +245,7 @@
   ],
   "plugin_metadata": {
     "cordova-plugin-add-swift-support": "1.7.0",
+    "cordova-plugin-android-permissions": "1.0.0",
     "cordova-plugin-camera": "3.0.0",
     "cordova-plugin-device": "1.1.4",
     "cordova-plugin-fcm": "2.1.2",

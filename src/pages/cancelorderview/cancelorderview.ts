@@ -79,9 +79,9 @@ this.str2 =  this.prodcts.customer_address.slice(len,  this.prodcts.customer_add
                          }
         var serialized = this.serializeObj(postdata1);
         var Loading = this.loadCtrl.create({
-       spinner: 'hide',
-    cssClass: 'loader',
-    content: "<img src='assets/image/icons3.gif'>",
+       spinner: 'bubbles',
+            cssClass: 'loader',
+            content: "Loading",
     dismissOnPageChange:true
      });
      Loading.present().then(() => {
